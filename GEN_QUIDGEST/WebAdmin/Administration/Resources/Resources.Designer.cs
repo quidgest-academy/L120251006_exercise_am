@@ -421,6 +421,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Cancelar"
+        /// </summary>
+        public static string CANCELAR49513 {
+            get {
+                return ResourceManager.GetString("CANCELAR49513", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Modos de processamento"
         /// </summary>
         public static string MODOS_DE_PROCESSAMEN07602 {
@@ -1015,6 +1024,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Gravar"
+        /// </summary>
+        public static string GRAVAR45301 {
+            get {
+                return ResourceManager.GetString("GRAVAR45301", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Real time status"
         /// </summary>
         public static string REAL_TIME_STATUS00476 {
@@ -1213,15 +1231,6 @@ namespace Administration.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to "Cancelar"
-        /// </summary>
-        public static string CANCELAR49513 {
-            get {
-                return ResourceManager.GetString("CANCELAR49513", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to "consulta"
         /// </summary>
         public static string CONSULTA23186 {
@@ -1344,15 +1353,6 @@ namespace Administration.Resources {
         public static string FORM54242 {
             get {
                 return ResourceManager.GetString("FORM54242", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Gravar"
-        /// </summary>
-        public static string GRAVAR45301 {
-            get {
-                return ResourceManager.GetString("GRAVAR45301", resourceCulture);
             }
         }
 

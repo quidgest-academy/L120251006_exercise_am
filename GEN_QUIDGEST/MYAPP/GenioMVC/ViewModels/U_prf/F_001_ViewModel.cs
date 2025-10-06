@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.U_prf
 		/// <summary>
 		/// Title: "Image" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(0, 0)]
+		[ImageThumbnailJsonConverter(100, 50)]
 		public GenioMVC.Models.ImageModel ValU_img { get; set; }
 		/// <summary>
 		/// Title: "Email" | Type: "C"

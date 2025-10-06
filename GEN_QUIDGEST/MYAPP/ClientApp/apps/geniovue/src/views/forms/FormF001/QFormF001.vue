@@ -91,6 +91,79 @@
 			data-key="F_001"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.F_001___U_PRFUSERNAME.isVisible || controls.F_001___U_PRFBDAY____.isVisible || controls.F_001___U_PRFU_IMG___.isVisible || controls.F_001___U_PRFU_EMAIL_.isVisible">
+					<q-control-wrapper
+						v-if="controls.F_001___U_PRFUSERNAME.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_001___U_PRFUSERNAME.isVisible"
+							class="i-text"
+							v-bind="controls.F_001___U_PRFUSERNAME"
+							v-on="controls.F_001___U_PRFUSERNAME.handlers"
+							:loading="controls.F_001___U_PRFUSERNAME.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.F_001___U_PRFUSERNAME.props"
+								@blur="onBlur(controls.F_001___U_PRFUSERNAME, model.ValUsername.value)"
+								@change="model.ValUsername.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_001___U_PRFBDAY____.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_001___U_PRFBDAY____.isVisible"
+							class="i-text"
+							v-bind="controls.F_001___U_PRFBDAY____"
+							v-on="controls.F_001___U_PRFBDAY____.handlers"
+							:loading="controls.F_001___U_PRFBDAY____.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.F_001___U_PRFBDAY____.isVisible"
+								v-bind="controls.F_001___U_PRFBDAY____.props"
+								:model-value="model.ValBday.value"
+								@reset-icon-click="model.ValBday.fnUpdateValue(model.ValBday.originalValue ?? new Date())"
+								@update:model-value="model.ValBday.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_001___U_PRFU_IMG___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_001___U_PRFU_IMG___.isVisible"
+							class="q-image"
+							v-bind="controls.F_001___U_PRFU_IMG___"
+							v-on="controls.F_001___U_PRFU_IMG___.handlers"
+							:loading="controls.F_001___U_PRFU_IMG___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.F_001___U_PRFU_IMG___.isVisible"
+								v-bind="controls.F_001___U_PRFU_IMG___.props"
+								v-on="controls.F_001___U_PRFU_IMG___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.F_001___U_PRFU_EMAIL_.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.F_001___U_PRFU_EMAIL_.isVisible"
+							class="i-text"
+							v-bind="controls.F_001___U_PRFU_EMAIL_"
+							v-on="controls.F_001___U_PRFU_EMAIL_.handlers"
+							:loading="controls.F_001___U_PRFU_EMAIL_.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-mask
+								v-if="controls.F_001___U_PRFU_EMAIL_.isVisible"
+								v-bind="controls.F_001___U_PRFU_EMAIL_"
+								:model-value="model.ValU_email.value"
+								@change="model.ValU_email.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -470,8 +543,8 @@
 						label: computed(() => this.Resources.IMAGE65174),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: ${fieldCtrl.Height},
-						width: ${fieldCtrl.Width},
+						height: 50,
+						width: 100,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.IMAGE65174)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
