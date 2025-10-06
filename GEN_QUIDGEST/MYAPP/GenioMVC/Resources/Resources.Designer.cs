@@ -720,6 +720,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "RMS11"
+		/// </summary>
+		public static string RMS1160045 {
+			get {
+				return ResourceManager.GetString("RMS1160045", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Salt"
 		/// </summary>
 		public static string SALT05277 {

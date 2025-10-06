@@ -336,6 +336,9 @@
 	<data name="TEXT_AFTER_SIGNATURE11837" xml:space="preserve">
 		<value>Text after signature</value>
 	</data>
+	<data name="RMS1160045" xml:space="preserve">
+		<value>RMS11</value>
+	</data>
 	<data name="SALT05277" xml:space="preserve">
 		<value>Salt</value>
 	</data>

@@ -219,6 +219,9 @@
   <msg id="Text after signature" code="TEXT_AFTER_SIGNATURE11837">
     <ENUS>Text after signature</ENUS>
   </msg>
+  <msg id="RMS11" code="RMS1160045">
+    <ENUS>RMS11</ENUS>
+  </msg>
   <msg id="Salt" code="SALT05277">
     <ENUS>Salt</ENUS>
   </msg>
