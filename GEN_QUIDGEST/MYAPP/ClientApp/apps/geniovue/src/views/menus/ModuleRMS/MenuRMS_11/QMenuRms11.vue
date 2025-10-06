@@ -329,72 +329,40 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'CARDS',
-								type: 'cards',
+								id: 'CAROUSEL',
+								type: 'carousel',
 								subtype: 'card-img-top',
-								label: computed(() => this.Resources.CARTOES27587),
+								label: computed(() => this.Resources.CARROSSEL41899),
 								order: 1,
 								mappingVariables: readonly({
 								}),
 								styleVariables: {
-									actionsAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									actionsStyle: {
-										rawValue: 'dropdown',
-										isMapped: false
-									},
-									backgroundColor: {
-										rawValue: 'auto',
-										isMapped: false
-									},
-									contentAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									customFollowupDefaultTarget: {
-										rawValue: 'blank',
-										isMapped: false
-									},
-									customInsertCard: {
-										rawValue: false,
-										isMapped: false
-									},
-									customInsertCardStyle: {
-										rawValue: 'secondary',
-										isMapped: false
-									},
-									displayMode: {
-										rawValue: 'grid',
-										isMapped: false
-									},
-									gridMode: {
-										rawValue: 'fixed',
-										isMapped: false
-									},
-									containerAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									hoverScaleAmount: {
-										rawValue: '1.00',
-										isMapped: false
-									},
-									imageShape: {
-										rawValue: 'rectangular',
-										isMapped: false
-									},
-									showColumnTitles: {
-										rawValue: false,
-										isMapped: false
-									},
-									showEmptyColumnTitles: {
+									showIndicators: {
 										rawValue: true,
 										isMapped: false
 									},
-									size: {
-										rawValue: 'regular',
+									showControls: {
+										rawValue: true,
+										isMapped: false
+									},
+									keyboardControllable: {
+										rawValue: true,
+										isMapped: false
+									},
+									autoCycleInterval: {
+										rawValue: 5000,
+										isMapped: false
+									},
+									autoCyclePause: {
+										rawValue: 'hover',
+										isMapped: false
+									},
+									ride: {
+										rawValue: 'carousel',
+										isMapped: false
+									},
+									wrap: {
+										rawValue: true,
 										isMapped: false
 									},
 								},

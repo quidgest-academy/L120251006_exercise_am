@@ -168,7 +168,6 @@ export const components = {
 	QDashboard: defineAsyncComponent(() => import('./dashboard/QDashboard.vue')),
 
 	// Special renderings
-	QCards: defineAsyncComponent(() => import('./rendering/cards/QCards.vue')),
 
 	// Table components
 	QTable: defineAsyncComponent(() => import('./table/QTable.vue')),
