@@ -331,6 +331,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "New Menu"
+        /// </summary>
+        public static string NEW_MENU31759 {
+            get {
+                return ResourceManager.GetString("NEW_MENU31759", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Em fila de espera"
         /// </summary>
         public static string EM_FILA_DE_ESPERA21822 {
@@ -354,6 +363,15 @@ namespace Administration.Resources {
         public static string ENTID_KEY04396 {
             get {
                 return ResourceManager.GetString("ENTID_KEY04396", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Date of Birth"
+        /// </summary>
+        public static string DATE_OF_BIRTH36542 {
+            get {
+                return ResourceManager.GetString("DATE_OF_BIRTH36542", resourceCulture);
             }
         }
 
@@ -772,6 +790,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Date of birth"
+        /// </summary>
+        public static string DATE_OF_BIRTH63058 {
+            get {
+                return ResourceManager.GetString("DATE_OF_BIRTH63058", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Expiration date"
         /// </summary>
         public static string EXPIRATION_DATE34293 {
@@ -880,6 +907,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "User Profile"
+        /// </summary>
+        public static string USER_PROFILE06358 {
+            get {
+                return ResourceManager.GetString("USER_PROFILE06358", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Changed by"
         /// </summary>
         public static string CHANGED_BY08967 {
@@ -921,6 +957,15 @@ namespace Administration.Resources {
         public static string USER_AUTHORIZATION53599 {
             get {
                 return ResourceManager.GetString("USER_AUTHORIZATION53599", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "User Image"
+        /// </summary>
+        public static string USER_IMAGE40060 {
+            get {
+                return ResourceManager.GetString("USER_IMAGE40060", resourceCulture);
             }
         }
 
@@ -975,6 +1020,15 @@ namespace Administration.Resources {
         public static string PHONE_NUMBER20774 {
             get {
                 return ResourceManager.GetString("PHONE_NUMBER20774", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "User Profiles"
+        /// </summary>
+        public static string USER_PROFILES41435 {
+            get {
+                return ResourceManager.GetString("USER_PROFILES41435", resourceCulture);
             }
         }
 

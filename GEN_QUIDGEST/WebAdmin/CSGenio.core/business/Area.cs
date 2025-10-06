@@ -22,6 +22,8 @@ namespace CSGenio.business
     {
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
         private static AreaRef m_AreaS_UA = new AreaRef("RMS", "userauthorization", "s_ua");
+        public static AreaRef AreaU_PRF { get { return m_AreaU_PRF; } }
+        private static AreaRef m_AreaU_PRF = new AreaRef("RMS", "rmsu_prf", "u_prf");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("RMS", "asyncprocess", "s_apr");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
@@ -68,6 +70,7 @@ namespace CSGenio.business
         public static readonly System.Collections.ObjectModel.ReadOnlyCollection<string> ListaAreas = new System.Collections.ObjectModel.ReadOnlyCollection<string>(
             new List<string>() {
             "s_ua",
+            "u_prf",
             "s_apr",
             "s_arg",
             "psw",

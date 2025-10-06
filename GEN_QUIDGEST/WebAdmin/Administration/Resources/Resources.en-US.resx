@@ -207,6 +207,9 @@
   <data name="MODO_DE_PROCESSAMENT14469" xml:space="preserve">
     <value>Modo de processamento</value>
   </data>
+  <data name="NEW_MENU31759" xml:space="preserve">
+    <value>New Menu</value>
+  </data>
   <data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
     <value>Em fila de espera</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="ENTID_KEY04396" xml:space="preserve">
     <value>Entid key</value>
+  </data>
+  <data name="DATE_OF_BIRTH36542" xml:space="preserve">
+    <value>Date of Birth</value>
   </data>
   <data name="PROCESS_TYPE50593" xml:space="preserve">
     <value>Process Type</value>
@@ -354,6 +360,9 @@
   <data name="GLOBAL58588" xml:space="preserve">
     <value>Global</value>
   </data>
+  <data name="DATE_OF_BIRTH63058" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
   <data name="EXPIRATION_DATE34293" xml:space="preserve">
     <value>Expiration date</value>
   </data>
@@ -390,6 +399,9 @@
   <data name="MODULE42049" xml:space="preserve">
     <value>Module</value>
   </data>
+  <data name="USER_PROFILE06358" xml:space="preserve">
+    <value>User Profile</value>
+  </data>
   <data name="CHANGED_BY08967" xml:space="preserve">
     <value>Changed by</value>
   </data>
@@ -404,6 +416,9 @@
   </data>
   <data name="USER_AUTHORIZATION53599" xml:space="preserve">
     <value>User Authorization</value>
+  </data>
+  <data name="USER_IMAGE40060" xml:space="preserve">
+    <value>User Image</value>
   </data>
   <data name="HAS_LOGIN_58044" xml:space="preserve">
     <value>Has login?</value>
@@ -422,6 +437,9 @@
   </data>
   <data name="PHONE_NUMBER20774" xml:space="preserve">
     <value>Phone number</value>
+  </data>
+  <data name="USER_PROFILES41435" xml:space="preserve">
+    <value>User Profiles</value>
   </data>
   <data name="MESSAGE30602" xml:space="preserve">
     <value>Message</value>

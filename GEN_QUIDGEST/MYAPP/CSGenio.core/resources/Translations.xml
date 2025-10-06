@@ -90,6 +90,9 @@
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
   </msg>
+  <msg id="New Menu" code="NEW_MENU31759">
+    <ENUS>New Menu</ENUS>
+  </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
   </msg>
@@ -98,6 +101,9 @@
   </msg>
   <msg id="Entid key" code="ENTID_KEY04396">
     <ENUS>Entid key</ENUS>
+  </msg>
+  <msg id="Date of Birth" code="DATE_OF_BIRTH36542">
+    <ENUS>Date of Birth</ENUS>
   </msg>
   <msg id="Process Type" code="PROCESS_TYPE50593">
     <ENUS>Process Type</ENUS>
@@ -237,6 +243,9 @@
   <msg id="Global" code="GLOBAL58588">
     <ENUS>Global</ENUS>
   </msg>
+  <msg id="Date of birth" code="DATE_OF_BIRTH63058">
+    <ENUS>Date of birth</ENUS>
+  </msg>
   <msg id="Expiration date" code="EXPIRATION_DATE34293">
     <ENUS>Expiration date</ENUS>
   </msg>
@@ -273,6 +282,9 @@
   <msg id="Module" code="MODULE42049">
     <ENUS>Module</ENUS>
   </msg>
+  <msg id="User Profile" code="USER_PROFILE06358">
+    <ENUS>User Profile</ENUS>
+  </msg>
   <msg id="Changed by" code="CHANGED_BY08967">
     <ENUS>Changed by</ENUS>
   </msg>
@@ -287,6 +299,9 @@
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
+  </msg>
+  <msg id="User Image" code="USER_IMAGE40060">
+    <ENUS>User Image</ENUS>
   </msg>
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>
@@ -305,6 +320,9 @@
   </msg>
   <msg id="Phone number" code="PHONE_NUMBER20774">
     <ENUS>Phone number</ENUS>
+  </msg>
+  <msg id="User Profiles" code="USER_PROFILES41435">
+    <ENUS>User Profiles</ENUS>
   </msg>
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>

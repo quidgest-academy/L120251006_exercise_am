@@ -79,6 +79,7 @@ public class AppPage: PageObject
 
 		module = "RMS";
 		res.AddModule(module);
+		res.AddMenu(module, "1", null);
         return res;
     }
 }
