@@ -17,32 +17,32 @@ using GenioMVC.Models;
 using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
-using GenioMVC.ViewModels.U_prf;
+using GenioMVC.ViewModels.T_001;
 using Quidgest.Persistence.GenericQuery;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// USE /[MANUAL RMS INCLUDE_CONTROLLER U_PRF]/
+// USE /[MANUAL RMS INCLUDE_CONTROLLER T_001]/
 
 namespace GenioMVC.Controllers
 {
-	public partial class U_prfController : ControllerBase
+	public partial class T_001Controller : ControllerBase
 	{
-		private static readonly NavigationLocation ACTION_RMS_MENU_21 = new NavigationLocation("USER_PROFILES41435", "RMS_Menu_21", "U_prf") { vueRouteName = "menu-RMS_21" };
+		private static readonly NavigationLocation ACTION_RMS_MENU_11 = new NavigationLocation("AGENTS29376", "RMS_Menu_11", "T_001") { vueRouteName = "menu-RMS_11" };
 
 
 		//
-		// GET: /U_prf/RMS_Menu_21
-		[ActionName("RMS_Menu_21")]
+		// GET: /T_001/RMS_Menu_11
+		[ActionName("RMS_Menu_11")]
 		[HttpPost]
-		public ActionResult RMS_Menu_21([FromBody]RequestMenuModel requestModel)
+		public ActionResult RMS_Menu_11([FromBody]RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
 			int perPage = CSGenio.framework.Configuration.NrRegDBedit;
 			string rowsPerPageOptionsString = "";
 
-			RMS_Menu_21_ViewModel model = new RMS_Menu_21_ViewModel(UserContext.Current);
+			RMS_Menu_11_ViewModel model = new RMS_Menu_11_ViewModel(UserContext.Current);
 
 			// Table configuration load options
 			CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions tableConfigOptions = new CSGenio.framework.TableConfiguration.TableConfigurationLoadOptions();
@@ -75,14 +75,14 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "RMS_Menu_21");
+				Navigation.SetValue("HomePage", "RMS_Menu_11");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
-			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_u_prf")))
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_t_001")))
 				UserContext.Current.SetPersistenceReadOnly(true);
 			else
 			{
-				Navigation.DestroyEntry("ForcePrimaryRead_u_prf");
+				Navigation.DestroyEntry("ForcePrimaryRead_t_001");
 				UserContext.Current.SetPersistenceReadOnly(false);
 			}
 			CSGenio.framework.StatusMessage result = model.CheckPermissions(FormMode.List);
@@ -94,18 +94,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_RMS_MENU_21.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_RMS_MENU_21.Action)
+				(Navigation.CurrentLevel == null || !ACTION_RMS_MENU_11.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_RMS_MENU_11.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_RMS_MENU_21.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_RMS_MENU_11.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
 
-// USE /[MANUAL RMS MENU_GET 21]/
+// USE /[MANUAL RMS MENU_GET 11]/
 
 
             try

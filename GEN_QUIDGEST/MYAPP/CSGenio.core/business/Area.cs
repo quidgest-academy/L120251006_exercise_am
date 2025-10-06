@@ -20,14 +20,12 @@ namespace CSGenio.business
     /// </summary>
     public abstract class Area : IArea
     {
+        public static AreaRef AreaT_001 { get { return m_AreaT_001; } }
+        private static AreaRef m_AreaT_001 = new AreaRef("RMS", "rmst_agent", "t_001");
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
         private static AreaRef m_AreaS_UA = new AreaRef("RMS", "userauthorization", "s_ua");
-        public static AreaRef AreaU_PRF { get { return m_AreaU_PRF; } }
-        private static AreaRef m_AreaU_PRF = new AreaRef("RMS", "rmsu_prf", "u_prf");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("RMS", "asyncprocess", "s_apr");
-        public static AreaRef AreaPROPE { get { return m_AreaPROPE; } }
-        private static AreaRef m_AreaPROPE = new AreaRef("RMS", "rmsproperty", "prope");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("RMS", "asyncprocessargument", "s_arg");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
@@ -71,10 +69,9 @@ namespace CSGenio.business
         /// </summary>
         public static readonly System.Collections.ObjectModel.ReadOnlyCollection<string> ListaAreas = new System.Collections.ObjectModel.ReadOnlyCollection<string>(
             new List<string>() {
+            "t_001",
             "s_ua",
-            "u_prf",
             "s_apr",
-            "prope",
             "s_arg",
             "psw",
             "s_nes",

@@ -5,16 +5,16 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/RMS/menu/RMS_21',
-			name: 'menu-RMS_21',
-			component: () => import('@/views/menus/ModuleRMS/MenuRMS_21/QMenuRms21.vue'),
+			path: '/:culture/:system/RMS/menu/RMS_11',
+			name: 'menu-RMS_11',
+			component: () => import('@/views/menus/ModuleRMS/MenuRMS_11/QMenuRms11.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'RMS',
-				order: '21',
-				baseArea: 'U_PRF',
+				order: '11',
+				baseArea: 'T_001',
 				hasInitialPHE: false,
-				humanKeyFields: ['ValUsername'],
+				humanKeyFields: ['ValEmail'],
 			}
 		},
 	]

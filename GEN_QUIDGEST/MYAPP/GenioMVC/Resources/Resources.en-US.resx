@@ -216,6 +216,12 @@
 	<data name="NEW_MENU31759" xml:space="preserve">
 		<value>New Menu</value>
 	</data>
+	<data name="AGENT00994" xml:space="preserve">
+		<value>Agent</value>
+	</data>
+	<data name="AGENTS29376" xml:space="preserve">
+		<value>Agents</value>
+	</data>
 	<data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
 		<value>Em fila de espera</value>
 	</data>
@@ -348,6 +354,9 @@
 	<data name="SENDS_EMAIL_12942" xml:space="preserve">
 		<value>Sends email?</value>
 	</data>
+	<data name="PROFILE_PHOTO12166" xml:space="preserve">
+		<value>Profile Photo</value>
+	</data>
 	<data name="ROLES61449" xml:space="preserve">
 		<value>Roles</value>
 	</data>
@@ -377,6 +386,9 @@
 	</data>
 	<data name="DATE_OF_BIRTH63058" xml:space="preserve">
 		<value>Date of birth</value>
+	</data>
+	<data name="AGENT_ADD58504" xml:space="preserve">
+		<value>Agent add</value>
 	</data>
 	<data name="EXPIRATION_DATE34293" xml:space="preserve">
 		<value>Expiration date</value>

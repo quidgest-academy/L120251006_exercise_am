@@ -99,6 +99,12 @@
   <msg id="New Menu" code="NEW_MENU31759">
     <ENUS>New Menu</ENUS>
   </msg>
+  <msg id="Agent" code="AGENT00994">
+    <ENUS>Agent</ENUS>
+  </msg>
+  <msg id="Agents" code="AGENTS29376">
+    <ENUS>Agents</ENUS>
+  </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
   </msg>
@@ -231,6 +237,9 @@
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>
+  <msg id="Profile Photo" code="PROFILE_PHOTO12166">
+    <ENUS>Profile Photo</ENUS>
+  </msg>
   <msg id="Roles" code="ROLES61449">
     <ENUS>Roles</ENUS>
   </msg>
@@ -260,6 +269,9 @@
   </msg>
   <msg id="Date of birth" code="DATE_OF_BIRTH63058">
     <ENUS>Date of birth</ENUS>
+  </msg>
+  <msg id="Agent add" code="AGENT_ADD58504">
+    <ENUS>Agent add</ENUS>
   </msg>
   <msg id="Expiration date" code="EXPIRATION_DATE34293">
     <ENUS>Expiration date</ENUS>

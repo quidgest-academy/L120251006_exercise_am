@@ -20,36 +20,53 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.T_001;
 using GenioServer.business;
 using CSGenio.core.ai;
 
 using Quidgest.Persistence.GenericQuery;
 
-// USE /[MANUAL RMS INCLUDE_CONTROLLER PROPE]/
+// USE /[MANUAL RMS INCLUDE_CONTROLLER T_001]/
 
 namespace GenioMVC.Controllers
 {
-	public partial class PropeController : ControllerBase
+	public partial class T_001Controller : ControllerBase
 	{
 		private IChatbotService _aiService;
-		public PropeController(UserContextService userContext, IChatbotService aiService) : base(userContext)
+		public T_001Controller(UserContextService userContext, IChatbotService aiService) : base(userContext)
 		{
 			_aiService = aiService;
 		}
 
-// USE /[MANUAL RMS CONTROLLER_NAVIGATION PROPE]/
+// USE /[MANUAL RMS CONTROLLER_NAVIGATION T_001]/
 
 
 
 		private List<string> GetActionIds(CriteriaSet crs, CSGenio.persistence.PersistentSupport sp = null)
 		{
-			CSGenio.business.Area area = CSGenio.business.Area.createArea<CSGenioAprope>(UserContext.Current.User, UserContext.Current.User.CurrentModule);
+			CSGenio.business.Area area = CSGenio.business.Area.createArea<CSGenioAt_001>(UserContext.Current.User, UserContext.Current.User.CurrentModule);
 			return base.GetActionIds(crs, sp, area);
 		}
 
-// USE /[MANUAL RMS MANUAL_CONTROLLER PROPE]/
+// USE /[MANUAL RMS MANUAL_CONTROLLER T_001]/
 
 
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "Fr_001" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_Fr_001([FromBody]Fr_001_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "t_001",
+				(primaryKey) => Models.T_001.Find(primaryKey, UserContext.Current, "FFR_001"),
+				(model) => formData.MapToModel(model as Models.T_001)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure
@@ -89,7 +106,7 @@ namespace GenioMVC.Controllers
 		/// <returns>A JSON response with the result of the operation</returns>
 		public ActionResult GetDocumsTickets([FromBody] RequestDocumGetTicketsModel requestModel)
 		{
-			return base.GetDocumsTickets("PROPE", requestModel.FieldName, requestModel.KeyValue);
+			return base.GetDocumsTickets("T_001", requestModel.FieldName, requestModel.KeyValue);
 		}
 
 		/// <summary>

@@ -16,9 +16,9 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.U_prf
+namespace GenioMVC.ViewModels.T_001
 {
-	public class F_001_ViewModel : FormViewModel<Models.U_prf>, IPreparableForSerialization
+	public class Fr_001_ViewModel : FormViewModel<Models.T_001>, IPreparableForSerialization
 	{
 		[JsonIgnore]
 		public override bool HasWriteConditions { get => false; }
@@ -33,22 +33,22 @@ namespace GenioMVC.ViewModels.U_prf
 
 		#endregion
 		/// <summary>
-		/// Title: "Username" | Type: "C"
-		/// </summary>
-		public string ValUsername { get; set; }
-		/// <summary>
-		/// Title: "Date of Birth" | Type: "D"
-		/// </summary>
-		public DateTime? ValBday { get; set; }
-		/// <summary>
-		/// Title: "Image" | Type: "IJ"
+		/// Title: "Profile Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(100, 50)]
-		public GenioMVC.Models.ImageModel ValU_img { get; set; }
+		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
+		/// <summary>
+		/// Title: "Name" | Type: "C"
+		/// </summary>
+		public string ValName { get; set; }
 		/// <summary>
 		/// Title: "Email" | Type: "C"
 		/// </summary>
-		public string ValU_email { get; set; }
+		public string ValEmail { get; set; }
+		/// <summary>
+		/// Title: "Date of Birth" | Type: "D"
+		/// </summary>
+		public DateTime? ValDobirth { get; set; }
 
 
 
@@ -72,7 +72,7 @@ namespace GenioMVC.ViewModels.U_prf
 
 		#endregion
 
-		public string ValCodu_prf { get; set; }
+		public string ValCodt_001 { get; set; }
 
 
 		/// <summary>
@@ -80,16 +80,16 @@ namespace GenioMVC.ViewModels.U_prf
 		/// A call to Init() needs to be manually invoked after this constructor
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public F_001_ViewModel() : base(null!) { }
+		public Fr_001_ViewModel() : base(null!) { }
 
-		public F_001_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FF_001", nestedForm) { }
+		public Fr_001_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FFR_001", nestedForm) { }
 
-		public F_001_ViewModel(UserContext userContext, Models.U_prf row, bool nestedForm = false) : base(userContext, "FF_001", row, nestedForm) { }
+		public Fr_001_ViewModel(UserContext userContext, Models.T_001 row, bool nestedForm = false) : base(userContext, "FFR_001", row, nestedForm) { }
 
-		public F_001_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
+		public Fr_001_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
 		{
-			this.Navigation.SetValue("u_prf", id);
-			Model = Models.U_prf.Find(id, userContext, "FF_001", fieldsToQuery: fieldsToLoad);
+			this.Navigation.SetValue("t_001", id);
+			Model = Models.T_001.Find(id, userContext, "FFR_001", fieldsToQuery: fieldsToLoad);
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			InitModel();
@@ -112,13 +112,13 @@ namespace GenioMVC.ViewModels.U_prf
 		{
 			var m_userContext = userContext;
 			StatusMessage result = new StatusMessage(Status.OK, "");
-			Models.U_prf model = new Models.U_prf(userContext) { Identifier = "FF_001" };
+			Models.T_001 model = new Models.T_001(userContext) { Identifier = "FFR_001" };
 
 			var navigation = m_userContext.CurrentNavigation;
 			// The "LoadKeysFromHistory" must be after the "LoadEPH" because the PHE's in the tree mark Foreign Keys to null
 			// (since they cannot assign multiple values to a single field) and thus the value that comes from Navigation is lost.
 			// And this makes it more like the order of loading the model when opening the form.
-			model.LoadEPH("FF_001");
+			model.LoadEPH("FFR_001");
 			if (navigation != null)
 				model.LoadKeysFromHistory(navigation, navigation.CurrentLevel.Level);
 
@@ -172,25 +172,25 @@ namespace GenioMVC.ViewModels.U_prf
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.U_prf m)
+		public override void MapFromModel(Models.T_001 m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map Model (U_prf) to ViewModel (F_001) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map Model (T_001) to ViewModel (Fr_001) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				ValUsername = ViewModelConversion.ToString(m.ValUsername);
-				ValBday = ViewModelConversion.ToDateTime(m.ValBday);
-				ValU_img = ViewModelConversion.ToImage(m.ValU_img);
-				ValU_email = ViewModelConversion.ToString(m.ValU_email);
-				ValCodu_prf = ViewModelConversion.ToString(m.ValCodu_prf);
+				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
+				ValName = ViewModelConversion.ToString(m.ValName);
+				ValEmail = ViewModelConversion.ToString(m.ValEmail);
+				ValDobirth = ViewModelConversion.ToDateTime(m.ValDobirth);
+				ValCodt_001 = ViewModelConversion.ToString(m.ValCodt_001);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error("Map Model (U_prf) to ViewModel (F_001) - Error during mapping");
+				CSGenio.framework.Log.Error("Map Model (T_001) to ViewModel (Fr_001) - Error during mapping");
 				throw;
 			}
 		}
@@ -202,26 +202,26 @@ namespace GenioMVC.ViewModels.U_prf
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.U_prf m)
+		public override void MapToModel(Models.T_001 m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map ViewModel (F_001) to Model (U_prf) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map ViewModel (Fr_001) to Model (T_001) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				m.ValUsername = ViewModelConversion.ToString(ValUsername);
-				m.ValBday = ViewModelConversion.ToDateTime(ValBday);
-				if (ValU_img == null || !ValU_img.IsThumbnail)
-					m.ValU_img = ViewModelConversion.ToImage(ValU_img);
-				m.ValU_email = ViewModelConversion.ToString(ValU_email);
-				m.ValCodu_prf = ViewModelConversion.ToString(ValCodu_prf);
+				if (ValPhoto == null || !ValPhoto.IsThumbnail)
+					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
+				m.ValName = ViewModelConversion.ToString(ValName);
+				m.ValEmail = ViewModelConversion.ToString(ValEmail);
+				m.ValDobirth = ViewModelConversion.ToDateTime(ValDobirth);
+				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error($"Map ViewModel (F_001) to Model (U_prf) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
+				CSGenio.framework.Log.Error($"Map ViewModel (Fr_001) to Model (T_001) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
 				throw;
 			}
 		}
@@ -242,29 +242,29 @@ namespace GenioMVC.ViewModels.U_prf
 
 				switch (fullFieldName)
 				{
-					case "u_prf.username":
-						this.ValUsername = ViewModelConversion.ToString(_value);
+					case "t_001.photo":
+						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
-					case "u_prf.bday":
-						this.ValBday = ViewModelConversion.ToDateTime(_value);
+					case "t_001.name":
+						this.ValName = ViewModelConversion.ToString(_value);
 						break;
-					case "u_prf.u_img":
-						this.ValU_img = ViewModelConversion.ToImage(_value);
+					case "t_001.email":
+						this.ValEmail = ViewModelConversion.ToString(_value);
 						break;
-					case "u_prf.u_email":
-						this.ValU_email = ViewModelConversion.ToString(_value);
+					case "t_001.dobirth":
+						this.ValDobirth = ViewModelConversion.ToDateTime(_value);
 						break;
-					case "u_prf.codu_prf":
-						this.ValCodu_prf = ViewModelConversion.ToString(_value);
+					case "t_001.codt_001":
+						this.ValCodt_001 = ViewModelConversion.ToString(_value);
 						break;
 					default:
-						Log.Error($"SetViewModelValue (F_001) - Unexpected field identifier {fullFieldName}");
+						Log.Error($"SetViewModelValue (Fr_001) - Unexpected field identifier {fullFieldName}");
 						break;
 				}
 			}
 			catch (Exception ex)
 			{
-				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (F_001)", "Unexpected error", ex);
+				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (Fr_001)", "Unexpected error", ex);
 			}
 		}
 
@@ -276,8 +276,8 @@ namespace GenioMVC.ViewModels.U_prf
 		/// <param name="id">The primary key of the record that needs to be read from the database. Leave NULL to use the value from the History.</param>
 		public override void LoadModel(string id = null)
 		{
-			try { Model = Models.U_prf.Find(id ?? Navigation.GetStrValue("u_prf"), m_userContext, "FF_001"); }
-			finally { Model ??= new Models.U_prf(m_userContext) { Identifier = "FF_001" }; }
+			try { Model = Models.T_001.Find(id ?? Navigation.GetStrValue("t_001"), m_userContext, "FFR_001"); }
+			finally { Model ??= new Models.T_001(m_userContext) { Identifier = "FFR_001" }; }
 
 			base.LoadModel();
 		}
@@ -290,7 +290,7 @@ namespace GenioMVC.ViewModels.U_prf
 			// TODO: Deve ser substituido por search do CSGenioA
 			try
 			{
-				Model = Models.U_prf.Find(Navigation.GetStrValue("u_prf"), m_userContext, "FF_001");
+				Model = Models.T_001.Find(Navigation.GetStrValue("t_001"), m_userContext, "FFR_001");
 			}
 			finally
 			{
@@ -303,7 +303,7 @@ namespace GenioMVC.ViewModels.U_prf
 					oldvalues = Model.klass;
 			}
 
-			Model.Identifier = "FF_001";
+			Model.Identifier = "FFR_001";
 			InitModel(qs, lazyLoad);
 
 			if (Navigation.CurrentLevel.FormMode == FormMode.New || Navigation.CurrentLevel.FormMode == FormMode.Edit || Navigation.CurrentLevel.FormMode == FormMode.Duplicate)
@@ -337,7 +337,7 @@ namespace GenioMVC.ViewModels.U_prf
 		{
 		}
 
-		protected override void LoadDocumentsProperties(Models.U_prf row)
+		protected override void LoadDocumentsProperties(Models.T_001 row)
 		{
 		}
 
@@ -352,11 +352,11 @@ namespace GenioMVC.ViewModels.U_prf
 			{
 				// Precisamos fazer o Find to obter as chaves dos documentos que já foram anexados
 				// TODO: Conseguir passar estas chaves no POST to poder retirar o Find.
-				Model = Models.U_prf.Find(Navigation.GetStrValue("u_prf"), m_userContext, "FF_001");
+				Model = Models.T_001.Find(Navigation.GetStrValue("t_001"), m_userContext, "FFR_001");
 				if (Model == null)
 				{
-					Model = new Models.U_prf(m_userContext) { Identifier = "FF_001" };
-					Model.klass.QPrimaryKey = Navigation.GetStrValue("u_prf");
+					Model = new Models.T_001(m_userContext) { Identifier = "FFR_001" };
+					Model.klass.QPrimaryKey = Navigation.GetStrValue("t_001");
 				}
 				MapToModel(Model);
 				LoadDocumentsProperties(Model);
@@ -364,10 +364,10 @@ namespace GenioMVC.ViewModels.U_prf
 			// Add characteristics
 			Characs = new List<string>();
 
-// USE /[MANUAL RMS VIEWMODEL_LOADPARTIAL F_001]/
+// USE /[MANUAL RMS VIEWMODEL_LOADPARTIAL FR_001]/
 		}
 
-// USE /[MANUAL RMS VIEWMODEL_NEW F_001]/
+// USE /[MANUAL RMS VIEWMODEL_NEW FR_001]/
 
 		// Preencher Qvalues default dos fields do form
 		protected override void LoadDefaultValues()
@@ -378,12 +378,14 @@ namespace GenioMVC.ViewModels.U_prf
 		{
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
-			validator.StringLength("ValUsername", Resources.Resources.USERNAME51409, ValUsername, 12);
+			validator.StringLength("ValName", Resources.Resources.NAME31974, ValName, 50);
 
-			validator.Required("ValUsername", Resources.Resources.USERNAME51409, ViewModelConversion.ToString(ValUsername), FieldType.TEXT.GetFormatting());
+			validator.Required("ValName", Resources.Resources.NAME31974, ViewModelConversion.ToString(ValName), FieldType.TEXT.GetFormatting());
+			validator.StringLength("ValEmail", Resources.Resources.EMAIL25170, ValEmail, 50);
 
-			validator.Required("ValBday", Resources.Resources.DATE_OF_BIRTH36542, ViewModelConversion.ToDateTime(ValBday), FieldType.DATE.GetFormatting());
-			validator.StringLength("ValU_email", Resources.Resources.EMAIL25170, ValU_email, 50);
+			validator.Required("ValEmail", Resources.Resources.EMAIL25170, ViewModelConversion.ToString(ValEmail), FieldType.TEXT.GetFormatting());
+
+			validator.Required("ValDobirth", Resources.Resources.DATE_OF_BIRTH36542, ViewModelConversion.ToDateTime(ValDobirth), FieldType.DATE.GetFormatting());
 
 
 			return validator.GetResult();
@@ -393,7 +395,7 @@ namespace GenioMVC.ViewModels.U_prf
 		{
 			base.Init(userContext);
 		}
-// USE /[MANUAL RMS VIEWMODEL_SAVE F_001]/
+// USE /[MANUAL RMS VIEWMODEL_SAVE FR_001]/
 		public override void Save()
 		{
 
@@ -401,14 +403,14 @@ namespace GenioMVC.ViewModels.U_prf
 			base.Save();
 		}
 
-// USE /[MANUAL RMS VIEWMODEL_APPLY F_001]/
+// USE /[MANUAL RMS VIEWMODEL_APPLY FR_001]/
 
-// USE /[MANUAL RMS VIEWMODEL_DUPLICATE F_001]/
+// USE /[MANUAL RMS VIEWMODEL_DUPLICATE FR_001]/
 
-// USE /[MANUAL RMS VIEWMODEL_DESTROY F_001]/
+// USE /[MANUAL RMS VIEWMODEL_DESTROY FR_001]/
 		public override void Destroy(string id)
 		{
-			Model = Models.U_prf.Find(id, m_userContext, "FF_001");
+			Model = Models.T_001.Find(id, m_userContext, "FFR_001");
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			this.flashMessage = Model.Destroy();
@@ -425,11 +427,11 @@ namespace GenioMVC.ViewModels.U_prf
 		{
 			return identifier switch
 			{
-				"u_prf.username" => ViewModelConversion.ToString(modelValue),
-				"u_prf.bday" => ViewModelConversion.ToDateTime(modelValue),
-				"u_prf.u_img" => ViewModelConversion.ToImage(modelValue),
-				"u_prf.u_email" => ViewModelConversion.ToString(modelValue),
-				"u_prf.codu_prf" => ViewModelConversion.ToString(modelValue),
+				"t_001.photo" => ViewModelConversion.ToImage(modelValue),
+				"t_001.name" => ViewModelConversion.ToString(modelValue),
+				"t_001.email" => ViewModelConversion.ToString(modelValue),
+				"t_001.dobirth" => ViewModelConversion.ToDateTime(modelValue),
+				"t_001.codt_001" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}
@@ -437,8 +439,8 @@ namespace GenioMVC.ViewModels.U_prf
 		/// <inheritdoc/>
 		protected override void SetTicketToImageFields()
 		{
-			if (ValU_img != null)
-				ValU_img.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaU_PRF, CSGenioAu_prf.FldU_img.Field, null, ValCodu_prf);
+			if (ValPhoto != null)
+				ValPhoto.Ticket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaT_001, CSGenioAt_001.FldPhoto.Field, null, ValCodt_001);
 		}
 
 		#region Charts
@@ -448,7 +450,7 @@ namespace GenioMVC.ViewModels.U_prf
 
 		#region Custom code
 
-// USE /[MANUAL RMS VIEWMODEL_CUSTOM F_001]/
+// USE /[MANUAL RMS VIEWMODEL_CUSTOM FR_001]/
 
 		#endregion
 	}

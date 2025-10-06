@@ -358,6 +358,24 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Agent"
+        /// </summary>
+        public static string AGENT00994 {
+            get {
+                return ResourceManager.GetString("AGENT00994", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Agents"
+        /// </summary>
+        public static string AGENTS29376 {
+            get {
+                return ResourceManager.GetString("AGENTS29376", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Em fila de espera"
         /// </summary>
         public static string EM_FILA_DE_ESPERA21822 {
@@ -754,6 +772,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Profile Photo"
+        /// </summary>
+        public static string PROFILE_PHOTO12166 {
+            get {
+                return ResourceManager.GetString("PROFILE_PHOTO12166", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Roles"
         /// </summary>
         public static string ROLES61449 {
@@ -840,6 +867,15 @@ namespace Administration.Resources {
         public static string DATE_OF_BIRTH63058 {
             get {
                 return ResourceManager.GetString("DATE_OF_BIRTH63058", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Agent add"
+        /// </summary>
+        public static string AGENT_ADD58504 {
+            get {
+                return ResourceManager.GetString("AGENT_ADD58504", resourceCulture);
             }
         }
 

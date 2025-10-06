@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.U_prf;
+namespace GenioMVC.ViewModels.T_001;
 
-public class RMS_Menu_21_RowViewModel : Models.U_prf
+public class RMS_Menu_11_RowViewModel : Models.T_001
 {
 	#region Constructors
 
-	public RMS_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public RMS_Menu_11_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public RMS_Menu_21_RowViewModel(UserContext userContext, CSGenioAu_prf val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public RMS_Menu_11_RowViewModel(UserContext userContext, CSGenioAt_001 val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,26 @@ public class RMS_Menu_21_RowViewModel : Models.U_prf
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "U_PRF",
-				Field = "U_IMG",
+				Area = "T_001",
+				Field = "EMAIL",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "U_PRF",
-				Field = "U_EMAIL",
+				Area = "T_001",
+				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "U_PRF",
-				Field = "USERNAME",
+				Area = "T_001",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "U_PRF",
-				Field = "BDAY",
+				Area = "T_001",
+				Field = "DOBIRTH",
 			},
 		];
 	}
