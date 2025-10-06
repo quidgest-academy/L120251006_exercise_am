@@ -317,8 +317,8 @@
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValEmail',
-							defaultSearchColumnNameOriginal: 'ValEmail',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
 								columnName: 'ValEmail',
 								sortOrder: 'asc'
@@ -329,42 +329,14 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'CAROUSEL',
-								type: 'carousel',
+								id: 'LIST',
+								type: 'list',
 								subtype: 'card-img-top',
-								label: computed(() => this.Resources.CARROSSEL41899),
+								label: computed(() => this.Resources.LISTA13474),
 								order: 1,
 								mappingVariables: readonly({
 								}),
 								styleVariables: {
-									showIndicators: {
-										rawValue: true,
-										isMapped: false
-									},
-									showControls: {
-										rawValue: true,
-										isMapped: false
-									},
-									keyboardControllable: {
-										rawValue: true,
-										isMapped: false
-									},
-									autoCycleInterval: {
-										rawValue: 5000,
-										isMapped: false
-									},
-									autoCyclePause: {
-										rawValue: 'hover',
-										isMapped: false
-									},
-									ride: {
-										rawValue: 'carousel',
-										isMapped: false
-									},
-									wrap: {
-										rawValue: true,
-										isMapped: false
-									},
 								},
 								groups: {
 								}

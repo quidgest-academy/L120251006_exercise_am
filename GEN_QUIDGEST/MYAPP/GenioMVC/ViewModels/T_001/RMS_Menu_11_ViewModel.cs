@@ -536,7 +536,7 @@ namespace GenioMVC.ViewModels.T_001
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValEmail", CSGenioAt_001.FldEmail, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValName", CSGenioAt_001.FldName, typeof(string)),
+			new TableSearchColumn("ValName", CSGenioAt_001.FldName, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValDobirth", CSGenioAt_001.FldDobirth, typeof(DateTime?)),
 		];
 		protected void SetTicketToImageFields(Models.T_001 row)
