@@ -189,6 +189,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Property name"
+		/// </summary>
+		public static string PROPERTY_NAME18934 {
+			get {
+				return ResourceManager.GetString("PROPERTY_NAME18934", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Notification Message"
 		/// </summary>
 		public static string NOTIFICATION_MESSAGE31108 {
@@ -329,6 +338,15 @@ namespace GenioMVC.Resources
 		public static string MODO_DE_PROCESSAMENT14469 {
 			get {
 				return ResourceManager.GetString("MODO_DE_PROCESSAMENT14469", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Property Price"
+		/// </summary>
+		public static string PROPERTY_PRICE21441 {
+			get {
+				return ResourceManager.GetString("PROPERTY_PRICE21441", resourceCulture);
 			}
 		}
 
@@ -500,6 +518,15 @@ namespace GenioMVC.Resources
 		public static string STATUS62033 {
 			get {
 				return ResourceManager.GetString("STATUS62033", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Property"
+		/// </summary>
+		public static string PROPERTY43977 {
+			get {
+				return ResourceManager.GetString("PROPERTY43977", resourceCulture);
 			}
 		}
 
@@ -761,6 +788,15 @@ namespace GenioMVC.Resources
 		public static string PASSWORD_DATE16593 {
 			get {
 				return ResourceManager.GetString("PASSWORD_DATE16593", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Properties"
+		/// </summary>
+		public static string PROPERTIES34868 {
+			get {
+				return ResourceManager.GetString("PROPERTIES34868", resourceCulture);
 			}
 		}
 
@@ -22010,15 +22046,6 @@ namespace GenioMVC.Resources
 		public static string MORE_PROPERTIES36834 {
 			get {
 				return ResourceManager.GetString("MORE_PROPERTIES36834", resourceCulture);
-			}
-		}
-
-		/// <summary>
-		///   Looks up a localized string similar to "Property"
-		/// </summary>
-		public static string PROPERTY43977 {
-			get {
-				return ResourceManager.GetString("PROPERTY43977", resourceCulture);
 			}
 		}
 

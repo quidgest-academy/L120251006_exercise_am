@@ -42,6 +42,9 @@
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
   </msg>
+  <msg id="Property name" code="PROPERTY_NAME18934">
+    <ENUS>Property name</ENUS>
+  </msg>
   <msg id="Notification Message" code="NOTIFICATION_MESSAGE31108">
     <ENUS>Notification Message</ENUS>
   </msg>
@@ -89,6 +92,9 @@
   </msg>
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
+  </msg>
+  <msg id="Property Price" code="PROPERTY_PRICE21441">
+    <ENUS>Property Price</ENUS>
   </msg>
   <msg id="New Menu" code="NEW_MENU31759">
     <ENUS>New Menu</ENUS>
@@ -146,6 +152,9 @@
   </msg>
   <msg id="Status" code="STATUS62033">
     <ENUS>Status</ENUS>
+  </msg>
+  <msg id="Property" code="PROPERTY43977">
+    <ENUS>Property</ENUS>
   </msg>
   <msg id="My application" code="MY_APPLICATION56216">
     <ENUS>My application</ENUS>
@@ -233,6 +242,9 @@
   </msg>
   <msg id="Password date" code="PASSWORD_DATE16593">
     <ENUS>Password date</ENUS>
+  </msg>
+  <msg id="Properties" code="PROPERTIES34868">
+    <ENUS>Properties</ENUS>
   </msg>
   <msg id="Host" code="HOST49573">
     <ENUS>Host</ENUS>
@@ -7316,9 +7328,6 @@
   </msg>
   <msg id="More Properties" code="MORE_PROPERTIES36834">
     <ENUS>More Properties</ENUS>
-  </msg>
-  <msg id="Property" code="PROPERTY43977">
-    <ENUS>Property</ENUS>
   </msg>
   <msg id="Key" code="KEY01046">
     <ENUS>Key</ENUS>
