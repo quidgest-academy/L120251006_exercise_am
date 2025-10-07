@@ -156,6 +156,9 @@
   <data name="TO55217" xml:space="preserve">
     <value>To</value>
   </data>
+  <data name="T133664" xml:space="preserve">
+    <value>T1</value>
+  </data>
   <data name="RESULTADOS20000" xml:space="preserve">
     <value>Resultados</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="RESULT_MESSAGE40830" xml:space="preserve">
     <value>Result message</value>
+  </data>
+  <data name="BUILDING_TYPE39168" xml:space="preserve">
+    <value>Building Type</value>
   </data>
   <data name="MODULES33542" xml:space="preserve">
     <value>Modules</value>
@@ -306,6 +312,9 @@
   <data name="ERRO38355" xml:space="preserve">
     <value>Erro</value>
   </data>
+  <data name="MORE38452" xml:space="preserve">
+    <value>More</value>
+  </data>
   <data name="CREATED_BY12292" xml:space="preserve">
     <value>Created by</value>
   </data>
@@ -363,8 +372,14 @@
   <data name="AVISO03237" xml:space="preserve">
     <value>Aviso</value>
   </data>
+  <data name="HOUSE01993" xml:space="preserve">
+    <value>House</value>
+  </data>
   <data name="ADMINISTRADOR57294" xml:space="preserve">
     <value>Administrador</value>
+  </data>
+  <data name="BUILDING_TYPOLOGY07362" xml:space="preserve">
+    <value>Building Typology</value>
   </data>
   <data name="DOCUMENT00695" xml:space="preserve">
     <value>Document</value>
@@ -408,6 +423,9 @@
   <data name="LOGIN_ATTEMPTS62337" xml:space="preserve">
     <value>Login attempts</value>
   </data>
+  <data name="OTHER37293" xml:space="preserve">
+    <value>Other</value>
+  </data>
   <data name="SENDS_EMAIL_12942" xml:space="preserve">
     <value>Sends email?</value>
   </data>
@@ -425,6 +443,9 @@
   </data>
   <data name="SUCESSO65230" xml:space="preserve">
     <value>Sucesso</value>
+  </data>
+  <data name="BUILDING_TYPES60158" xml:space="preserve">
+    <value>Building Types</value>
   </data>
   <data name="HTML_FORMAT_60293" xml:space="preserve">
     <value>HTML format?</value>
@@ -459,6 +480,9 @@
   <data name="PASSWORDS52247" xml:space="preserve">
     <value>Passwords</value>
   </data>
+  <data name="BUILDING_TYPOLOGIES63962" xml:space="preserve">
+    <value>Building Typologies</value>
+  </data>
   <data name="CANCELED_BY01167" xml:space="preserve">
     <value>Canceled by</value>
   </data>
@@ -479,6 +503,9 @@
   </data>
   <data name="ASYNC_PROCESS_ARGUME19111" xml:space="preserve">
     <value>Async process argument</value>
+  </data>
+  <data name="T333958" xml:space="preserve">
+    <value>T3</value>
   </data>
   <data name="RESULTADO50955" xml:space="preserve">
     <value>Resultado</value>
@@ -537,6 +564,9 @@
   <data name="NOTIFICATION_ID25507" xml:space="preserve">
     <value>Notification ID</value>
   </data>
+  <data name="T036607" xml:space="preserve">
+    <value>T0</value>
+  </data>
   <data name="PROPERTY_TITLE56931" xml:space="preserve">
     <value>Property Title</value>
   </data>
@@ -575,6 +605,9 @@
   </data>
   <data name="MOTIVE13407" xml:space="preserve">
     <value>Motive</value>
+  </data>
+  <data name="APARTMENT12665" xml:space="preserve">
+    <value>Apartment</value>
   </data>
   <data name="EM_EXECUCAO53706" xml:space="preserve">
     <value>Em execução</value>

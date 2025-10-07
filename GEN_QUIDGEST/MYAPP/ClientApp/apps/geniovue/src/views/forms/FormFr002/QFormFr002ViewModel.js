@@ -127,6 +127,29 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.T_004T_003ValCountry))
 		this.stopWatchers.push(watch(() => this.T_004T_003ValCountry.value, (newValue, oldValue) => this.onUpdate('t_003.country', this.T_004T_003ValCountry, newValue, oldValue)))
 
+		this.ValType = reactive(new modelFieldType.String({
+			type: 'Combobox',
+			id: 'ValType',
+			originId: 'ValType',
+			area: 'T_002',
+			field: 'F_010',
+			maxLength: 10,
+			arrayOptions: computed(() => new qProjArrays.QArrayE_01(vm.$getResource).elements),
+			description: computed(() => this.Resources.BUILDING_TYPE39168),
+		}).cloneFrom(values?.ValType))
+		this.stopWatchers.push(watch(() => this.ValType.value, (newValue, oldValue) => this.onUpdate('t_002.type', this.ValType, newValue, oldValue)))
+
+		this.ValTypology = reactive(new modelFieldType.String({
+			id: 'ValTypology',
+			originId: 'ValTypology',
+			area: 'T_002',
+			field: 'F_011',
+			maxLength: 5,
+			arrayOptions: computed(() => new qProjArrays.QArrayE_02(vm.$getResource).elements),
+			description: computed(() => this.Resources.BUILDING_TYPOLOGY07362),
+		}).cloneFrom(values?.ValTypology))
+		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('t_002.typology', this.ValTypology, newValue, oldValue)))
+
 		this.ValYearbuilt = reactive(new modelFieldType.Number({
 			id: 'ValYearbuilt',
 			originId: 'ValYearbuilt',

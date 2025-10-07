@@ -54,6 +54,16 @@ public class Fr_002Form : Form
 	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP03-container");
 
 	/// <summary>
+	/// Building Type
+	/// </summary>
+	public IWebElement T_002F_010 => throw new NotImplementedException();
+
+	/// <summary>
+	/// Building Typology
+	/// </summary>
+	public RadiobuttonControl T_002F_011 => new RadiobuttonControl(driver, ContainerLocator, "container-FR_002__T_002F_011___");
+
+	/// <summary>
 	/// Year Built
 	/// </summary>
 	public BaseInputControl T_002F_009 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_009___", "#FR_002__T_002F_009___");
@@ -88,6 +98,16 @@ public class Fr_002Form : Form
 	/// Profile Photo
 	/// </summary>
 	public IWebElement T_001F_004 => throw new NotImplementedException();
+
+	/// <summary>
+	/// Photo
+	/// </summary>
+	public ListControl PseudTab_001 => new ListControl(driver, ContainerLocator, "#FR_002__PSEUDTAB_001_");
+
+	/// <summary>
+	/// Contacts
+	/// </summary>
+	public ListControl PseudTab_002 => new ListControl(driver, ContainerLocator, "#FR_002__PSEUDTAB_002_");
 
 	public Fr_002Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_002", containerLocator: containerLocator) { }

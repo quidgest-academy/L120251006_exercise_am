@@ -108,6 +108,84 @@ export class GroupOption {
 
 /* eslint-enable @typescript-eslint/no-unused-vars */
 /**
+ * The E_01 array.
+ */
+export class QArrayE_01
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'C'
+		this.pluralName = 'BUILDING_TYPES60158'
+		this.singularName = 'BUILDING_TYPE39168'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 'EE_01',
+				resourceId: 'APARTMENT12665',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 'EE_02',
+				resourceId: 'HOUSE01993',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 'EE_03',
+				resourceId: 'OTHER37293',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
+ * The E_02 array.
+ */
+export class QArrayE_02
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'C'
+		this.pluralName = 'BUILDING_TYPOLOGIES63962'
+		this.singularName = 'BUILDING_TYPOLOGY07362'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 'EE_01',
+				resourceId: 'T036607',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 'EE_02',
+				resourceId: 'T133664',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 'EE_03',
+				resourceId: 'T333958',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 'EE_04',
+				resourceId: 'MORE38452',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
  * The s_modpro array.
  */
 export class QArrayS_modpro
@@ -376,6 +454,8 @@ export class QArrayS_tpproc
 
 
 export default {
+	QArrayE_01,
+	QArrayE_02,
 	QArrayS_modpro,
 	QArrayS_module,
 	QArrayS_prstat,

@@ -20,6 +20,21 @@ namespace CSGenio.business
 
             StringBuilder Qresult = new StringBuilder();
             
+			// e_01
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"EE_01\" then \"Apartment\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"EE_02\" then \"House\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"EE_03\" then \"Other\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("e_01", Qresult.ToString());
+			// e_02
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"EE_01\" then \"T0\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"EE_02\" then \"T1\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"EE_03\" then \"T3\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"EE_04\" then \"More\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("e_02", Qresult.ToString());
 			// s_modpro
             Qresult = new StringBuilder();
 			            Qresult.AppendLine("if {{{0}}} = \"INDIV\" then \"Individual\" else");

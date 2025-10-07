@@ -39,6 +39,9 @@
   <msg id="To" code="TO55217">
     <ENUS>To</ENUS>
   </msg>
+  <msg id="T1" code="T133664">
+    <ENUS>T1</ENUS>
+  </msg>
   <msg id="Resultados" code="RESULTADOS20000">
     <ENUS>Resultados</ENUS>
   </msg>
@@ -83,6 +86,9 @@
   </msg>
   <msg id="Result message" code="RESULT_MESSAGE40830">
     <ENUS>Result message</ENUS>
+  </msg>
+  <msg id="Building Type" code="BUILDING_TYPE39168">
+    <ENUS>Building Type</ENUS>
   </msg>
   <msg id="Modules" code="MODULES33542">
     <ENUS>Modules</ENUS>
@@ -189,6 +195,9 @@
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
   </msg>
+  <msg id="More" code="MORE38452">
+    <ENUS>More</ENUS>
+  </msg>
   <msg id="Created by" code="CREATED_BY12292">
     <ENUS>Created by</ENUS>
   </msg>
@@ -246,8 +255,14 @@
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
   </msg>
+  <msg id="House" code="HOUSE01993">
+    <ENUS>House</ENUS>
+  </msg>
   <msg id="Administrador" code="ADMINISTRADOR57294">
     <ENUS>Administrador</ENUS>
+  </msg>
+  <msg id="Building Typology" code="BUILDING_TYPOLOGY07362">
+    <ENUS>Building Typology</ENUS>
   </msg>
   <msg id="Document" code="DOCUMENT00695">
     <ENUS>Document</ENUS>
@@ -291,6 +306,9 @@
   <msg id="Login attempts" code="LOGIN_ATTEMPTS62337">
     <ENUS>Login attempts</ENUS>
   </msg>
+  <msg id="Other" code="OTHER37293">
+    <ENUS>Other</ENUS>
+  </msg>
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>
@@ -308,6 +326,9 @@
   </msg>
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
+  </msg>
+  <msg id="Building Types" code="BUILDING_TYPES60158">
+    <ENUS>Building Types</ENUS>
   </msg>
   <msg id="HTML format?" code="HTML_FORMAT_60293">
     <ENUS>HTML format?</ENUS>
@@ -342,6 +363,9 @@
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
   </msg>
+  <msg id="Building Typologies" code="BUILDING_TYPOLOGIES63962">
+    <ENUS>Building Typologies</ENUS>
+  </msg>
   <msg id="Canceled by" code="CANCELED_BY01167">
     <ENUS>Canceled by</ENUS>
   </msg>
@@ -362,6 +386,9 @@
   </msg>
   <msg id="Async process argument" code="ASYNC_PROCESS_ARGUME19111">
     <ENUS>Async process argument</ENUS>
+  </msg>
+  <msg id="T3" code="T333958">
+    <ENUS>T3</ENUS>
   </msg>
   <msg id="Resultado" code="RESULTADO50955">
     <ENUS>Resultado</ENUS>
@@ -420,6 +447,9 @@
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
   </msg>
+  <msg id="T0" code="T036607">
+    <ENUS>T0</ENUS>
+  </msg>
   <msg id="Property Title" code="PROPERTY_TITLE56931">
     <ENUS>Property Title</ENUS>
   </msg>
@@ -458,6 +488,9 @@
   </msg>
   <msg id="Motive" code="MOTIVE13407">
     <ENUS>Motive</ENUS>
+  </msg>
+  <msg id="Apartment" code="APARTMENT12665">
+    <ENUS>Apartment</ENUS>
   </msg>
   <msg id="Em execução" code="EM_EXECUCAO53706">
     <ENUS>Em execução</ENUS>

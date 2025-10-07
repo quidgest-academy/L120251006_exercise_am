@@ -33,12 +33,12 @@ namespace GenioMVC.Controllers
 	{
 		#region NavigationLocation Names
 
-		private static readonly NavigationLocation ACTION_FR_001_CANCEL = new("AGENT_ADD58504", "Fr_001_Cancel", "T_001") { vueRouteName = "form-FR_001", mode = "CANCEL" };
-		private static readonly NavigationLocation ACTION_FR_001_SHOW = new("AGENT_ADD58504", "Fr_001_Show", "T_001") { vueRouteName = "form-FR_001", mode = "SHOW" };
-		private static readonly NavigationLocation ACTION_FR_001_NEW = new("AGENT_ADD58504", "Fr_001_New", "T_001") { vueRouteName = "form-FR_001", mode = "NEW" };
-		private static readonly NavigationLocation ACTION_FR_001_EDIT = new("AGENT_ADD58504", "Fr_001_Edit", "T_001") { vueRouteName = "form-FR_001", mode = "EDIT" };
-		private static readonly NavigationLocation ACTION_FR_001_DUPLICATE = new("AGENT_ADD58504", "Fr_001_Duplicate", "T_001") { vueRouteName = "form-FR_001", mode = "DUPLICATE" };
-		private static readonly NavigationLocation ACTION_FR_001_DELETE = new("AGENT_ADD58504", "Fr_001_Delete", "T_001") { vueRouteName = "form-FR_001", mode = "DELETE" };
+		private static readonly NavigationLocation ACTION_FR_001_CANCEL = new("AGENT00994", "Fr_001_Cancel", "T_001") { vueRouteName = "form-FR_001", mode = "CANCEL" };
+		private static readonly NavigationLocation ACTION_FR_001_SHOW = new("AGENT00994", "Fr_001_Show", "T_001") { vueRouteName = "form-FR_001", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_FR_001_NEW = new("AGENT00994", "Fr_001_New", "T_001") { vueRouteName = "form-FR_001", mode = "NEW" };
+		private static readonly NavigationLocation ACTION_FR_001_EDIT = new("AGENT00994", "Fr_001_Edit", "T_001") { vueRouteName = "form-FR_001", mode = "EDIT" };
+		private static readonly NavigationLocation ACTION_FR_001_DUPLICATE = new("AGENT00994", "Fr_001_Duplicate", "T_001") { vueRouteName = "form-FR_001", mode = "DUPLICATE" };
+		private static readonly NavigationLocation ACTION_FR_001_DELETE = new("AGENT00994", "Fr_001_Delete", "T_001") { vueRouteName = "form-FR_001", mode = "DELETE" };
 
 		#endregion
 

@@ -381,7 +381,7 @@
 					route: 'form-FR_001',
 					area: 'T_001',
 					primaryKey: 'ValCodt_001',
-					designation: computed(() => this.Resources.AGENT_ADD58504),
+					designation: computed(() => this.Resources.AGENT00994),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],

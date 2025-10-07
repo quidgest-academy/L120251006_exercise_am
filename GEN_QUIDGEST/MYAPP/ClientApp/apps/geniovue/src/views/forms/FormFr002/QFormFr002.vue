@@ -231,6 +231,52 @@
 								value="FR_002__PSEUDNEWGRP03"
 								:title="controls.FR_002__PSEUDNEWGRP03.label">
 								<!-- Start FR_002__PSEUDNEWGRP03 -->
+								<q-row-container v-if="controls.FR_002__T_002F_010___.isVisible">
+									<q-control-wrapper
+										v-if="controls.FR_002__T_002F_010___.isVisible"
+										class="control-join-group">
+										<base-input-structure
+											v-if="controls.FR_002__T_002F_010___.isVisible"
+											class="i-text"
+											v-bind="controls.FR_002__T_002F_010___"
+											v-on="controls.FR_002__T_002F_010___.handlers"
+											:loading="controls.FR_002__T_002F_010___.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-combobox
+												v-if="controls.FR_002__T_002F_010___.isVisible"
+												v-bind="controls.FR_002__T_002F_010___.props"
+												:model-value="model.ValType.value"
+												@update:model-value="model.ValType.fnUpdateValue" />
+										</base-input-structure>
+									</q-control-wrapper>
+								</q-row-container>
+								<q-row-container v-if="controls.FR_002__T_002F_011___.isVisible">
+									<q-control-wrapper
+										v-if="controls.FR_002__T_002F_011___.isVisible"
+										class="control-join-group">
+										<base-input-structure
+											v-if="controls.FR_002__T_002F_011___.isVisible"
+											class="i-radio-container"
+											v-bind="controls.FR_002__T_002F_011___"
+											v-on="controls.FR_002__T_002F_011___.handlers"
+											:label-position="labelAlignment.topleft"
+											:loading="controls.FR_002__T_002F_011___.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-radio-group
+												v-if="controls.FR_002__T_002F_011___.isVisible"
+												v-bind="controls.FR_002__T_002F_011___.props"
+												v-on="controls.FR_002__T_002F_011___.handlers">
+												<q-radio-button
+													v-for="radio in controls.FR_002__T_002F_011___.items"
+													:key="radio.key"
+													:label="radio.value"
+													:value="radio.key" />
+											</q-radio-group>
+										</base-input-structure>
+									</q-control-wrapper>
+								</q-row-container>
 								<q-row-container v-if="controls.FR_002__T_002F_009___.isVisible || controls.FR_002__T_002F_007___.isVisible || controls.FR_002__T_002F_008___.isVisible">
 									<q-control-wrapper
 										v-if="controls.FR_002__T_002F_009___.isVisible"
@@ -357,6 +403,36 @@
 							</q-accordion-item>
 							<!-- End FR_002__PSEUDNEWGRP05 -->
 						</q-accordion>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.FR_002__PSEUDTAB_001_.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__PSEUDTAB_001_.isVisible"
+						class="control-join-group">
+						<q-table
+							v-if="controls.FR_002__PSEUDTAB_001_.isVisible"
+							v-bind="controls.FR_002__PSEUDTAB_001_"
+							v-on="controls.FR_002__PSEUDTAB_001_.handlers" />
+						<q-table-extra-extension
+							v-if="controls.FR_002__PSEUDTAB_001_.isVisible"
+							:list-ctrl="controls.FR_002__PSEUDTAB_001_"
+							:filter-operators="controls.FR_002__PSEUDTAB_001_.filterOperators"
+							v-on="controls.FR_002__PSEUDTAB_001_.handlers" />
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.FR_002__PSEUDTAB_002_.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__PSEUDTAB_002_.isVisible"
+						class="control-join-group">
+						<q-table
+							v-if="controls.FR_002__PSEUDTAB_002_.isVisible"
+							v-bind="controls.FR_002__PSEUDTAB_002_"
+							v-on="controls.FR_002__PSEUDTAB_002_.handlers" />
+						<q-table-extra-extension
+							v-if="controls.FR_002__PSEUDTAB_002_.isVisible"
+							:list-ctrl="controls.FR_002__PSEUDTAB_002_"
+							:filter-operators="controls.FR_002__PSEUDTAB_002_.filterOperators"
+							v-on="controls.FR_002__PSEUDTAB_002_.handlers" />
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -853,8 +929,41 @@
 						isInAccordion: true,
 						isCollapsible: true,
 						anchored: false,
-						directChildren: ['FR_002__T_002F_009___', 'FR_002__T_002F_007___', 'FR_002__T_002F_008___'],
+						directChildren: ['FR_002__T_002F_010___', 'FR_002__T_002F_011___', 'FR_002__T_002F_009___', 'FR_002__T_002F_007___', 'FR_002__T_002F_008___'],
 						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_010___: new fieldControlClass.ArrayStringControl({
+						modelField: 'ValType',
+						valueChangeEvent: 'fieldChange:t_002.type',
+						id: 'FR_002__T_002F_010___',
+						name: 'F_010',
+						size: 'medium',
+						label: computed(() => this.Resources.BUILDING_TYPE39168),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						arrayName: 'E_01',
+						helpShortItem: '',
+						helpDetailedItem: '',
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_011___: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValTypology',
+						valueChangeEvent: 'fieldChange:t_002.typology',
+						id: 'FR_002__T_002F_011___',
+						name: 'F_011',
+						label: computed(() => this.Resources.BUILDING_TYPOLOGY07362),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxLength: 5,
+						labelId: 'label_FR_002__T_002F_011___',
+						arrayName: 'E_02',
+						columns: 0,
+						orientation: 'horizontal',
 						controlLimits: [
 						],
 					}, this),
@@ -989,6 +1098,384 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_002__PSEUDTAB_001_: new fieldControlClass.TableListControl({
+						id: 'FR_002__PSEUDTAB_001_',
+						name: 'TAB_001',
+						size: '',
+						label: computed(() => this.Resources.PHOTO51874),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'T_002',
+						action: 'Fr_002_ValTab_001',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.ImageColumn({
+								order: 1,
+								name: 'ValPhoto',
+								area: 'T_006',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValDescription',
+								area: 'T_006',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
+								dataLength: 200,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValTab_001',
+							serverMode: true,
+							pkColumn: 'ValCodt_006',
+							tableAlias: 'T_006',
+							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS41529),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.PHOTO51874),
+							showAlternatePagination: true,
+							rowClickActionInternal: 'selectMultiple',
+							showRowsSelectedCount: true,
+							showRowsSelectedTotalizer: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false,
+								searchOnPressEnter: true
+							},
+							filtersVisible: false,
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__FR_006',
+								name: '_FR_006',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'FR_006',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'FR_006': {
+									fnKeySelector: (row) => row.Fields.ValCodt_006,
+									isPopup: true
+								},
+							},
+							defaultSearchColumnName: 'ValDescription',
+							defaultSearchColumnNameOriginal: 'ValDescription',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-T_006', 'changed-T_002', 'changed-T_005'],
+						uuid: 'Fr_002_ValTab_001',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 't_002'],
+								dependencyEvents: ['fieldChange:t_002.codt_002'],
+								dependencyField: 'T_002.CODT_002',
+								fnValueSelector: (model) => model.ValCodt_002.value
+							},
+						],
+					}, this),
+					FR_002__PSEUDTAB_002_: new fieldControlClass.TableListControl({
+						id: 'FR_002__PSEUDTAB_002_',
+						name: 'TAB_002',
+						size: '',
+						label: computed(() => this.Resources.CONTACTS55742),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'T_002',
+						action: 'Fr_002_ValTab_002',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValClientname',
+								area: 'T_005',
+								field: 'CLIENTNAME',
+								label: computed(() => this.Resources.CLIENT_NAME26049),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 2,
+								name: 'ValDatre',
+								area: 'T_005',
+								field: 'DATRE',
+								label: computed(() => this.Resources.DATE18475),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValDescription',
+								area: 'T_005',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValTab_002',
+							serverMode: true,
+							pkColumn: 'ValCodt_005',
+							tableAlias: 'T_005',
+							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.CONTACTS55742),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false,
+								searchOnPressEnter: true
+							},
+							filtersVisible: false,
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_006',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__FR_006',
+								name: '_FR_006',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'FR_006',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'FR_006': {
+									fnKeySelector: (row) => row.Fields.ValCodt_005,
+									isPopup: true
+								},
+							},
+							defaultSearchColumnName: 'ValClientname',
+							defaultSearchColumnNameOriginal: 'ValClientname',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-T_005', 'changed-T_002'],
+						uuid: 'Fr_002_ValTab_002',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 't_002'],
+								dependencyEvents: ['fieldChange:t_002.codt_002'],
+								dependencyField: 'T_002.CODT_002',
+								fnValueSelector: (model) => model.ValCodt_002.value
+							},
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1007,6 +1494,8 @@
 				]),
 
 				tableFields: readonly([
+					'FR_002__PSEUDTAB_001_',
+					'FR_002__PSEUDTAB_002_',
 				]),
 
 				timelineFields: readonly([
@@ -1041,6 +1530,10 @@
 						set ValBathnumber(value) { vm.model.ValBathnumber.updateValue(value) },
 						get ValYearbuilt() { return vm.model.ValYearbuilt.value },
 						set ValYearbuilt(value) { vm.model.ValYearbuilt.updateValue(value) },
+						get ValType() { return vm.model.ValType.value },
+						set ValType(value) { vm.model.ValType.updateValue(value) },
+						get ValTypology() { return vm.model.ValTypology.value },
+						set ValTypology(value) { vm.model.ValTypology.updateValue(value) },
 					},
 					T_003: {
 						get ValCountry() { return vm.model.T_004T_003ValCountry.value },

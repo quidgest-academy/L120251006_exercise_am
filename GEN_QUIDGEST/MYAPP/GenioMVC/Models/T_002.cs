@@ -104,6 +104,22 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValYearbuilt { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValYearbuilt, 0)); } set { klass.ValYearbuilt = Convert.ToDecimal(value); } }
 
+		[DisplayName("Building Type")]
+		/// <summary>Field : "Building Type" Tipo: "AC" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValType")]
+		[DataArray("E_01", GenioMVC.Helpers.ArrayType.Character)]
+		public string ValType { get { return klass.ValType; } set { klass.ValType = value; } }
+		[JsonIgnore]
+		public SelectList ArrayValtype { get { return new SelectList(CSGenio.business.ArrayE_01.GetDictionary(), "Key", "Value", ValType); } set { ValType = value.SelectedValue as string; } }
+
+		[DisplayName("Building Typology")]
+		/// <summary>Field : "Building Typology" Tipo: "AC" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValTypology")]
+		[DataArray("E_02", GenioMVC.Helpers.ArrayType.Character)]
+		public string ValTypology { get { return klass.ValTypology; } set { klass.ValTypology = value; } }
+		[JsonIgnore]
+		public SelectList ArrayValtypology { get { return new SelectList(CSGenio.business.ArrayE_02.GetDictionary(), "Key", "Value", ValTypology); } set { ValTypology = value.SelectedValue as string; } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
