@@ -99,6 +99,8 @@ namespace CSGenio.framework
 				new("RMS", Role.UNAUTHORIZED),
 
 				new("RMS", Role.ROLE_1),
+				new("RMS", Role.ROLE_20),
+				new("RMS", Role.ROLE_30),
 				new("RMS", Role.ADMINISTRATION)			];
 
         }

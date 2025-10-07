@@ -34,6 +34,18 @@ namespace Administration.Models
                 Module = "RMS"
             },
             new ModuleRoleModel() {
+                Role = "20",
+                Designation = "OFFICER20358",
+                Description = "",              
+                Module = "RMS"
+            },
+            new ModuleRoleModel() {
+                Role = "30",
+                Designation = "AGENT00994",
+                Description = "",              
+                Module = "RMS"
+            },
+            new ModuleRoleModel() {
                 Role = "99",
                 Designation = "ADMINISTRADOR57294",
                 Description = "",              
