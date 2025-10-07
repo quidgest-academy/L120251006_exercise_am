@@ -30,6 +30,14 @@ namespace GenioMVC.ViewModels.T_001
 		public bool MsqActive { get; set; } = false;
 
 		#region Foreign keys
+		/// <summary>
+		/// Title: "Country of Origin" | Type: "CE"
+		/// </summary>
+		public string ValF_006 { get; set; }
+		/// <summary>
+		/// Title: "Country of Residence" | Type: "CE"
+		/// </summary>
+		public string ValF_007 { get; set; }
 
 		#endregion
 		/// <summary>
@@ -53,6 +61,16 @@ namespace GenioMVC.ViewModels.T_001
 		/// Title: "Telephone" | Type: "N"
 		/// </summary>
 		public decimal? ValTel { get; set; }
+		/// <summary>
+		/// Title: "Country of Origin" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.At_01> TableAt_01F_001 { get; set; }
+		/// <summary>
+		/// Title: "Country of Residence" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.At_02> TableAt_02F_001 { get; set; }
 
 
 
@@ -186,6 +204,8 @@ namespace GenioMVC.ViewModels.T_001
 
 			try
 			{
+				ValF_006 = ViewModelConversion.ToString(m.ValF_006);
+				ValF_007 = ViewModelConversion.ToString(m.ValF_007);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
@@ -217,6 +237,8 @@ namespace GenioMVC.ViewModels.T_001
 
 			try
 			{
+				m.ValF_006 = ViewModelConversion.ToString(ValF_006);
+				m.ValF_007 = ViewModelConversion.ToString(ValF_007);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValName = ViewModelConversion.ToString(ValName);
@@ -248,6 +270,12 @@ namespace GenioMVC.ViewModels.T_001
 
 				switch (fullFieldName)
 				{
+					case "t_001.f_006":
+						this.ValF_006 = ViewModelConversion.ToString(_value);
+						break;
+					case "t_001.f_007":
+						this.ValF_007 = ViewModelConversion.ToString(_value);
+						break;
 					case "t_001.photo":
 						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
@@ -373,6 +401,8 @@ namespace GenioMVC.ViewModels.T_001
 			// Add characteristics
 			Characs = new List<string>();
 
+			Load_Fr_001__at_01f_001___(qs, lazyLoad);
+			Load_Fr_001__at_02f_001___(qs, lazyLoad);
 // USE /[MANUAL RMS VIEWMODEL_LOADPARTIAL FR_001]/
 		}
 
@@ -432,16 +462,402 @@ namespace GenioMVC.ViewModels.T_001
 		{
 		}
 
+		/// <summary>
+		/// TableAt_01F_001 -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_Fr_001__at_01f_001___(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool fr_001__at_01f_001___DoLoad = true;
+			CriteriaSet fr_001__at_01f_001___Conds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("at_01", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					fr_001__at_01f_001___Conds.Equal(CSGenioAat_01.FldCodt_003, hValue);
+					this.ValF_006 = DBConversion.ToString(hValue);
+				}
+			}
+
+			TableAt_01F_001 = new TableDBEdit<Models.At_01>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_at_01") != null)
+				{
+					this.ValF_006 = Navigation.GetStrValue("RETURN_at_01");
+					Navigation.CurrentLevel.SetEntry("RETURN_at_01", null);
+				}
+				FillDependant_Fr_001TableAt_01F_001(lazyLoad);
+				return;
+			}
+
+			if (fr_001__at_01f_001___DoLoad)
+			{
+				List<ColumnSort> sorts = new List<ColumnSort>();
+				ColumnSort requestedSort = GetRequestSort(TableAt_01F_001, "sTableAt_01F_001", "dTableAt_01F_001", qs, "at_01");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAat_01.FldCountry), SortOrder.Ascending));
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TableAt_01F_001_tableFilters"]))
+					TableAt_01F_001.TableFilters = bool.Parse(qs["TableAt_01F_001_tableFilters"]);
+				else
+					TableAt_01F_001.TableFilters = false;
+
+				query = qs["qTableAt_01F_001"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioAat_01.FldCountry, query + "%");
+				}
+				fr_001__at_01f_001___Conds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTableAt_01F_001"] != null ? qs["pTableAt_01F_001"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = new FieldRef[] { CSGenioAat_01.FldCodt_003, CSGenioAat_01.FldCountry, CSGenioAat_01.FldZzstate };
+
+// USE /[MANUAL RMS OVERRQ FR_001_AT_01F_001]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("at_01", FormMode.New) || Navigation.checkFormMode("at_01", FormMode.Duplicate))
+					fr_001__at_01f_001___Conds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAat_01.FldZzstate, 0)
+						.Equal(CSGenioAat_01.FldCodt_003, Navigation.GetStrValue("at_01")));
+				else
+					fr_001__at_01f_001___Conds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAat_01.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("at_01", "country");
+				ListingMVC<CSGenioAat_01> listing = Models.ModelBase.Where<CSGenioAat_01>(m_userContext, false, fr_001__at_01f_001___Conds, fields, offset, numberItems, sorts, "LED_FR_001__AT_01F_001___", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TableAt_01F_001.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableAt_01F_001.Query = query;
+				TableAt_01F_001.Elements = listing.RowsForViewModel<GenioMVC.Models.At_01>((r) => new GenioMVC.Models.At_01(m_userContext, r, true, _fieldsToSerialize_FR_001__AT_01F_001___));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_at_01") != null)
+				{
+					this.ValF_006 = Navigation.GetStrValue("RETURN_at_01");
+					Navigation.CurrentLevel.SetEntry("RETURN_at_01", null);
+				}
+
+				TableAt_01F_001.List = new SelectList(TableAt_01F_001.Elements.ToSelectList(x => x.ValCountry, x => x.ValCodt_003,  x => x.ValCodt_003 == this.ValF_006), "Value", "Text", this.ValF_006);
+				FillDependant_Fr_001TableAt_01F_001();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TableAt_01F_001 (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of At_01</param>
+		public ConcurrentDictionary<string, object> GetDependant_Fr_001TableAt_01F_001(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioAat_01.FldCodt_003, CSGenioAat_01.FldCountry];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioAat_01 tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioAat_01.FldCodt_003, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TableAt_01F_001 (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_Fr_001TableAt_01F_001(bool lazyLoad = false)
+		{
+			var row = GetDependant_Fr_001TableAt_01F_001(this.ValF_006);
+			try
+			{
+
+				// Fill List fields
+				this.ValF_006 = ViewModelConversion.ToString(row["at_01.codt_003"]);
+				TableAt_01F_001.Value = (string)row["at_01.country"];
+				if (GenFunctions.emptyG(this.ValF_006) == 1)
+				{
+					this.ValF_006 = "";
+					TableAt_01F_001.Value = "";
+					Navigation.ClearValue("at_01");
+				}
+				else if (lazyLoad)
+				{
+					TableAt_01F_001.SetPagination(1, 0, false, false, 1);
+					TableAt_01F_001.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValF_006),
+							Text = Convert.ToString(TableAt_01F_001.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValF_006);
+				}
+
+				TableAt_01F_001.Selected = this.ValF_006;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableAt_01F_001): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_FR_001__AT_01F_001___ = ["At_01", "At_01.ValCodt_003", "At_01.ValZzstate", "At_01.ValCountry"];
+
+		/// <summary>
+		/// TableAt_02F_001 -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_Fr_001__at_02f_001___(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool fr_001__at_02f_001___DoLoad = true;
+			CriteriaSet fr_001__at_02f_001___Conds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("at_02", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					fr_001__at_02f_001___Conds.Equal(CSGenioAat_02.FldCodt_003, hValue);
+					this.ValF_007 = DBConversion.ToString(hValue);
+				}
+			}
+
+			TableAt_02F_001 = new TableDBEdit<Models.At_02>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_at_02") != null)
+				{
+					this.ValF_007 = Navigation.GetStrValue("RETURN_at_02");
+					Navigation.CurrentLevel.SetEntry("RETURN_at_02", null);
+				}
+				FillDependant_Fr_001TableAt_02F_001(lazyLoad);
+				return;
+			}
+
+			if (fr_001__at_02f_001___DoLoad)
+			{
+				List<ColumnSort> sorts = new List<ColumnSort>();
+				ColumnSort requestedSort = GetRequestSort(TableAt_02F_001, "sTableAt_02F_001", "dTableAt_02F_001", qs, "at_02");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAat_02.FldCountry), SortOrder.Ascending));
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TableAt_02F_001_tableFilters"]))
+					TableAt_02F_001.TableFilters = bool.Parse(qs["TableAt_02F_001_tableFilters"]);
+				else
+					TableAt_02F_001.TableFilters = false;
+
+				query = qs["qTableAt_02F_001"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioAat_02.FldCountry, query + "%");
+				}
+				fr_001__at_02f_001___Conds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTableAt_02F_001"] != null ? qs["pTableAt_02F_001"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = new FieldRef[] { CSGenioAat_02.FldCodt_003, CSGenioAat_02.FldCountry, CSGenioAat_02.FldZzstate };
+
+// USE /[MANUAL RMS OVERRQ FR_001_AT_02F_001]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("at_02", FormMode.New) || Navigation.checkFormMode("at_02", FormMode.Duplicate))
+					fr_001__at_02f_001___Conds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAat_02.FldZzstate, 0)
+						.Equal(CSGenioAat_02.FldCodt_003, Navigation.GetStrValue("at_02")));
+				else
+					fr_001__at_02f_001___Conds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAat_02.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("at_02", "country");
+				ListingMVC<CSGenioAat_02> listing = Models.ModelBase.Where<CSGenioAat_02>(m_userContext, false, fr_001__at_02f_001___Conds, fields, offset, numberItems, sorts, "LED_FR_001__AT_02F_001___", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TableAt_02F_001.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableAt_02F_001.Query = query;
+				TableAt_02F_001.Elements = listing.RowsForViewModel<GenioMVC.Models.At_02>((r) => new GenioMVC.Models.At_02(m_userContext, r, true, _fieldsToSerialize_FR_001__AT_02F_001___));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_at_02") != null)
+				{
+					this.ValF_007 = Navigation.GetStrValue("RETURN_at_02");
+					Navigation.CurrentLevel.SetEntry("RETURN_at_02", null);
+				}
+
+				TableAt_02F_001.List = new SelectList(TableAt_02F_001.Elements.ToSelectList(x => x.ValCountry, x => x.ValCodt_003,  x => x.ValCodt_003 == this.ValF_007), "Value", "Text", this.ValF_007);
+				FillDependant_Fr_001TableAt_02F_001();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TableAt_02F_001 (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of At_02</param>
+		public ConcurrentDictionary<string, object> GetDependant_Fr_001TableAt_02F_001(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioAat_02.FldCodt_003, CSGenioAat_02.FldCountry];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioAat_02 tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioAat_02.FldCodt_003, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TableAt_02F_001 (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_Fr_001TableAt_02F_001(bool lazyLoad = false)
+		{
+			var row = GetDependant_Fr_001TableAt_02F_001(this.ValF_007);
+			try
+			{
+
+				// Fill List fields
+				this.ValF_007 = ViewModelConversion.ToString(row["at_02.codt_003"]);
+				TableAt_02F_001.Value = (string)row["at_02.country"];
+				if (GenFunctions.emptyG(this.ValF_007) == 1)
+				{
+					this.ValF_007 = "";
+					TableAt_02F_001.Value = "";
+					Navigation.ClearValue("at_02");
+				}
+				else if (lazyLoad)
+				{
+					TableAt_02F_001.SetPagination(1, 0, false, false, 1);
+					TableAt_02F_001.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValF_007),
+							Text = Convert.ToString(TableAt_02F_001.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValF_007);
+				}
+
+				TableAt_02F_001.Selected = this.ValF_007;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableAt_02F_001): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_FR_001__AT_02F_001___ = ["At_02", "At_02.ValCodt_003", "At_02.ValZzstate", "At_02.ValCountry"];
+
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
 			return identifier switch
 			{
+				"t_001.f_006" => ViewModelConversion.ToString(modelValue),
+				"t_001.f_007" => ViewModelConversion.ToString(modelValue),
 				"t_001.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_001.name" => ViewModelConversion.ToString(modelValue),
 				"t_001.email" => ViewModelConversion.ToString(modelValue),
 				"t_001.dobirth" => ViewModelConversion.ToDateTime(modelValue),
 				"t_001.tel" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.codt_001" => ViewModelConversion.ToString(modelValue),
+				"at_01.codt_003" => ViewModelConversion.ToString(modelValue),
+				"at_01.country" => ViewModelConversion.ToString(modelValue),
+				"at_02.codt_003" => ViewModelConversion.ToString(modelValue),
+				"at_02.country" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}

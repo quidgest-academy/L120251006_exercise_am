@@ -113,6 +113,26 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "f_006", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Country of Origin";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "COUNTRY_OF_ORIGIN50623";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "f_007", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Country of Residence";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "COUNTRY_OF_RESIDENCE24197";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -132,6 +152,8 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
+			info.ParentTables.Add("at_01", new Relation("RMS", "rmst_agent", "t_001", "codt_001", "f_006", "RMS", "rmscountry", "at_01", "codt_003", "codt_003"));
+			info.ParentTables.Add("at_02", new Relation("RMS", "rmst_agent", "t_001", "codt_001", "f_007", "RMS", "rmscountry", "at_02", "codt_003", "codt_003"));
 		}
 
 		/// <summary>
@@ -141,7 +163,9 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(0);
+			info.Pathways = new Dictionary<string, string>(2);
+			info.Pathways.Add("at_01","at_01");
+			info.Pathways.Add("at_02","at_02");
 		}
 
 		/// <summary>
@@ -327,6 +351,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTel, value); }
 		}
 
+		/// <summary>Field : "Country of Origin" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldF_006 { get { return m_fldF_006; } }
+		private static FieldRef m_fldF_006 = new FieldRef("t_001", "f_006");
+
+		/// <summary>Field : "Country of Origin" Tipo: "CE" Formula:  ""</summary>
+		public string ValF_006
+		{
+			get { return (string)returnValueField(FldF_006); }
+			set { insertNameValueField(FldF_006, value); }
+		}
+
+		/// <summary>Field : "Country of Residence" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldF_007 { get { return m_fldF_007; } }
+		private static FieldRef m_fldF_007 = new FieldRef("t_001", "f_007");
+
+		/// <summary>Field : "Country of Residence" Tipo: "CE" Formula:  ""</summary>
+		public string ValF_007
+		{
+			get { return (string)returnValueField(FldF_007); }
+			set { insertNameValueField(FldF_007, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_001", "zzstate");
@@ -424,7 +470,7 @@ namespace CSGenio.business
 
  
 
-       
+         
 
 	}
 }

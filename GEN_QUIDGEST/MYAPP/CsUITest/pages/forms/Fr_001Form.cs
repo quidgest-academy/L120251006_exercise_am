@@ -32,6 +32,18 @@ public class Fr_001Form : Form
 	/// </summary>
 	public BaseInputControl T_001F_005 => new BaseInputControl(driver, ContainerLocator, "container-FR_001__T_001F_005___", "#FR_001__T_001F_005___");
 
+	/// <summary>
+	/// Country of Origin
+	/// </summary>
+	public LookupControl At_01F_001 => new LookupControl(driver, ContainerLocator, "container-FR_001__AT_01F_001___");
+	public SeeMorePage At_01F_001SeeMorePage => new SeeMorePage(driver, "FR_001", "FR_001__AT_01F_001___");
+
+	/// <summary>
+	/// Country of Residence
+	/// </summary>
+	public LookupControl At_02F_001 => new LookupControl(driver, ContainerLocator, "container-FR_001__AT_02F_001___");
+	public SeeMorePage At_02F_001SeeMorePage => new SeeMorePage(driver, "FR_001", "FR_001__AT_02F_001___");
+
 	public Fr_001Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_001", containerLocator: containerLocator) { }
 }

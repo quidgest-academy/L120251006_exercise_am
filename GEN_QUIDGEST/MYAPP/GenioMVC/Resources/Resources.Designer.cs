@@ -333,6 +333,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Countries of Origin"
+		/// </summary>
+		public static string COUNTRIES_OF_ORIGIN02195 {
+			get {
+				return ResourceManager.GetString("COUNTRIES_OF_ORIGIN02195", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Countries"
 		/// </summary>
 		public static string COUNTRIES64527 {
@@ -419,6 +428,15 @@ namespace GenioMVC.Resources
 		public static string EM_FILA_DE_ESPERA21822 {
 			get {
 				return ResourceManager.GetString("EM_FILA_DE_ESPERA21822", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Country of Origin"
+		/// </summary>
+		public static string COUNTRY_OF_ORIGIN50623 {
+			get {
+				return ResourceManager.GetString("COUNTRY_OF_ORIGIN50623", resourceCulture);
 			}
 		}
 
@@ -1053,6 +1071,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Country of Residence"
+		/// </summary>
+		public static string COUNTRY_OF_RESIDENCE24197 {
+			get {
+				return ResourceManager.GetString("COUNTRY_OF_RESIDENCE24197", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Request date"
 		/// </summary>
 		public static string REQUEST_DATE25771 {
@@ -1265,6 +1292,15 @@ namespace GenioMVC.Resources
 		public static string USER_PROFILES41435 {
 			get {
 				return ResourceManager.GetString("USER_PROFILES41435", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Countries of Residence"
+		/// </summary>
+		public static string COUNTRIES_OF_RESIDEN59146 {
+			get {
+				return ResourceManager.GetString("COUNTRIES_OF_RESIDEN59146", resourceCulture);
 			}
 		}
 

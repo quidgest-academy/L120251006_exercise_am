@@ -159,32 +159,6 @@ namespace CSGenio.business
             }
                 
 
-            /* --- RMST_Agent --- */
-            dm = sp.Execute(
-                new SelectQuery()
-                .Select(CSGenioAt_001.FldCodt_001)
-                .From(CSGenioAt_001.AreaT_001)
-                .Where(CriteriaSet.And().In(CSGenioAt_001.FldZzstate, zzstateToRemove))
-                );
-
-            for (int i = 0; i < dm.NumRows; i++)
-            {
-                CSGenioAt_001 model = new CSGenioAt_001(user);
-                model.ValCodt_001 = dm.GetKey(i, 0);
-
-                try
-                {
-                    model.delete(sp);
-                }
-                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
-                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
-                catch(BusinessException ex)
-                {
-                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
-                }
-            }
-                
-
             /* --- RMSCountry --- */
             dm = sp.Execute(
                 new SelectQuery()
@@ -301,6 +275,32 @@ namespace CSGenio.business
             {
                 CSGenioAt_004 model = new CSGenioAt_004(user);
                 model.ValCodt_004 = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- RMST_Agent --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_001.FldCodt_001)
+                .From(CSGenioAt_001.AreaT_001)
+                .Where(CriteriaSet.And().In(CSGenioAt_001.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_001 model = new CSGenioAt_001(user);
+                model.ValCodt_001 = dm.GetKey(i, 0);
 
                 try
                 {

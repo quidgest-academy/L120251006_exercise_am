@@ -58,6 +58,46 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValTel { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTel, 0)); } set { klass.ValTel = Convert.ToDecimal(value); } }
 
+		[DisplayName("Country of Origin")]
+		/// <summary>Field : "Country of Origin" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("T_001.ValF_006")]
+		public string ValF_006 { get { return klass.ValF_006; } set { klass.ValF_006 = value; } }
+
+		private At_01 _at_01;
+		[DisplayName("At_01")]
+		[ShouldSerialize("At_01")]
+		public virtual At_01 At_01
+		{
+			get
+			{
+				if (!isEmptyModel && (_at_01 == null || (!string.IsNullOrEmpty(ValF_006) && (_at_01.isEmptyModel || _at_01.klass.QPrimaryKey != ValF_006))))
+					_at_01 = Models.At_01.Find(ValF_006, m_userContext, Identifier, _fieldsToSerialize);
+				_at_01 ??= new Models.At_01(m_userContext, true, _fieldsToSerialize);
+				return _at_01;
+			}
+			set { _at_01 = value; }
+		}
+
+		[DisplayName("Country of Residence")]
+		/// <summary>Field : "Country of Residence" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("T_001.ValF_007")]
+		public string ValF_007 { get { return klass.ValF_007; } set { klass.ValF_007 = value; } }
+
+		private At_02 _at_02;
+		[DisplayName("At_02")]
+		[ShouldSerialize("At_02")]
+		public virtual At_02 At_02
+		{
+			get
+			{
+				if (!isEmptyModel && (_at_02 == null || (!string.IsNullOrEmpty(ValF_007) && (_at_02.isEmptyModel || _at_02.klass.QPrimaryKey != ValF_007))))
+					_at_02 = Models.At_02.Find(ValF_007, m_userContext, Identifier, _fieldsToSerialize);
+				_at_02 ??= new Models.At_02(m_userContext, true, _fieldsToSerialize);
+				return _at_02;
+			}
+			set { _at_02 = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_001.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -89,6 +129,14 @@ namespace GenioMVC.Models
 			{
 				switch (Qfield.Area)
 				{
+					case "at_01":
+						_at_01 ??= new At_01(m_userContext, true, _fieldsToSerialize);
+						_at_01.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "at_02":
+						_at_02 ??= new At_02(m_userContext, true, _fieldsToSerialize);
+						_at_02.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
 					default:
 						break;
 				}

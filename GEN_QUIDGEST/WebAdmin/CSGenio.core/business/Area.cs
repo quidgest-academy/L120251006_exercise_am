@@ -30,6 +30,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaT_002 = new AreaRef("RMS", "rmsproperty", "t_002");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("RMS", "asyncprocess", "s_apr");
+        public static AreaRef AreaAT_02 { get { return m_AreaAT_02; } }
+        private static AreaRef m_AreaAT_02 = new AreaRef("RMS", "rmscountry", "at_02");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("RMS", "asyncprocessargument", "s_arg");
         public static AreaRef AreaT_006 { get { return m_AreaT_006; } }
@@ -46,6 +48,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_NM = new AreaRef("RMS", "notificationmessage", "s_nm");
         public static AreaRef AreaS_PAX { get { return m_AreaS_PAX; } }
         private static AreaRef m_AreaS_PAX = new AreaRef("RMS", "asyncprocessattachments", "s_pax");
+        public static AreaRef AreaAT_01 { get { return m_AreaAT_01; } }
+        private static AreaRef m_AreaAT_01 = new AreaRef("RMS", "rmscountry", "at_01");
         public static AreaRef AreaT_003 { get { return m_AreaT_003; } }
         private static AreaRef m_AreaT_003 = new AreaRef("RMS", "rmscountry", "t_003");
         //areas hardcoded
@@ -84,6 +88,7 @@ namespace CSGenio.business
             "t_004",
             "t_002",
             "s_apr",
+            "at_02",
             "s_arg",
             "t_006",
             "psw",
@@ -92,6 +97,7 @@ namespace CSGenio.business
             "t_005",
             "s_nm",
             "s_pax",
+            "at_01",
             "t_003",
         });
 

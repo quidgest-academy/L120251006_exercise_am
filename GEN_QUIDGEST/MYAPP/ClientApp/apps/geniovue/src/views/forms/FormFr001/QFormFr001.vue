@@ -189,6 +189,50 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container v-if="controls.FR_001__AT_01F_001___.isVisible || controls.FR_001__AT_02F_001___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_001__AT_01F_001___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_001__AT_01F_001___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_001__AT_01F_001___"
+							v-on="controls.FR_001__AT_01F_001___.handlers"
+							:loading="controls.FR_001__AT_01F_001___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.FR_001__AT_01F_001___.isVisible"
+								v-bind="controls.FR_001__AT_01F_001___.props"
+								v-on="controls.FR_001__AT_01F_001___.handlers" />
+							<q-see-more-fr001-at01f001
+								v-if="controls.FR_001__AT_01F_001___.seeMoreIsVisible"
+								v-bind="controls.FR_001__AT_01F_001___.seeMoreParams"
+								v-on="controls.FR_001__AT_01F_001___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.FR_001__AT_02F_001___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_001__AT_02F_001___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_001__AT_02F_001___"
+							v-on="controls.FR_001__AT_02F_001___.handlers"
+							:loading="controls.FR_001__AT_02F_001___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.FR_001__AT_02F_001___.isVisible"
+								v-bind="controls.FR_001__AT_02F_001___.props"
+								v-on="controls.FR_001__AT_02F_001___.handlers" />
+							<q-see-more-fr001-at02f001
+								v-if="controls.FR_001__AT_02F_001___.seeMoreIsVisible"
+								v-bind="controls.FR_001__AT_02F_001___.seeMoreParams"
+								v-on="controls.FR_001__AT_02F_001___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -259,6 +303,8 @@
 		name: 'QFormFr001',
 
 		components: {
+			QSeeMoreFr001At01f001: defineAsyncComponent(() => import('@/views/forms/FormFr001/dbedits/Fr001At01f001SeeMore.vue')),
+			QSeeMoreFr001At02f001: defineAsyncComponent(() => import('@/views/forms/FormFr001/dbedits/Fr001At02f001SeeMore.vue')),
 		},
 
 		mixins: [
@@ -605,6 +651,62 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_001__AT_01F_001___: new fieldControlClass.LookupControl({
+						modelField: 'TableAt_01F_001',
+						valueChangeEvent: 'fieldChange:at_01.country',
+						id: 'FR_001__AT_01F_001___',
+						name: 'F_001',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.COUNTRY_OF_ORIGIN50623),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValF_006',
+							dependencyEvent: 'fieldChange:t_001.f_006'
+						},
+						dependentFields: () => ({
+							set 'at_01.codt_003'(value) { vm.model.ValF_006.updateValue(value) },
+							set 'at_01.country'(value) { vm.model.TableAt_01F_001.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
+					FR_001__AT_02F_001___: new fieldControlClass.LookupControl({
+						modelField: 'TableAt_02F_001',
+						valueChangeEvent: 'fieldChange:at_02.country',
+						id: 'FR_001__AT_02F_001___',
+						name: 'F_001',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.COUNTRY_OF_RESIDENCE24197),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValF_007',
+							dependencyEvent: 'fieldChange:t_001.f_007'
+						},
+						dependentFields: () => ({
+							set 'at_02.codt_003'(value) { vm.model.ValF_007.updateValue(value) },
+							set 'at_02.country'(value) { vm.model.TableAt_02F_001.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -627,6 +729,14 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
+					At_01: {
+						get ValCountry() { return vm.model.TableAt_01F_001.value },
+						set ValCountry(value) { vm.model.TableAt_01F_001.updateValue(value) },
+					},
+					At_02: {
+						get ValCountry() { return vm.model.TableAt_02F_001.value },
+						set ValCountry(value) { vm.model.TableAt_02F_001.updateValue(value) },
+					},
 					T_001: {
 						get ValName() { return vm.model.ValName.value },
 						set ValName(value) { vm.model.ValName.updateValue(value) },
@@ -638,10 +748,18 @@
 						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
 						get ValTel() { return vm.model.ValTel.value },
 						set ValTel(value) { vm.model.ValTel.updateValue(value) },
+						get ValF_006() { return vm.model.ValF_006.value },
+						set ValF_006(value) { vm.model.ValF_006.updateValue(value) },
+						get ValF_007() { return vm.model.ValF_007.value },
+						set ValF_007(value) { vm.model.ValF_007.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_001 table */
 						get t_001() { return vm.model.ValCodt_001 },
+						/** The foreign key to the AT_01 table */
+						get at_01() { return vm.model.ValF_006 },
+						/** The foreign key to the AT_02 table */
+						get at_02() { return vm.model.ValF_007 },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

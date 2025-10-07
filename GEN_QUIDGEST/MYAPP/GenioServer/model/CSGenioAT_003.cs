@@ -79,8 +79,9 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
-			info.ChildTable = new ChildRelation[1];
+			info.ChildTable = new ChildRelation[2];
 			info.ChildTable[0]= new ChildRelation("t_004", new String[] {"codt_003"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("t_001", new String[] {"f_007","f_006"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------

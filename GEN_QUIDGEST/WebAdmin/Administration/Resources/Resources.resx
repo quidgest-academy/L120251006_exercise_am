@@ -207,6 +207,9 @@
   <data name="PROCESS_ID11161" xml:space="preserve">
     <value>Process ID</value>
   </data>
+  <data name="COUNTRIES_OF_ORIGIN02195" xml:space="preserve">
+    <value>Countries of Origin</value>
+  </data>
   <data name="COUNTRIES64527" xml:space="preserve">
     <value>Countries</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
     <value>Em fila de espera</value>
+  </data>
+  <data name="COUNTRY_OF_ORIGIN50623" xml:space="preserve">
+    <value>Country of Origin</value>
   </data>
   <data name="EMAIL_CONTACT20056" xml:space="preserve">
     <value>Email Contact</value>
@@ -447,6 +453,9 @@
   <data name="INDIVIDUAL42893" xml:space="preserve">
     <value>Individual</value>
   </data>
+  <data name="COUNTRY_OF_RESIDENCE24197" xml:space="preserve">
+    <value>Country of Residence</value>
+  </data>
   <data name="REQUEST_DATE25771" xml:space="preserve">
     <value>Request date</value>
   </data>
@@ -518,6 +527,9 @@
   </data>
   <data name="USER_PROFILES41435" xml:space="preserve">
     <value>User Profiles</value>
+  </data>
+  <data name="COUNTRIES_OF_RESIDEN59146" xml:space="preserve">
+    <value>Countries of Residence</value>
   </data>
   <data name="PHOTO51874" xml:space="preserve">
     <value>Photo</value>

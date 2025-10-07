@@ -45,5 +45,13 @@ UPDATE [RMSPHOTOALBUM]
 SET [CODT_002] = NULL
 where [CODT_002] in (0);
 GO
+--RMST_AGENT | Ver.: 2505
+UPDATE [RMST_AGENT]
+SET [F_006] = NULL
+where [F_006] in (0);
+UPDATE [RMST_AGENT]
+SET [F_007] = NULL
+where [F_007] in (0);
+GO
 
 

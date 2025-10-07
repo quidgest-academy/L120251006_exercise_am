@@ -53,6 +53,27 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodt_001))
 		this.stopWatchers.push(watch(() => this.ValCodt_001.value, (newValue, oldValue) => this.onUpdate('t_001.codt_001', this.ValCodt_001, newValue, oldValue)))
 
+		/** The used foreign keys. */
+		this.ValF_006 = reactive(new modelFieldType.ForeignKey({
+			id: 'ValF_006',
+			originId: 'ValF_006',
+			area: 'T_001',
+			field: 'F_006',
+			relatedArea: 'AT_01',
+			description: computed(() => this.Resources.COUNTRY_OF_ORIGIN50623),
+		}).cloneFrom(values?.ValF_006))
+		this.stopWatchers.push(watch(() => this.ValF_006.value, (newValue, oldValue) => this.onUpdate('t_001.f_006', this.ValF_006, newValue, oldValue)))
+
+		this.ValF_007 = reactive(new modelFieldType.ForeignKey({
+			id: 'ValF_007',
+			originId: 'ValF_007',
+			area: 'T_001',
+			field: 'F_007',
+			relatedArea: 'AT_02',
+			description: computed(() => this.Resources.COUNTRY_OF_RESIDENCE24197),
+		}).cloneFrom(values?.ValF_007))
+		this.stopWatchers.push(watch(() => this.ValF_007.value, (newValue, oldValue) => this.onUpdate('t_001.f_007', this.ValF_007, newValue, oldValue)))
+
 		/** The remaining form fields. */
 		this.ValPhoto = reactive(new modelFieldType.Image({
 			id: 'ValPhoto',
@@ -103,6 +124,28 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.TELEPHONE28697),
 		}).cloneFrom(values?.ValTel))
 		this.stopWatchers.push(watch(() => this.ValTel.value, (newValue, oldValue) => this.onUpdate('t_001.tel', this.ValTel, newValue, oldValue)))
+
+		this.TableAt_01F_001 = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableAt_01F_001',
+			originId: 'ValCountry',
+			area: 'AT_01',
+			field: 'F_001',
+			maxLength: 50,
+			description: computed(() => this.Resources.COUNTRY_NAME26113),
+		}).cloneFrom(values?.TableAt_01F_001))
+		this.stopWatchers.push(watch(() => this.TableAt_01F_001.value, (newValue, oldValue) => this.onUpdate('at_01.country', this.TableAt_01F_001, newValue, oldValue)))
+
+		this.TableAt_02F_001 = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableAt_02F_001',
+			originId: 'ValCountry',
+			area: 'AT_02',
+			field: 'F_001',
+			maxLength: 50,
+			description: computed(() => this.Resources.COUNTRY_NAME26113),
+		}).cloneFrom(values?.TableAt_02F_001))
+		this.stopWatchers.push(watch(() => this.TableAt_02F_001.value, (newValue, oldValue) => this.onUpdate('at_02.country', this.TableAt_02F_001, newValue, oldValue)))
 	}
 
 	/**

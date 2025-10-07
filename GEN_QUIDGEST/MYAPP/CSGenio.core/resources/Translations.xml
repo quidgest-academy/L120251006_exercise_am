@@ -90,6 +90,9 @@
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
   </msg>
+  <msg id="Countries of Origin" code="COUNTRIES_OF_ORIGIN02195">
+    <ENUS>Countries of Origin</ENUS>
+  </msg>
   <msg id="Countries" code="COUNTRIES64527">
     <ENUS>Countries</ENUS>
   </msg>
@@ -119,6 +122,9 @@
   </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
+  </msg>
+  <msg id="Country of Origin" code="COUNTRY_OF_ORIGIN50623">
+    <ENUS>Country of Origin</ENUS>
   </msg>
   <msg id="Email Contact" code="EMAIL_CONTACT20056">
     <ENUS>Email Contact</ENUS>
@@ -330,6 +336,9 @@
   <msg id="Individual" code="INDIVIDUAL42893">
     <ENUS>Individual</ENUS>
   </msg>
+  <msg id="Country of Residence" code="COUNTRY_OF_RESIDENCE24197">
+    <ENUS>Country of Residence</ENUS>
+  </msg>
   <msg id="Request date" code="REQUEST_DATE25771">
     <ENUS>Request date</ENUS>
   </msg>
@@ -401,6 +410,9 @@
   </msg>
   <msg id="User Profiles" code="USER_PROFILES41435">
     <ENUS>User Profiles</ENUS>
+  </msg>
+  <msg id="Countries of Residence" code="COUNTRIES_OF_RESIDEN59146">
+    <ENUS>Countries of Residence</ENUS>
   </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
