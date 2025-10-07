@@ -194,7 +194,7 @@ namespace GenioMVC.ViewModels.T_002
 		protected override void InitLevels()
 		{
 			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
-			this.RoleToEdit = CSGenio.framework.Role.ROLE_1;
+			this.RoleToEdit = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		#region Form conditions
