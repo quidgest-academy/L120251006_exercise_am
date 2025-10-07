@@ -331,7 +331,7 @@
 							{
 								id: 'LIST',
 								type: 'list',
-								subtype: 'card-img-top',
+								subtype: '',
 								label: computed(() => this.Resources.LISTA13474),
 								order: 1,
 								mappingVariables: readonly({
