@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.T_001;
+namespace GenioMVC.ViewModels.T_002;
 
-public class RMS_Menu_41_RowViewModel : Models.T_001
+public class RMS_Menu_11_RowViewModel : Models.T_002
 {
 	#region Constructors
 
-	public RMS_Menu_41_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public RMS_Menu_11_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public RMS_Menu_41_RowViewModel(UserContext userContext, CSGenioAt_001 val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public RMS_Menu_11_RowViewModel(UserContext userContext, CSGenioAt_002 val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,26 +36,20 @@ public class RMS_Menu_41_RowViewModel : Models.T_001
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "T_001",
-				Field = "EMAIL",
-			},
-			new ListColumn()
-			{
-				Order = 2,
-				Area = "T_001",
+				Area = "T_002",
 				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
-				Order = 3,
-				Area = "T_001",
-				Field = "NAME",
+				Order = 2,
+				Area = "T_002",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
-				Order = 4,
-				Area = "T_001",
-				Field = "DOBIRTH",
+				Order = 3,
+				Area = "T_002",
+				Field = "PRICE",
 			},
 		];
 	}

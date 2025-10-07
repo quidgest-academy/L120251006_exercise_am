@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuRMS_31ViewModel.js'
+	import MenuViewModel from './QMenuRMS_321ViewModel.js'
 
-	const requiredTextResources = ['QMenuRMS_31', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuRMS_321', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_31]/
+// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_321]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuRms31',
+		name: 'QMenuRms321',
 
 		mixins: [
 			MenuHandlers
@@ -110,23 +110,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_31', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_321', false),
 
 				interfaceMetadata: {
-					id: 'QMenuRMS_31', // Used for resources
+					id: 'QMenuRMS_321', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '31',
+					id: '321',
 					isMenuList: true,
-					designation: computed(() => this.Resources.PHOTO_ALBUMS41529),
-					acronym: 'RMS_31',
-					name: 'T_006',
-					route: 'menu-RMS_31',
-					order: '31',
-					controller: 'T_006',
-					action: 'RMS_Menu_31',
+					designation: computed(() => this.Resources.COUNTRIES64527),
+					acronym: 'RMS_321',
+					name: 'T_003',
+					route: 'menu-RMS_321',
+					order: '321',
+					controller: 'T_003',
+					action: 'RMS_Menu_321',
 					isPopup: false
 				},
 
@@ -135,9 +135,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'RMS_Menu_31',
-						controller: 'T_006',
-						action: 'RMS_Menu_31',
+						id: 'RMS_Menu_321',
+						controller: 'T_003',
+						action: 'RMS_Menu_321',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -145,46 +145,25 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ImageColumn({
+							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValPhoto',
-								area: 'T_006',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO51874),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'ValDescription',
-								area: 'T_006',
-								field: 'DESCRIPTION',
-								label: computed(() => this.Resources.DESCRIPTION07383),
-								dataLength: 200,
-								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'T_002.ValTitle',
-								area: 'T_002',
-								field: 'TITLE',
-								label: computed(() => this.Resources.PROPERTY_TITLE56931),
+								name: 'ValCountry',
+								area: 'T_003',
+								field: 'COUNTRY',
+								label: computed(() => this.Resources.COUNTRY_NAME26113),
 								dataLength: 50,
 								scrollData: 30,
-								pkColumn: 'ValCodt_002',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'RMS_Menu_31',
+							name: 'RMS_Menu_321',
 							serverMode: true,
-							pkColumn: 'ValCodt_006',
-							tableAlias: 'T_006',
-							tableNamePlural: computed(() => this.Resources.PHOTO_ALBUMS41529),
+							pkColumn: 'ValCodt_003',
+							tableAlias: 'T_003',
+							tableNamePlural: computed(() => this.Resources.COUNTRIES64527),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.PHOTO_ALBUMS41529),
+							tableTitle: computed(() => this.Resources.COUNTRIES64527),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -207,7 +186,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_005',
+										formName: 'FR_003',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -223,7 +202,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_005',
+										formName: 'FR_003',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -239,7 +218,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_005',
+										formName: 'FR_003',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -255,7 +234,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_005',
+										formName: 'FR_003',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -273,7 +252,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_005',
+										formName: 'FR_003',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -289,35 +268,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_RMS_311',
-								name: 'form-FR_005',
+								id: 'RCA_RMS_3211',
+								name: 'form-FR_003',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodt_006
+											fnValueSelector: (row) => row.ValCodt_003
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_005'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_003'
 								}
 							},
 							formsDefinition: {
-								'FR_005': {
-									fnKeySelector: (row) => row.Fields.ValCodt_006,
+								'FR_003': {
+									fnKeySelector: (row) => row.Fields.ValCodt_003,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValDescription',
-							defaultSearchColumnNameOriginal: 'ValDescription',
+							defaultSearchColumnName: 'ValCountry',
+							defaultSearchColumnNameOriginal: 'ValCountry',
 							defaultColumnSorting: {
-								columnName: 'ValDescription',
+								columnName: 'ValCountry',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-T_006', 'changed-T_002'],
-						uuid: '45fc7122-3440-4dac-b8d7-0ec947e985a1',
+						globalEvents: ['changed-T_003'],
+						uuid: '5e245e6a-05e2-43ac-ba50-1e9ab89ea367',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 					}, this),
@@ -342,7 +321,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_31]/
+// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_321]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -350,18 +329,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_31]/
+// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_321]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FUNCTIONS_JS RMS_31]/
+// USE /[MANUAL RMS FUNCTIONS_JS RMS_321]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_31]/
+// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_321]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

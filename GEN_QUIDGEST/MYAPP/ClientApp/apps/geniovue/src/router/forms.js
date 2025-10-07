@@ -48,17 +48,6 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/FR_005/:mode/:id?',
-			name: 'form-FR_005',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormFr005/QFormFr005.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'T_006',
-				humanKeyFields: ['ValDescription']
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/FR_006/:mode/:id?',
 			name: 'form-FR_006',
 			props: route => propsConverter(route),

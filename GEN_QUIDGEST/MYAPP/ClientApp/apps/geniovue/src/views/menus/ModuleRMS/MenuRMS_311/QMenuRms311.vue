@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuRMS_41ViewModel.js'
+	import MenuViewModel from './QMenuRMS_311ViewModel.js'
 
-	const requiredTextResources = ['QMenuRMS_41', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuRMS_311', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_41]/
+// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_311]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuRms41',
+		name: 'QMenuRms311',
 
 		mixins: [
 			MenuHandlers
@@ -110,34 +110,34 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_41', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_311', false),
 
 				interfaceMetadata: {
-					id: 'QMenuRMS_41', // Used for resources
+					id: 'QMenuRMS_311', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '41',
+					id: '311',
 					isMenuList: true,
-					designation: computed(() => this.Resources.AGENTS29376),
-					acronym: 'RMS_41',
-					name: 'T_001',
-					route: 'menu-RMS_41',
-					order: '41',
-					controller: 'T_001',
-					action: 'RMS_Menu_41',
+					designation: computed(() => this.Resources.CITIES41573),
+					acronym: 'RMS_311',
+					name: 'T_004',
+					route: 'menu-RMS_311',
+					order: '311',
+					controller: 'T_004',
+					action: 'RMS_Menu_311',
 					isPopup: false
 				},
 
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableSpecialRenderingControl({
+					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'RMS_Menu_41',
-						controller: 'T_001',
-						action: 'RMS_Menu_41',
+						id: 'RMS_Menu_311',
+						controller: 'T_004',
+						action: 'RMS_Menu_311',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -147,52 +147,33 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValEmail',
-								area: 'T_001',
-								field: 'EMAIL',
-								label: computed(() => this.Resources.EMAIL25170),
+								name: 'T_003.ValCountry',
+								area: 'T_003',
+								field: 'COUNTRY',
+								label: computed(() => this.Resources.COUNTRY_NAME26113),
 								dataLength: 50,
 								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 2,
-								name: 'ValPhoto',
-								area: 'T_001',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PROFILE_PHOTO12166),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PROFILE_PHOTO12166)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
+								pkColumn: 'ValCodt_003',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValName',
-								area: 'T_001',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
+								order: 2,
+								name: 'ValCity',
+								area: 'T_004',
+								field: 'CITY',
+								label: computed(() => this.Resources.CITY42505),
 								dataLength: 50,
 								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 4,
-								name: 'ValDobirth',
-								area: 'T_001',
-								field: 'DOBIRTH',
-								label: computed(() => this.Resources.DATE_OF_BIRTH36542),
-								scrollData: 8,
-								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'RMS_Menu_41',
+							name: 'RMS_Menu_311',
 							serverMode: true,
-							pkColumn: 'ValCodt_001',
-							tableAlias: 'T_001',
-							tableNamePlural: computed(() => this.Resources.AGENTS29376),
+							pkColumn: 'ValCodt_004',
+							tableAlias: 'T_004',
+							tableNamePlural: computed(() => this.Resources.CITIES41573),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.AGENTS29376),
+							tableTitle: computed(() => this.Resources.CITIES41573),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -215,7 +196,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_004',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -231,7 +212,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_004',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -247,7 +228,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_004',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -263,7 +244,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_004',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -281,7 +262,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_004',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -297,51 +278,36 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_RMS_411',
-								name: 'form-FR_001',
+								id: 'RCA_RMS_3111',
+								name: 'form-FR_004',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodt_001
+											fnValueSelector: (row) => row.ValCodt_004
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_001'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_004'
 								}
 							},
 							formsDefinition: {
-								'FR_001': {
-									fnKeySelector: (row) => row.Fields.ValCodt_001,
+								'FR_004': {
+									fnKeySelector: (row) => row.Fields.ValCodt_004,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: 'ValCity',
+							defaultSearchColumnNameOriginal: 'ValCity',
 							defaultColumnSorting: {
-								columnName: 'ValEmail',
+								columnName: 'ValCity',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-T_001', 'changed-AT_01', 'changed-AT_02'],
-						uuid: '355990eb-6ea4-45a8-863a-d109e3ab68a5',
+						globalEvents: ['changed-T_004', 'changed-T_003'],
+						uuid: '81fe7569-1a75-4cc4-acac-ad39a98dad34',
 						allSelectedRows: 'false',
-						viewModes: [
-							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 1,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-						],
 						headerLevel: 1,
 					}, this),
 				}
@@ -365,7 +331,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_41]/
+// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_311]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -373,18 +339,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_41]/
+// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_311]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FUNCTIONS_JS RMS_41]/
+// USE /[MANUAL RMS FUNCTIONS_JS RMS_311]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_41]/
+// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_311]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.T_006;
+namespace GenioMVC.ViewModels.T_004;
 
-public class Fr_005_T_002ValTitle_RowViewModel : Models.T_002
+public class RMS_Menu_311_RowViewModel : Models.T_004
 {
 	#region Constructors
 
-	public Fr_005_T_002ValTitle_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public RMS_Menu_311_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Fr_005_T_002ValTitle_RowViewModel(UserContext userContext, CSGenioAt_002 val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public RMS_Menu_311_RowViewModel(UserContext userContext, CSGenioAt_004 val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,14 @@ public class Fr_005_T_002ValTitle_RowViewModel : Models.T_002
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "T_002",
-				Field = "TITLE",
+				Area = "T_003",
+				Field = "COUNTRY",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "T_004",
+				Field = "CITY",
 			},
 		];
 	}
@@ -52,6 +58,10 @@ public class Fr_005_T_002ValTitle_RowViewModel : Models.T_002
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{
