@@ -151,7 +151,7 @@ namespace GenioMVC.ViewModels.T_003
 			try
 			{
 				// (FR_003 form condition) [UserLevel]<30
-				if (!(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30))
+				if (!isApply && !(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30))
 				{
 					var status = Status.E;
 					StatusMessage message = new(status, Resources.Resources.NO_ACESS62326); // Message: "No acess"
