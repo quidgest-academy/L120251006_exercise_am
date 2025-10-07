@@ -101,7 +101,7 @@ namespace GenioMVC.ViewModels.T_002
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldSize, CSGenioAt_002.FldTypology, CSGenioAt_002.FldType, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldYearbuilt, CSGenioAt_002.FldTitle, CSGenioAt_002.FldCodt_001, CSGenioAt_001.FldCodt_001, CSGenioAt_001.FldEmail, CSGenioAt_002.FldBathnumber, CSGenioAt_002.FldPrice, CSGenioAt_002.FldCodt_004, CSGenioAt_004.FldCodt_004, CSGenioAt_004.FldCity };
+			FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldSize, CSGenioAt_002.FldTypology, CSGenioAt_002.FldType, CSGenioAt_002.FldBathnumber, CSGenioAt_002.FldCodt_004, CSGenioAt_004.FldCodt_004, CSGenioAt_004.FldCity, CSGenioAt_002.FldYearbuilt, CSGenioAt_002.FldPrice };
 
 			ListingMVC<CSGenioAt_002> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -131,7 +131,7 @@ namespace GenioMVC.ViewModels.T_002
 		/// <param name="userContext">The current user request context</param>
 		public RMS_Menu_411_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ROLE_30;
 		}
 
 		/// <summary>
@@ -149,15 +149,14 @@ namespace GenioMVC.ViewModels.T_002
 		{
 			return
 			[
+				new Exports.QColumn(CSGenioAt_002.FldTitle, FieldType.TEXT, Resources.Resources.PROPERTY_TITLE56931, 30, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldSize, FieldType.NUMERIC, Resources.Resources.SIZE10299, 10, 3, true),
 				new Exports.QColumn(CSGenioAt_002.FldTypology, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPOLOGY07362, 5, 0, true, "E_02"),
 				new Exports.QColumn(CSGenioAt_002.FldType, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE39168, 10, 0, true, "E_01"),
-				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.NUMERIC, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldTitle, FieldType.TEXT, Resources.Resources.PROPERTY_TITLE56931, 30, 0, true),
-				new Exports.QColumn(CSGenioAt_001.FldEmail, FieldType.TEXT, Resources.Resources.EMAIL25170, 30, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldBathnumber, FieldType.NUMERIC, Resources.Resources.BATHROUMS_NUMBER42941, 2, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 12, 0, true),
 				new Exports.QColumn(CSGenioAt_004.FldCity, FieldType.TEXT, Resources.Resources.CITY42505, 30, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.NUMERIC, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 12, 0, true),
 			];
 		}
 
@@ -347,7 +346,7 @@ namespace GenioMVC.ViewModels.T_002
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldSize, CSGenioAt_002.FldTypology, CSGenioAt_002.FldType, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldYearbuilt, CSGenioAt_002.FldTitle, CSGenioAt_002.FldCodt_001, CSGenioAt_001.FldCodt_001, CSGenioAt_001.FldEmail, CSGenioAt_002.FldBathnumber, CSGenioAt_002.FldPrice, CSGenioAt_002.FldCodt_004, CSGenioAt_004.FldCodt_004, CSGenioAt_004.FldCity };
+				FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldSize, CSGenioAt_002.FldTypology, CSGenioAt_002.FldType, CSGenioAt_002.FldBathnumber, CSGenioAt_002.FldCodt_004, CSGenioAt_004.FldCodt_004, CSGenioAt_004.FldCity, CSGenioAt_002.FldYearbuilt, CSGenioAt_002.FldPrice };
 
 
 				// Totalizers
@@ -359,7 +358,7 @@ namespace GenioMVC.ViewModels.T_002
 				{
 					firstVisibleColumn = tableConfig?.getFirstVisibleColumn(TableAlias);
 
-					firstVisibleColumn ??= new FieldRef("t_002", "size");
+					firstVisibleColumn ??= new FieldRef("t_002", "photo");
 				}
 
 
@@ -511,8 +510,6 @@ namespace GenioMVC.ViewModels.T_002
 				{
 					case "t_002":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "t_001":
-						model.T_001.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "t_004":
 						model.T_004.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
@@ -567,20 +564,19 @@ namespace GenioMVC.ViewModels.T_002
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValSize", "T_002.ValTypology", "T_002.ValType", "T_002.ValPhoto", "T_002.ValYearbuilt", "T_002.ValTitle", "T_001", "T_001.ValEmail", "T_002.ValBathnumber", "T_002.ValPrice", "T_004", "T_004.ValCity", "T_002.ValCodt_001", "T_002.ValCodt_004"
+			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValPhoto", "T_002.ValTitle", "T_002.ValSize", "T_002.ValTypology", "T_002.ValType", "T_002.ValBathnumber", "T_004", "T_004.ValCity", "T_002.ValYearbuilt", "T_002.ValPrice", "T_002.ValCodt_001", "T_002.ValCodt_004"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
+			new TableSearchColumn("ValTitle", CSGenioAt_002.FldTitle, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValSize", CSGenioAt_002.FldSize, typeof(decimal?)),
 			new TableSearchColumn("ValTypology", CSGenioAt_002.FldTypology, typeof(string), array : "E_02"),
 			new TableSearchColumn("ValType", CSGenioAt_002.FldType, typeof(string), array : "E_01"),
-			new TableSearchColumn("ValYearbuilt", CSGenioAt_002.FldYearbuilt, typeof(decimal?)),
-			new TableSearchColumn("ValTitle", CSGenioAt_002.FldTitle, typeof(string), defaultSearch : true),
-			new TableSearchColumn("T_001_ValEmail", CSGenioAt_001.FldEmail, typeof(string)),
 			new TableSearchColumn("ValBathnumber", CSGenioAt_002.FldBathnumber, typeof(decimal?)),
-			new TableSearchColumn("ValPrice", CSGenioAt_002.FldPrice, typeof(decimal?)),
 			new TableSearchColumn("T_004_ValCity", CSGenioAt_004.FldCity, typeof(string)),
+			new TableSearchColumn("ValYearbuilt", CSGenioAt_002.FldYearbuilt, typeof(decimal?)),
+			new TableSearchColumn("ValPrice", CSGenioAt_002.FldPrice, typeof(decimal?)),
 		];
 		protected void SetTicketToImageFields(Models.T_002 row)
 		{

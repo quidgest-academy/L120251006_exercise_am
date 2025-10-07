@@ -193,7 +193,7 @@
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.AGENTS29376),
-							showAlternatePagination: true,
+							showRecordCount: true,
 							permissions: {
 							},
 							searchBarConfig: {
@@ -317,6 +317,8 @@
 									isPopup: false
 								},
 							},
+							allowFileExport: true,
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {

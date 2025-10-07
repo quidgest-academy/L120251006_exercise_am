@@ -164,7 +164,7 @@
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.COUNTRIES64527),
-							showAlternatePagination: true,
+							showRecordCount: true,
 							permissions: {
 							},
 							searchBarConfig: {
@@ -288,6 +288,7 @@
 									isPopup: false
 								},
 							},
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValCountry',
 							defaultSearchColumnNameOriginal: 'ValCountry',
 							defaultColumnSorting: {

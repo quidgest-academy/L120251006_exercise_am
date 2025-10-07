@@ -185,7 +185,7 @@
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.PROPERTIES34868),
-							showAlternatePagination: true,
+							showRecordCount: true,
 							permissions: {
 							},
 							searchBarConfig: {
@@ -309,6 +309,8 @@
 									isPopup: false
 								},
 							},
+							allowFileExport: true,
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValTitle',
 							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {

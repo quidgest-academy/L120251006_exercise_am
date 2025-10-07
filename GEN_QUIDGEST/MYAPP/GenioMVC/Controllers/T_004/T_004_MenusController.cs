@@ -107,6 +107,19 @@ namespace GenioMVC.Controllers
 
 // USE /[MANUAL RMS MENU_GET 311]/
 
+			if (querystring["ImportList"] != null && Convert.ToBoolean(querystring["ImportList"]) && querystring["ImportType"] != null)
+			{
+				string importType =  querystring["ImportType"];
+				string file = "RMS_Menu_311_Template" + "." + importType;
+				List<CSGenio.framework.Exports.QColumn> columns = null;
+				model.LoadToExportTemplate(out columns);
+				byte[] fileBytes = null;
+
+				fileBytes = new CSGenio.framework.Exports(UserContext.Current.User).ExportTemplate(columns, importType, file,ACTION_RMS_MENU_311.Name);
+
+				QCache.Instance.ExportFiles.Put(file, fileBytes);
+				return Json(GetJsonForDownloadExportFile(file, importType));
+			}
 
             try
             {
@@ -119,6 +132,63 @@ namespace GenioMVC.Controllers
 
 
 			return JsonOK(model);
+		}
+
+		//
+		// POST: /T_004/RMS_Menu_311_UploadFile
+		[HttpPost]
+		public ActionResult RMS_Menu_311_UploadFile(string importType, string qqfile) {
+			RMS_Menu_311_ViewModel model = new RMS_Menu_311_ViewModel(UserContext.Current);
+
+			PersistentSupport sp = UserContext.Current.PersistentSupport;
+			List<CSGenioAt_004> rows = new List<CSGenioAt_004>();
+			List<String> results = new List<String>();
+
+			try
+			{
+				var file = Request.Form.Files[0];
+				byte[] fileBytes = new byte[file.Length];
+				var mem = new MemoryStream(fileBytes);
+				file.CopyTo(mem);
+
+				List<CSGenio.framework.Exports.QColumn> columns = null;
+				model.LoadToExportTemplate(out columns);
+
+				rows = new CSGenio.framework.Exports( UserContext.Current.User).ImportList<CSGenioAt_004>(columns, importType, fileBytes);
+
+				sp.openTransaction();
+				int lineNumber = 0;
+				foreach (CSGenioAt_004 importRow in rows)
+				{
+					try
+					{
+						lineNumber++;
+						importRow.ValidateIfIsNull = true;
+						importRow.insertPseud(UserContext.Current.PersistentSupport);
+						importRow.change(UserContext.Current.PersistentSupport, (CriteriaSet)null);
+					}
+					catch (GenioException e)
+					{
+						string lineNumberMsg = String.Format(Resources.Resources.ERROR_IN_LINE__0__45377 + " ", lineNumber);
+						e.UserMessage = lineNumberMsg + e.UserMessage;
+						throw;
+					}
+				}
+				sp.closeTransaction();
+
+				results.Add(string.Format(Resources.Resources._0__LINHAS_IMPORTADA15937, rows.Count));
+
+				return Json(new { success = true, lines = results, msg = Resources.Resources.FICHEIRO_IMPORTADO_C51013 });
+			}
+			catch (GenioException e)
+			{
+				sp.rollbackTransaction();
+				sp.closeConnection();
+				CSGenio.framework.Log.Error(e.Message);
+				results.Add(e.UserMessage);
+
+				return Json(new { success = false, errors = results, msg = Resources.Resources.ERROR_IMPORTING_FILE09339 });
+			}
 		}
 
 

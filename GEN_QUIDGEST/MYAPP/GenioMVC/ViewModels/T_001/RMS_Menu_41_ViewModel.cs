@@ -126,7 +126,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="userContext">The current user request context</param>
 		public RMS_Menu_41_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ROLE_30;
 		}
 
 		/// <summary>

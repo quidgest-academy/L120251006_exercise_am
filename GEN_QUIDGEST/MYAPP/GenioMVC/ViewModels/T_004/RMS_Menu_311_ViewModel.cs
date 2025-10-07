@@ -101,7 +101,7 @@ namespace GenioMVC.ViewModels.T_004
 			// Checks for foreign tables in fields and conditions
 			FieldRef[] fields = new FieldRef[] { CSGenioAt_004.FldCodt_004, CSGenioAt_004.FldZzstate, CSGenioAt_004.FldCodt_003, CSGenioAt_003.FldCodt_003, CSGenioAt_003.FldCountry, CSGenioAt_004.FldCity };
 
-			ListingMVC<CSGenioAt_004> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAt_004> listing = new(fields, null, 1, 1, false, user, true, string.Empty, true);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
@@ -170,6 +170,19 @@ namespace GenioMVC.ViewModels.T_004
 
 			// Reset number of records to original value
 			tableConfig.RowsPerPage = rowsPerPage;
+		}
+
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAt_004.FldCity, FieldType.TEXT, Resources.Resources.CITY42505, 50, 0, true),
+				new Exports.QColumn(CSGenioAt_003.FldCountry, FieldType.TEXT, Resources.Resources.COUNTRY_NAME26113, 30, 0, true),
+			};
 		}
 
 		/// <inheritdoc/>
@@ -403,7 +416,7 @@ namespace GenioMVC.ViewModels.T_004
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAt_004> listing = Models.ModelBase.Where<CSGenioAt_004>(m_userContext, distinct, rms_menu_311Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML311", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAt_004> listing = Models.ModelBase.Where<CSGenioAt_004>(m_userContext, distinct, rms_menu_311Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML311", true, true, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;

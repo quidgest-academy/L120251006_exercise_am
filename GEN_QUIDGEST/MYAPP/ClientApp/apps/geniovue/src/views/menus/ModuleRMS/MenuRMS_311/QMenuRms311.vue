@@ -174,7 +174,7 @@
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.CITIES41573),
-							showAlternatePagination: true,
+							showRecordCount: true,
 							permissions: {
 							},
 							searchBarConfig: {
@@ -298,6 +298,7 @@
 									isPopup: false
 								},
 							},
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValCity',
 							defaultSearchColumnNameOriginal: 'ValCity',
 							defaultColumnSorting: {

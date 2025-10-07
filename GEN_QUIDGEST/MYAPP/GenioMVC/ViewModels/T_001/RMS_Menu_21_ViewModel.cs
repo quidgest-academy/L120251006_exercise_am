@@ -101,7 +101,7 @@ namespace GenioMVC.ViewModels.T_001
 			// Checks for foreign tables in fields and conditions
 			FieldRef[] fields = new FieldRef[] { CSGenioAt_001.FldCodt_001, CSGenioAt_001.FldZzstate, CSGenioAt_001.FldEmail, CSGenioAt_001.FldPhoto, CSGenioAt_001.FldName, CSGenioAt_001.FldDobirth };
 
-			ListingMVC<CSGenioAt_001> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAt_001> listing = new(fields, null, 1, 1, false, user, true, string.Empty, true);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
@@ -126,7 +126,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="userContext">The current user request context</param>
 		public RMS_Menu_21_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
 		}
 
 		/// <summary>
@@ -170,6 +170,22 @@ namespace GenioMVC.ViewModels.T_001
 
 			// Reset number of records to original value
 			tableConfig.RowsPerPage = rowsPerPage;
+		}
+
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAt_001.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 50, 0, true),
+				new Exports.QColumn(CSGenioAt_001.FldEmail, FieldType.TEXT, Resources.Resources.EMAIL25170, 50, 0, true),
+				new Exports.QColumn(CSGenioAt_001.FldDobirth, FieldType.DATE, Resources.Resources.DATE_OF_BIRTH36542, 8, 0, true),
+				new Exports.QColumn(CSGenioAt_001.FldPhoto, FieldType.IMAGE, Resources.Resources.PROFILE_PHOTO12166, 3, 0, true),
+				new Exports.QColumn(CSGenioAt_001.FldTel, FieldType.NUMERIC, Resources.Resources.TELEPHONE28697, 8, 0, true),
+			};
 		}
 
 		/// <inheritdoc/>
@@ -403,7 +419,7 @@ namespace GenioMVC.ViewModels.T_001
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAt_001> listing = Models.ModelBase.Where<CSGenioAt_001>(m_userContext, distinct, rms_menu_21Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML21", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAt_001> listing = Models.ModelBase.Where<CSGenioAt_001>(m_userContext, distinct, rms_menu_21Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML21", true, true, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;

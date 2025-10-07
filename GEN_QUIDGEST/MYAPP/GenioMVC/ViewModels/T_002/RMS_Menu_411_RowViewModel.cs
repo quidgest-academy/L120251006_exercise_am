@@ -37,61 +37,55 @@ public class RMS_Menu_411_RowViewModel : Models.T_002
 			{
 				Order = 1,
 				Area = "T_002",
-				Field = "SIZE",
+				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "T_002",
-				Field = "TYPOLOGY",
+				Field = "TITLE",
 			},
 			new ListColumn()
 			{
 				Order = 3,
 				Area = "T_002",
-				Field = "TYPE",
+				Field = "SIZE",
 			},
 			new ListColumn()
 			{
 				Order = 4,
 				Area = "T_002",
-				Field = "PHOTO",
+				Field = "TYPOLOGY",
 			},
 			new ListColumn()
 			{
 				Order = 5,
 				Area = "T_002",
-				Field = "YEARBUILT",
+				Field = "TYPE",
 			},
 			new ListColumn()
 			{
 				Order = 6,
 				Area = "T_002",
-				Field = "TITLE",
+				Field = "BATHNUMBER",
 			},
 			new ListColumn()
 			{
 				Order = 7,
-				Area = "T_001",
-				Field = "EMAIL",
+				Area = "T_004",
+				Field = "CITY",
 			},
 			new ListColumn()
 			{
 				Order = 8,
 				Area = "T_002",
-				Field = "BATHNUMBER",
+				Field = "YEARBUILT",
 			},
 			new ListColumn()
 			{
 				Order = 9,
 				Area = "T_002",
 				Field = "PRICE",
-			},
-			new ListColumn()
-			{
-				Order = 10,
-				Area = "T_004",
-				Field = "CITY",
 			},
 		];
 	}

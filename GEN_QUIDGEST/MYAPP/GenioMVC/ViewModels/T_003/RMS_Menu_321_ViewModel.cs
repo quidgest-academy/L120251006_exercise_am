@@ -101,7 +101,7 @@ namespace GenioMVC.ViewModels.T_003
 			// Checks for foreign tables in fields and conditions
 			FieldRef[] fields = new FieldRef[] { CSGenioAt_003.FldCodt_003, CSGenioAt_003.FldZzstate, CSGenioAt_003.FldCountry };
 
-			ListingMVC<CSGenioAt_003> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAt_003> listing = new(fields, null, 1, 1, false, user, true, string.Empty, true);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
@@ -169,6 +169,18 @@ namespace GenioMVC.ViewModels.T_003
 
 			// Reset number of records to original value
 			tableConfig.RowsPerPage = rowsPerPage;
+		}
+
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAt_003.FldCountry, FieldType.TEXT, Resources.Resources.COUNTRY_NAME26113, 50, 0, true),
+			};
 		}
 
 		/// <inheritdoc/>
@@ -402,7 +414,7 @@ namespace GenioMVC.ViewModels.T_003
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAt_003> listing = Models.ModelBase.Where<CSGenioAt_003>(m_userContext, distinct, rms_menu_321Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML321", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAt_003> listing = Models.ModelBase.Where<CSGenioAt_003>(m_userContext, distinct, rms_menu_321Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML321", true, true, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;

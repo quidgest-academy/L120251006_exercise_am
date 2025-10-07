@@ -66,10 +66,10 @@ public class RMS_Menu_41_RowViewModel : Models.T_001
 			return;
 
 		bool canView = true;
-		bool canEdit = true;
-		bool canDelete = true;
-		bool canDuplicate = true;
-		bool canInsert = true;
+		bool canEdit = false;
+		bool canDelete = false;
+		bool canDuplicate = false;
+		bool canInsert = false;
 
 		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
 		{
