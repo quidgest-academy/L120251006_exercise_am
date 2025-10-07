@@ -18,6 +18,19 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/RMS/menu/RMS_41',
+			name: 'menu-RMS_41',
+			component: () => import('@/views/menus/ModuleRMS/MenuRMS_41/QMenuRms41.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'RMS',
+				order: '41',
+				baseArea: 'T_001',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValEmail'],
+			}
+		},
+		{
 			path: '/:culture/:system/RMS/menu/RMS_311',
 			name: 'menu-RMS_311',
 			component: () => import('@/views/menus/ModuleRMS/MenuRMS_311/QMenuRms311.vue'),

@@ -192,6 +192,9 @@
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
   </msg>
+  <msg id="Properties By Agent" code="PROPERTIES_BY_AGENT38574">
+    <ENUS>Properties By Agent</ENUS>
+  </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
   </msg>
