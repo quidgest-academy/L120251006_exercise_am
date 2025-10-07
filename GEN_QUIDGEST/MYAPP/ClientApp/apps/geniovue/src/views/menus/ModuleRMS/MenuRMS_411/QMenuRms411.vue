@@ -71,17 +71,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuRMS_41ViewModel.js'
+	import MenuViewModel from './QMenuRMS_411ViewModel.js'
 
-	const requiredTextResources = ['QMenuRMS_41', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuRMS_411', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_41]/
+// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuRms41',
+		name: 'QMenuRms411',
 
 		mixins: [
 			MenuHandlers
@@ -110,34 +110,34 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_41', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_411', false),
 
 				interfaceMetadata: {
-					id: 'QMenuRMS_41', // Used for resources
+					id: 'QMenuRMS_411', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '41',
+					id: '411',
 					isMenuList: true,
-					designation: computed(() => this.Resources.AGENTS29376),
-					acronym: 'RMS_41',
-					name: 'T_001',
-					route: 'menu-RMS_41',
-					order: '41',
-					controller: 'T_001',
-					action: 'RMS_Menu_41',
+					designation: computed(() => this.Resources.PROPERTIES34868),
+					acronym: 'RMS_411',
+					name: 'T_002',
+					route: 'menu-RMS_411',
+					order: '411',
+					controller: 'T_002',
+					action: 'RMS_Menu_411',
 					isPopup: false
 				},
 
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableSpecialRenderingControl({
+					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'RMS_Menu_41',
-						controller: 'T_001',
-						action: 'RMS_Menu_41',
+						id: 'RMS_Menu_411',
+						controller: 'T_002',
+						action: 'RMS_Menu_411',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -145,54 +145,120 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
+							new listColumnTypes.NumericColumn({
 								order: 1,
-								name: 'ValEmail',
+								name: 'ValSize',
+								area: 'T_002',
+								field: 'SIZE',
+								label: computed(() => this.Resources.SIZE10299),
+								scrollData: 10,
+								maxDigits: 6,
+								decimalPlaces: 3,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 2,
+								name: 'ValTypology',
+								area: 'T_002',
+								field: 'TYPOLOGY',
+								label: computed(() => this.Resources.BUILDING_TYPOLOGY07362),
+								dataLength: 5,
+								scrollData: 5,
+								array: computed(() => new qProjArrays.QArrayE_02(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayE_02.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 3,
+								name: 'ValType',
+								area: 'T_002',
+								field: 'TYPE',
+								label: computed(() => this.Resources.BUILDING_TYPE39168),
+								dataLength: 10,
+								scrollData: 10,
+								array: computed(() => new qProjArrays.QArrayE_01(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayE_01.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 4,
+								name: 'ValPhoto',
+								area: 'T_002',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PROPERTY_PHOTO29666),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PROPERTY_PHOTO29666)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 5,
+								name: 'ValYearbuilt',
+								area: 'T_002',
+								field: 'YEARBUILT',
+								label: computed(() => this.Resources.YEAR_BUILT55277),
+								scrollData: 4,
+								maxDigits: 4,
+								decimalPlaces: 0,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 6,
+								name: 'ValTitle',
+								area: 'T_002',
+								field: 'TITLE',
+								label: computed(() => this.Resources.PROPERTY_TITLE56931),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 7,
+								name: 'T_001.ValEmail',
 								area: 'T_001',
 								field: 'EMAIL',
 								label: computed(() => this.Resources.EMAIL25170),
 								dataLength: 50,
 								scrollData: 30,
+								pkColumn: 'ValCodt_001',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 2,
-								name: 'ValPhoto',
-								area: 'T_001',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PROFILE_PHOTO12166),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PROFILE_PHOTO12166)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
+							new listColumnTypes.NumericColumn({
+								order: 8,
+								name: 'ValBathnumber',
+								area: 'T_002',
+								field: 'BATHNUMBER',
+								label: computed(() => this.Resources.BATHROUMS_NUMBER42941),
+								scrollData: 2,
+								maxDigits: 2,
+								decimalPlaces: 0,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.CurrencyColumn({
+								order: 9,
+								name: 'ValPrice',
+								area: 'T_002',
+								field: 'PRICE',
+								label: computed(() => this.Resources.PROPERTY_PRICE21441),
+								scrollData: 12,
+								maxDigits: 9,
+								decimalPlaces: 2,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValName',
-								area: 'T_001',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
+								order: 10,
+								name: 'T_004.ValCity',
+								area: 'T_004',
+								field: 'CITY',
+								label: computed(() => this.Resources.CITY42505),
 								dataLength: 50,
 								scrollData: 30,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 4,
-								name: 'ValDobirth',
-								area: 'T_001',
-								field: 'DOBIRTH',
-								label: computed(() => this.Resources.DATE_OF_BIRTH36542),
-								scrollData: 8,
-								dateTimeType: 'date',
+								pkColumn: 'ValCodt_004',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'RMS_Menu_41',
+							name: 'RMS_Menu_411',
 							serverMode: true,
-							pkColumn: 'ValCodt_001',
-							tableAlias: 'T_001',
-							tableNamePlural: computed(() => this.Resources.AGENTS29376),
+							pkColumn: 'ValCodt_002',
+							tableAlias: 'T_002',
+							tableNamePlural: computed(() => this.Resources.PROPERTIES34868),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.AGENTS29376),
+							tableTitle: computed(() => this.Resources.PROPERTIES34868),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -215,7 +281,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_002',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -231,7 +297,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_002',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -247,7 +313,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_002',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -263,7 +329,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_002',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -281,7 +347,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_002',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -297,51 +363,34 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_RMS_411',
-								name: 'menu-RMS_411',
-								params: {
-									isRoute: true,
-									limits: [
-										{
-											identifier: 't_001',
-											fnValueSelector: (row) => row.ValCodt_001
-										},
-									],
-									action: vm.openMenuAction, type: 'menu', menuName: 'RMS_411'
-								}
 							},
 							formsDefinition: {
-								'FR_001': {
-									fnKeySelector: (row) => row.Fields.ValCodt_001,
+								'FR_002': {
+									fnKeySelector: (row) => row.Fields.ValCodt_002,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: 'ValEmail',
+								columnName: 'ValTitle',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-T_001', 'changed-AT_01', 'changed-AT_02'],
-						uuid: '628a4c7b-2bbe-455a-a6d5-afdb02474e9b',
+						globalEvents: ['changed-T_002', 'changed-T_001', 'changed-T_004'],
+						uuid: '304e6bf4-5627-43ac-aa36-2646b77aaf2e',
 						allSelectedRows: 'false',
-						viewModes: [
-							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 1,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-						],
 						headerLevel: 1,
+						/** Menu limits */
+						controlLimits: [
+							/** DB */
+							{
+								identifier: 't_001',
+								dependencyEvents: [],
+								dependencyField: '',
+								fnValueSelector: () => vm.$route.params['t_001'],
+							},
+						]
 					}, this),
 				}
 			}
@@ -364,7 +413,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_41]/
+// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -372,18 +421,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_41]/
+// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS FUNCTIONS_JS RMS_41]/
+// USE /[MANUAL RMS FUNCTIONS_JS RMS_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_41]/
+// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_411]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}
