@@ -28,6 +28,11 @@ public class Fr_002Form : Form
 	public BaseInputControl T_002F_003 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_003___", "#FR_002__T_002F_003___");
 
 	/// <summary>
+	/// New Group
+	/// </summary>
+	public IWebElement PseudNewgrp05 => throw new NotImplementedException();
+
+	/// <summary>
 	/// Localization
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP02-container");
@@ -41,7 +46,7 @@ public class Fr_002Form : Form
 	/// <summary>
 	/// Country Name
 	/// </summary>
-	public BaseInputControl T_003F_001 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_003F_001___", "#FR_002__T_003F_001___");
+	public IWebElement T_003F_001 => throw new NotImplementedException();
 
 	/// <summary>
 	/// Details
@@ -62,6 +67,11 @@ public class Fr_002Form : Form
 	/// Bathroums Number
 	/// </summary>
 	public BaseInputControl T_002F_008 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_008___", "#FR_002__T_002F_008___");
+
+	/// <summary>
+	/// Agent
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp04 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP04-container");
 
 	/// <summary>
 	/// Email

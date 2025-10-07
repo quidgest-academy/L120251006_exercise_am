@@ -112,7 +112,7 @@ namespace GenioMVC.ViewModels.T_002
 		/// <summary>
 		/// Title: "Profile Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		[ValidateSetAccess]
 		public GenioMVC.Models.ImageModel T_001ValPhoto 
 		{

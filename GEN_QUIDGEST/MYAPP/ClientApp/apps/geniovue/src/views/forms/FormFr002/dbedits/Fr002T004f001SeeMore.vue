@@ -197,7 +197,7 @@
 						controller: 'T_002',
 						action: 'Fr_002_T_004ValCity',
 						hasDependencies: false,
-						isInCollapsible: false,
+						isInCollapsible: true,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,

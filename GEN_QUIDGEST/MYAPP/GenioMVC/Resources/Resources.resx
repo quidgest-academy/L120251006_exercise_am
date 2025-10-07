@@ -126,6 +126,9 @@
 	<data name="NAO_RESPONDE33275" xml:space="preserve">
 		<value>Não responde</value>
 	</data>
+	<data name="NEW_GROUP63448" xml:space="preserve">
+		<value>New Group</value>
+	</data>
 	<data name="ASYNC_PROCESS_ATTACH04785" xml:space="preserve">
 		<value>Async process attachments</value>
 	</data>

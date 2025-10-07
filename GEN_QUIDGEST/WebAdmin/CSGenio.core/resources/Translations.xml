@@ -9,6 +9,9 @@
   <msg id="Não responde" code="NAO_RESPONDE33275">
     <ENUS>Não responde</ENUS>
   </msg>
+  <msg id="New Group" code="NEW_GROUP63448">
+    <ENUS>New Group</ENUS>
+  </msg>
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
   </msg>

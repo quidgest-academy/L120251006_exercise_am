@@ -88,6 +88,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "New Group"
+        /// </summary>
+        public static string NEW_GROUP63448 {
+            get {
+                return ResourceManager.GetString("NEW_GROUP63448", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Async process attachments"
         /// </summary>
         public static string ASYNC_PROCESS_ATTACH04785 {
