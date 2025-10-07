@@ -39,6 +39,11 @@ public class Fr_002Form : Form
 	public SeeMorePage T_004F_001SeeMorePage => new SeeMorePage(driver, "FR_002", "FR_002__T_004F_001___");
 
 	/// <summary>
+	/// Country Name
+	/// </summary>
+	public BaseInputControl T_003F_001 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_003F_001___", "#FR_002__T_003F_001___");
+
+	/// <summary>
 	/// Details
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP03-container");
@@ -57,6 +62,22 @@ public class Fr_002Form : Form
 	/// Bathroums Number
 	/// </summary>
 	public BaseInputControl T_002F_008 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_008___", "#FR_002__T_002F_008___");
+
+	/// <summary>
+	/// Email
+	/// </summary>
+	public LookupControl T_001F_002 => new LookupControl(driver, ContainerLocator, "container-FR_002__T_001F_002___");
+	public SeeMorePage T_001F_002SeeMorePage => new SeeMorePage(driver, "FR_002", "FR_002__T_001F_002___");
+
+	/// <summary>
+	/// Name
+	/// </summary>
+	public IWebElement T_001F_001 => throw new NotImplementedException();
+
+	/// <summary>
+	/// Profile Photo
+	/// </summary>
+	public IWebElement T_001F_004 => throw new NotImplementedException();
 
 	public Fr_002Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_002", containerLocator: containerLocator) { }

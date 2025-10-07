@@ -88,6 +88,14 @@ namespace GenioMVC.Controllers
 							result = model.TableT_004F_001;
 						}
 						break;
+					case "FR_002__T_001F_002___":	// Field (DB)
+						{
+							var model = new Fr_002_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_Fr_002__t_001f_002___(qs);
+							result = model.TableT_001F_002;
+						}
+						break;
 					default:
 						break;
 				}
@@ -123,6 +131,9 @@ namespace GenioMVC.Controllers
 				{
 					case "FR_002__T_004F_001___":	// Field (DB)
 						values = new Fr_002_ViewModel(UserContext.Current).GetDependant_Fr_002TableT_004F_001(Selected);
+						break;
+					case "FR_002__T_001F_002___":	// Field (DB)
+						values = new Fr_002_ViewModel(UserContext.Current).GetDependant_Fr_002TableT_001F_002(Selected);
 						break;
 					default: break;
 				}

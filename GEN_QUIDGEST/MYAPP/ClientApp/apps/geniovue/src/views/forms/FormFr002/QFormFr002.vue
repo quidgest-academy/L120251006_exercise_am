@@ -199,6 +199,25 @@
 									</base-input-structure>
 								</q-control-wrapper>
 							</q-row-container>
+							<q-row-container v-if="controls.FR_002__T_003F_001___.isVisible">
+								<q-control-wrapper
+									v-if="controls.FR_002__T_003F_001___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_003F_001___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_003F_001___"
+										v-on="controls.FR_002__T_003F_001___.handlers"
+										:loading="controls.FR_002__T_003F_001___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.FR_002__T_003F_001___.props"
+											@blur="onBlur(controls.FR_002__T_003F_001___, model.T_004T_003ValCountry.value)"
+											@change="model.T_004T_003ValCountry.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
 							<!-- End FR_002__PSEUDNEWGRP02 -->
 						</q-group-box-container>
 					</q-control-wrapper>
@@ -272,6 +291,67 @@
 						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
+				<q-row-container v-if="controls.FR_002__T_001F_002___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__T_001F_002___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_001F_002___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_002__T_001F_002___"
+							v-on="controls.FR_002__T_001F_002___.handlers"
+							:loading="controls.FR_002__T_001F_002___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.FR_002__T_001F_002___.isVisible"
+								v-bind="controls.FR_002__T_001F_002___.props"
+								v-on="controls.FR_002__T_001F_002___.handlers" />
+							<q-see-more-fr002-t001f002
+								v-if="controls.FR_002__T_001F_002___.seeMoreIsVisible"
+								v-bind="controls.FR_002__T_001F_002___.seeMoreParams"
+								v-on="controls.FR_002__T_001F_002___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.FR_002__T_001F_001___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__T_001F_001___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_001F_001___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_002__T_001F_001___"
+							v-on="controls.FR_002__T_001F_001___.handlers"
+							:loading="controls.FR_002__T_001F_001___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-text-field
+								v-bind="controls.FR_002__T_001F_001___.props"
+								@blur="onBlur(controls.FR_002__T_001F_001___, model.T_001ValName.value)"
+								@change="model.T_001ValName.fnUpdateValueOnChange" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container v-if="controls.FR_002__T_001F_004___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__T_001F_004___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_001F_004___.isVisible"
+							class="q-image"
+							v-bind="controls.FR_002__T_001F_004___"
+							v-on="controls.FR_002__T_001F_004___.handlers"
+							:loading="controls.FR_002__T_001F_004___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-image
+								v-if="controls.FR_002__T_001F_004___.isVisible"
+								v-bind="controls.FR_002__T_001F_004___.props"
+								v-on="controls.FR_002__T_001F_004___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 			</template>
 		</div>
 	</teleport>
@@ -343,6 +423,7 @@
 
 		components: {
 			QSeeMoreFr002T004f001: defineAsyncComponent(() => import('@/views/forms/FormFr002/dbedits/Fr002T004f001SeeMore.vue')),
+			QSeeMoreFr002T001f002: defineAsyncComponent(() => import('@/views/forms/FormFr002/dbedits/Fr002T001f002SeeMore.vue')),
 		},
 
 		mixins: [
@@ -687,7 +768,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['FR_002__T_004F_001___'],
+						directChildren: ['FR_002__T_004F_001___', 'FR_002__T_003F_001___'],
 						controlLimits: [
 						],
 					}, this),
@@ -716,7 +797,25 @@
 						dependentFields: () => ({
 							set 't_004.codt_004'(value) { vm.model.ValCodt_004.updateValue(value) },
 							set 't_004.city'(value) { vm.model.TableT_004F_001.updateValue(value) },
+							set 't_003.country'(value) { vm.model.T_004T_003ValCountry.updateValue(value) },
 						}),
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_003F_001___: new fieldControlClass.StringControl({
+						modelField: 'T_004T_003ValCountry',
+						valueChangeEvent: 'fieldChange:t_003.country',
+						dependentModelField: 'ValCodt_003',
+						dependentChangeEvent: 'fieldChange:t_004.codt_003',
+						id: 'FR_002__T_003F_001___',
+						name: 'F_001',
+						size: 'xlarge',
+						label: computed(() => this.Resources.COUNTRY_NAME26113),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP02',
+						maxLength: 50,
+						labelId: 'label_FR_002__T_003F_001___',
 						controlLimits: [
 						],
 					}, this),
@@ -782,6 +881,71 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_002__T_001F_002___: new fieldControlClass.LookupControl({
+						modelField: 'TableT_001F_002',
+						valueChangeEvent: 'fieldChange:t_001.email',
+						id: 'FR_002__T_001F_002___',
+						name: 'F_002',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.EMAIL25170),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValCodt_001',
+							dependencyEvent: 'fieldChange:t_002.codt_001'
+						},
+						dependentFields: () => ({
+							set 't_001.codt_001'(value) { vm.model.ValCodt_001.updateValue(value) },
+							set 't_001.email'(value) { vm.model.TableT_001F_002.updateValue(value) },
+							set 't_001.name'(value) { vm.model.T_001ValName.updateValue(value) },
+							set 't_001.photo'(value) { vm.model.T_001ValPhoto.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_001F_001___: new fieldControlClass.StringControl({
+						modelField: 'T_001ValName',
+						valueChangeEvent: 'fieldChange:t_001.name',
+						dependentModelField: 'ValCodt_001',
+						dependentChangeEvent: 'fieldChange:t_002.codt_001',
+						id: 'FR_002__T_001F_001___',
+						name: 'F_001',
+						size: 'xlarge',
+						label: computed(() => this.Resources.NAME31974),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxLength: 50,
+						labelId: 'label_FR_002__T_001F_001___',
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_001F_004___: new fieldControlClass.ImageControl({
+						modelField: 'T_001ValPhoto',
+						valueChangeEvent: 'fieldChange:t_001.photo',
+						dependentModelField: 'ValCodt_001',
+						dependentChangeEvent: 'fieldChange:t_002.codt_001',
+						id: 'FR_002__T_001F_004___',
+						name: 'F_004',
+						size: 'mini',
+						label: computed(() => this.Resources.PROFILE_PHOTO12166),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						height: 50,
+						width: 100,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PROFILE_PHOTO12166)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -807,6 +971,14 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
+					T_001: {
+						get ValName() { return vm.model.T_001ValName.value },
+						set ValName(value) { vm.model.T_001ValName.updateValue(value) },
+						get ValEmail() { return vm.model.TableT_001F_002.value },
+						set ValEmail(value) { vm.model.TableT_001F_002.updateValue(value) },
+						get ValPhoto() { return vm.model.T_001ValPhoto.value },
+						set ValPhoto(value) { vm.model.T_001ValPhoto.updateValue(value) },
+					},
 					T_002: {
 						get ValPhoto() { return vm.model.ValPhoto.value },
 						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
@@ -824,6 +996,10 @@
 						set ValBathnumber(value) { vm.model.ValBathnumber.updateValue(value) },
 						get ValYearbuilt() { return vm.model.ValYearbuilt.value },
 						set ValYearbuilt(value) { vm.model.ValYearbuilt.updateValue(value) },
+					},
+					T_003: {
+						get ValCountry() { return vm.model.T_004T_003ValCountry.value },
+						set ValCountry(value) { vm.model.T_004T_003ValCountry.updateValue(value) },
 					},
 					T_004: {
 						get ValCity() { return vm.model.TableT_004F_001.value },

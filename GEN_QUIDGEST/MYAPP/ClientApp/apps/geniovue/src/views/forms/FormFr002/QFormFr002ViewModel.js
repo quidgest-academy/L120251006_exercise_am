@@ -53,18 +53,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodt_002))
 		this.stopWatchers.push(watch(() => this.ValCodt_002.value, (newValue, oldValue) => this.onUpdate('t_002.codt_002', this.ValCodt_002, newValue, oldValue)))
 
-		/** The hidden foreign keys. */
-		this.ValCodt_001 = reactive(new modelFieldType.ForeignKey({
-			id: 'ValCodt_001',
-			originId: 'ValCodt_001',
-			area: 'T_002',
-			field: 'F_004',
-			relatedArea: 'T_001',
-			isFixed: true,
-			description: '',
-		}).cloneFrom(values?.ValCodt_001))
-		this.stopWatchers.push(watch(() => this.ValCodt_001.value, (newValue, oldValue) => this.onUpdate('t_002.codt_001', this.ValCodt_001, newValue, oldValue)))
-
 		/** The used foreign keys. */
 		this.ValCodt_004 = reactive(new modelFieldType.ForeignKey({
 			id: 'ValCodt_004',
@@ -75,6 +63,16 @@ export default class ViewModel extends FormViewModelBase
 			description: '',
 		}).cloneFrom(values?.ValCodt_004))
 		this.stopWatchers.push(watch(() => this.ValCodt_004.value, (newValue, oldValue) => this.onUpdate('t_002.codt_004', this.ValCodt_004, newValue, oldValue)))
+
+		this.ValCodt_001 = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodt_001',
+			originId: 'ValCodt_001',
+			area: 'T_002',
+			field: 'F_004',
+			relatedArea: 'T_001',
+			description: '',
+		}).cloneFrom(values?.ValCodt_001))
+		this.stopWatchers.push(watch(() => this.ValCodt_001.value, (newValue, oldValue) => this.onUpdate('t_002.codt_001', this.ValCodt_001, newValue, oldValue)))
 
 		/** The remaining form fields. */
 		this.ValPhoto = reactive(new modelFieldType.Image({
@@ -118,6 +116,17 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableT_004F_001))
 		this.stopWatchers.push(watch(() => this.TableT_004F_001.value, (newValue, oldValue) => this.onUpdate('t_004.city', this.TableT_004F_001, newValue, oldValue)))
 
+		this.T_004T_003ValCountry = reactive(new modelFieldType.String({
+			id: 'T_004T_003ValCountry',
+			originId: 'ValCountry',
+			area: 'T_003',
+			field: 'F_001',
+			maxLength: 50,
+			isFixed: true,
+			description: computed(() => this.Resources.COUNTRY_NAME26113),
+		}).cloneFrom(values?.T_004T_003ValCountry))
+		this.stopWatchers.push(watch(() => this.T_004T_003ValCountry.value, (newValue, oldValue) => this.onUpdate('t_003.country', this.T_004T_003ValCountry, newValue, oldValue)))
+
 		this.ValYearbuilt = reactive(new modelFieldType.Number({
 			id: 'ValYearbuilt',
 			originId: 'ValYearbuilt',
@@ -150,6 +159,39 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.BATHROUMS_NUMBER42941),
 		}).cloneFrom(values?.ValBathnumber))
 		this.stopWatchers.push(watch(() => this.ValBathnumber.value, (newValue, oldValue) => this.onUpdate('t_002.bathnumber', this.ValBathnumber, newValue, oldValue)))
+
+		this.TableT_001F_002 = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableT_001F_002',
+			originId: 'ValEmail',
+			area: 'T_001',
+			field: 'F_002',
+			maxLength: 50,
+			maskType: 'EM',
+			description: computed(() => this.Resources.EMAIL25170),
+		}).cloneFrom(values?.TableT_001F_002))
+		this.stopWatchers.push(watch(() => this.TableT_001F_002.value, (newValue, oldValue) => this.onUpdate('t_001.email', this.TableT_001F_002, newValue, oldValue)))
+
+		this.T_001ValName = reactive(new modelFieldType.String({
+			id: 'T_001ValName',
+			originId: 'ValName',
+			area: 'T_001',
+			field: 'F_001',
+			maxLength: 50,
+			isFixed: true,
+			description: computed(() => this.Resources.NAME31974),
+		}).cloneFrom(values?.T_001ValName))
+		this.stopWatchers.push(watch(() => this.T_001ValName.value, (newValue, oldValue) => this.onUpdate('t_001.name', this.T_001ValName, newValue, oldValue)))
+
+		this.T_001ValPhoto = reactive(new modelFieldType.Image({
+			id: 'T_001ValPhoto',
+			originId: 'ValPhoto',
+			area: 'T_001',
+			field: 'F_004',
+			isFixed: true,
+			description: computed(() => this.Resources.PROFILE_PHOTO12166),
+		}).cloneFrom(values?.T_001ValPhoto))
+		this.stopWatchers.push(watch(() => this.T_001ValPhoto.value, (newValue, oldValue) => this.onUpdate('t_001.photo', this.T_001ValPhoto, newValue, oldValue)))
 	}
 
 	/**
