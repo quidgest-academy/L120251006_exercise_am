@@ -289,6 +289,22 @@
 								},
 							},
 							allowFileImport: true,
+							insertCondition: {
+								// eslint-disable-next-line @typescript-eslint/no-unused-vars
+								fnFormula(params)
+								{
+									return netAPI.postData(
+										'T_003',
+										'FR_003_InsertCondition',
+										this.serverObjModel,
+										undefined,
+										undefined,
+										undefined,
+										this.navigationId)
+								},
+								dependencyEvents: [],
+								isServerRecalc: false,
+							},
 							defaultSearchColumnName: 'ValCountry',
 							defaultSearchColumnNameOriginal: 'ValCountry',
 							defaultColumnSorting: {
