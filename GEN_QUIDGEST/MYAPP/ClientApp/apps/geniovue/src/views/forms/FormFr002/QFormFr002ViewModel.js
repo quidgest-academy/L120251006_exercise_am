@@ -65,13 +65,13 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodt_001))
 		this.stopWatchers.push(watch(() => this.ValCodt_001.value, (newValue, oldValue) => this.onUpdate('t_002.codt_001', this.ValCodt_001, newValue, oldValue)))
 
+		/** The used foreign keys. */
 		this.ValCodt_004 = reactive(new modelFieldType.ForeignKey({
 			id: 'ValCodt_004',
 			originId: 'ValCodt_004',
 			area: 'T_002',
 			field: 'F_005',
 			relatedArea: 'T_004',
-			isFixed: true,
 			description: '',
 		}).cloneFrom(values?.ValCodt_004))
 		this.stopWatchers.push(watch(() => this.ValCodt_004.value, (newValue, oldValue) => this.onUpdate('t_002.codt_004', this.ValCodt_004, newValue, oldValue)))
@@ -106,6 +106,50 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.PROPERTY_PRICE21441),
 		}).cloneFrom(values?.ValPrice))
 		this.stopWatchers.push(watch(() => this.ValPrice.value, (newValue, oldValue) => this.onUpdate('t_002.price', this.ValPrice, newValue, oldValue)))
+
+		this.TableT_004F_001 = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableT_004F_001',
+			originId: 'ValCity',
+			area: 'T_004',
+			field: 'F_001',
+			maxLength: 50,
+			description: computed(() => this.Resources.CITY42505),
+		}).cloneFrom(values?.TableT_004F_001))
+		this.stopWatchers.push(watch(() => this.TableT_004F_001.value, (newValue, oldValue) => this.onUpdate('t_004.city', this.TableT_004F_001, newValue, oldValue)))
+
+		this.ValYearbuilt = reactive(new modelFieldType.Number({
+			id: 'ValYearbuilt',
+			originId: 'ValYearbuilt',
+			area: 'T_002',
+			field: 'F_009',
+			maxDigits: 4,
+			decimalDigits: 0,
+			description: computed(() => this.Resources.YEAR_BUILT55277),
+		}).cloneFrom(values?.ValYearbuilt))
+		this.stopWatchers.push(watch(() => this.ValYearbuilt.value, (newValue, oldValue) => this.onUpdate('t_002.yearbuilt', this.ValYearbuilt, newValue, oldValue)))
+
+		this.ValSize = reactive(new modelFieldType.Number({
+			id: 'ValSize',
+			originId: 'ValSize',
+			area: 'T_002',
+			field: 'F_007',
+			maxDigits: 6,
+			decimalDigits: 3,
+			description: computed(() => this.Resources.SIZE10299),
+		}).cloneFrom(values?.ValSize))
+		this.stopWatchers.push(watch(() => this.ValSize.value, (newValue, oldValue) => this.onUpdate('t_002.size', this.ValSize, newValue, oldValue)))
+
+		this.ValBathnumber = reactive(new modelFieldType.Number({
+			id: 'ValBathnumber',
+			originId: 'ValBathnumber',
+			area: 'T_002',
+			field: 'F_008',
+			maxDigits: 2,
+			decimalDigits: 0,
+			description: computed(() => this.Resources.BATHROUMS_NUMBER42941),
+		}).cloneFrom(values?.ValBathnumber))
+		this.stopWatchers.push(watch(() => this.ValBathnumber.value, (newValue, oldValue) => this.onUpdate('t_002.bathnumber', this.ValBathnumber, newValue, oldValue)))
 	}
 
 	/**

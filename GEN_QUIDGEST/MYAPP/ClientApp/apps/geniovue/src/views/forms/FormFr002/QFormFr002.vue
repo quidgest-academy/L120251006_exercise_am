@@ -92,60 +92,184 @@
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
 				<q-row-container
-					v-if="controls.FR_002__T_002F_001___.isVisible"
+					v-if="controls.FR_002__PSEUDNEWGRP01.isVisible"
 					is-large>
 					<q-control-wrapper
-						v-if="controls.FR_002__T_002F_001___.isVisible"
+						v-if="controls.FR_002__PSEUDNEWGRP01.isVisible"
 						class="row-line-group">
-						<base-input-structure
-							v-if="controls.FR_002__T_002F_001___.isVisible"
-							class="q-image"
-							v-bind="controls.FR_002__T_002F_001___"
-							v-on="controls.FR_002__T_002F_001___.handlers"
-							:loading="controls.FR_002__T_002F_001___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
+						<q-group-box-container
+							v-if="controls.FR_002__PSEUDNEWGRP01.isVisible"
+							id="FR_002__PSEUDNEWGRP01"
+							v-bind="controls.FR_002__PSEUDNEWGRP01"
+							:is-visible="controls.FR_002__PSEUDNEWGRP01.isVisible">
+							<!-- Start FR_002__PSEUDNEWGRP01 -->
+							<q-row-container
 								v-if="controls.FR_002__T_002F_001___.isVisible"
-								v-bind="controls.FR_002__T_002F_001___.props"
-								v-on="controls.FR_002__T_002F_001___.handlers" />
-						</base-input-structure>
+								is-large>
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_001___.isVisible"
+									class="row-line-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_001___.isVisible"
+										class="q-image"
+										v-bind="controls.FR_002__T_002F_001___"
+										v-on="controls.FR_002__T_002F_001___.handlers"
+										:loading="controls.FR_002__T_002F_001___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.FR_002__T_002F_001___.isVisible"
+											v-bind="controls.FR_002__T_002F_001___.props"
+											v-on="controls.FR_002__T_002F_001___.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<q-row-container v-if="controls.FR_002__T_002F_002___.isVisible || controls.FR_002__T_002F_003___.isVisible">
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_002___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_002___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_002F_002___"
+										v-on="controls.FR_002__T_002F_002___.handlers"
+										:loading="controls.FR_002__T_002F_002___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.FR_002__T_002F_002___.props"
+											@blur="onBlur(controls.FR_002__T_002F_002___, model.ValTitle.value)"
+											@change="model.ValTitle.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_003___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_003___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_002F_003___"
+										v-on="controls.FR_002__T_002F_003___.handlers"
+										:loading="controls.FR_002__T_002F_003___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_002__T_002F_003___.isVisible"
+											v-bind="controls.FR_002__T_002F_003___.props"
+											@update:model-value="model.ValPrice.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End FR_002__PSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.FR_002__T_002F_002___.isVisible || controls.FR_002__T_002F_003___.isVisible">
+				<q-row-container
+					v-if="controls.FR_002__PSEUDNEWGRP02.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.FR_002__T_002F_002___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.FR_002__T_002F_002___.isVisible"
-							class="i-text"
-							v-bind="controls.FR_002__T_002F_002___"
-							v-on="controls.FR_002__T_002F_002___.handlers"
-							:loading="controls.FR_002__T_002F_002___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.FR_002__T_002F_002___.props"
-								@blur="onBlur(controls.FR_002__T_002F_002___, model.ValTitle.value)"
-								@change="model.ValTitle.fnUpdateValueOnChange" />
-						</base-input-structure>
+						v-if="controls.FR_002__PSEUDNEWGRP02.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.FR_002__PSEUDNEWGRP02.isVisible"
+							id="FR_002__PSEUDNEWGRP02"
+							v-bind="controls.FR_002__PSEUDNEWGRP02"
+							:is-visible="controls.FR_002__PSEUDNEWGRP02.isVisible">
+							<!-- Start FR_002__PSEUDNEWGRP02 -->
+							<q-row-container v-if="controls.FR_002__T_004F_001___.isVisible">
+								<q-control-wrapper
+									v-if="controls.FR_002__T_004F_001___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_004F_001___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_004F_001___"
+										v-on="controls.FR_002__T_004F_001___.handlers"
+										:loading="controls.FR_002__T_004F_001___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.FR_002__T_004F_001___.isVisible"
+											v-bind="controls.FR_002__T_004F_001___.props"
+											v-on="controls.FR_002__T_004F_001___.handlers" />
+										<q-see-more-fr002-t004f001
+											v-if="controls.FR_002__T_004F_001___.seeMoreIsVisible"
+											v-bind="controls.FR_002__T_004F_001___.seeMoreParams"
+											v-on="controls.FR_002__T_004F_001___.handlers" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End FR_002__PSEUDNEWGRP02 -->
+						</q-group-box-container>
 					</q-control-wrapper>
+				</q-row-container>
+				<q-row-container
+					v-if="controls.FR_002__PSEUDNEWGRP03.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.FR_002__T_002F_003___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.FR_002__T_002F_003___.isVisible"
-							class="i-text"
-							v-bind="controls.FR_002__T_002F_003___"
-							v-on="controls.FR_002__T_002F_003___.handlers"
-							:loading="controls.FR_002__T_002F_003___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.FR_002__T_002F_003___.isVisible"
-								v-bind="controls.FR_002__T_002F_003___.props"
-								@update:model-value="model.ValPrice.fnUpdateValue" />
-						</base-input-structure>
+						v-if="controls.FR_002__PSEUDNEWGRP03.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.FR_002__PSEUDNEWGRP03.isVisible"
+							id="FR_002__PSEUDNEWGRP03"
+							v-bind="controls.FR_002__PSEUDNEWGRP03"
+							:is-visible="controls.FR_002__PSEUDNEWGRP03.isVisible">
+							<!-- Start FR_002__PSEUDNEWGRP03 -->
+							<q-row-container v-if="controls.FR_002__T_002F_009___.isVisible || controls.FR_002__T_002F_007___.isVisible || controls.FR_002__T_002F_008___.isVisible">
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_009___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_009___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_002F_009___"
+										v-on="controls.FR_002__T_002F_009___.handlers"
+										:loading="controls.FR_002__T_002F_009___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_002__T_002F_009___.isVisible"
+											v-bind="controls.FR_002__T_002F_009___.props"
+											@update:model-value="model.ValYearbuilt.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_007___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_007___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_002F_007___"
+										v-on="controls.FR_002__T_002F_007___.handlers"
+										:loading="controls.FR_002__T_002F_007___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_002__T_002F_007___.isVisible"
+											v-bind="controls.FR_002__T_002F_007___.props"
+											@update:model-value="model.ValSize.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.FR_002__T_002F_008___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_002__T_002F_008___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_002__T_002F_008___"
+										v-on="controls.FR_002__T_002F_008___.handlers"
+										:loading="controls.FR_002__T_002F_008___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_002__T_002F_008___.isVisible"
+											v-bind="controls.FR_002__T_002F_008___.props"
+											@update:model-value="model.ValBathnumber.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End FR_002__PSEUDNEWGRP03 -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 			</template>
@@ -218,6 +342,7 @@
 		name: 'QFormFr002',
 
 		components: {
+			QSeeMoreFr002T004f001: defineAsyncComponent(() => import('@/views/forms/FormFr002/dbedits/Fr002T004f001SeeMore.vue')),
 		},
 
 		mixins: [
@@ -489,6 +614,20 @@
 				},
 
 				controls: {
+					FR_002__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'FR_002__PSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.MAIN_INFOS57373),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['FR_002__T_002F_001___', 'FR_002__T_002F_002___', 'FR_002__T_002F_003___'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
 					FR_002__T_002F_001___: new fieldControlClass.ImageControl({
 						modelField: 'ValPhoto',
 						valueChangeEvent: 'fieldChange:t_002.photo',
@@ -498,8 +637,9 @@
 						label: computed(() => this.Resources.PROPERTY_PHOTO29666),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP01',
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PROPERTY_PHOTO29666)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -515,6 +655,7 @@
 						label: computed(() => this.Resources.PROPERTY_TITLE56931),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP01',
 						maxLength: 50,
 						labelId: 'label_FR_002__T_002F_002___',
 						mustBeFilled: true,
@@ -530,8 +671,113 @@
 						label: computed(() => this.Resources.PROPERTY_PRICE21441),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP01',
 						maxIntegers: 9,
 						maxDecimals: 2,
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__PSEUDNEWGRP02: new fieldControlClass.GroupControl({
+						id: 'FR_002__PSEUDNEWGRP02',
+						name: 'NEWGRP02',
+						size: 'block',
+						label: computed(() => this.Resources.LOCALIZATION34148),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['FR_002__T_004F_001___'],
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_004F_001___: new fieldControlClass.LookupControl({
+						modelField: 'TableT_004F_001',
+						valueChangeEvent: 'fieldChange:t_004.city',
+						id: 'FR_002__T_004F_001___',
+						name: 'F_001',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.CITY42505),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP02',
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValCodt_004',
+							dependencyEvent: 'fieldChange:t_002.codt_004'
+						},
+						dependentFields: () => ({
+							set 't_004.codt_004'(value) { vm.model.ValCodt_004.updateValue(value) },
+							set 't_004.city'(value) { vm.model.TableT_004F_001.updateValue(value) },
+						}),
+						controlLimits: [
+						],
+					}, this),
+					FR_002__PSEUDNEWGRP03: new fieldControlClass.GroupControl({
+						id: 'FR_002__PSEUDNEWGRP03',
+						name: 'NEWGRP03',
+						size: 'block',
+						label: computed(() => this.Resources.DETAILS19591),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['FR_002__T_002F_009___', 'FR_002__T_002F_007___', 'FR_002__T_002F_008___'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_009___: new fieldControlClass.NumberControl({
+						modelField: 'ValYearbuilt',
+						valueChangeEvent: 'fieldChange:t_002.yearbuilt',
+						id: 'FR_002__T_002F_009___',
+						name: 'F_009',
+						size: 'small',
+						label: computed(() => this.Resources.YEAR_BUILT55277),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxIntegers: 4,
+						maxDecimals: 0,
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_007___: new fieldControlClass.NumberControl({
+						modelField: 'ValSize',
+						valueChangeEvent: 'fieldChange:t_002.size',
+						id: 'FR_002__T_002F_007___',
+						name: 'F_007',
+						size: 'small',
+						label: computed(() => this.Resources.SIZE10299),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxIntegers: 6,
+						maxDecimals: 3,
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_008___: new fieldControlClass.NumberControl({
+						modelField: 'ValBathnumber',
+						valueChangeEvent: 'fieldChange:t_002.bathnumber',
+						id: 'FR_002__T_002F_008___',
+						name: 'F_008',
+						size: 'medium',
+						label: computed(() => this.Resources.BATHROUMS_NUMBER42941),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxIntegers: 2,
+						maxDecimals: 0,
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -546,6 +792,9 @@
 				}),
 
 				groupFields: readonly([
+					'FR_002__PSEUDNEWGRP01',
+					'FR_002__PSEUDNEWGRP02',
+					'FR_002__PSEUDNEWGRP03',
 				]),
 
 				tableFields: readonly([
@@ -569,6 +818,16 @@
 						set ValCodt_001(value) { vm.model.ValCodt_001.updateValue(value) },
 						get ValCodt_004() { return vm.model.ValCodt_004.value },
 						set ValCodt_004(value) { vm.model.ValCodt_004.updateValue(value) },
+						get ValSize() { return vm.model.ValSize.value },
+						set ValSize(value) { vm.model.ValSize.updateValue(value) },
+						get ValBathnumber() { return vm.model.ValBathnumber.value },
+						set ValBathnumber(value) { vm.model.ValBathnumber.updateValue(value) },
+						get ValYearbuilt() { return vm.model.ValYearbuilt.value },
+						set ValYearbuilt(value) { vm.model.ValYearbuilt.updateValue(value) },
+					},
+					T_004: {
+						get ValCity() { return vm.model.TableT_004F_001.value },
+						set ValCity(value) { vm.model.TableT_004F_001.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_002 table */

@@ -331,7 +331,7 @@
 							formsDefinition: {
 								'FR_006': {
 									fnKeySelector: (row) => row.Fields.ValCodt_005,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValClientname',

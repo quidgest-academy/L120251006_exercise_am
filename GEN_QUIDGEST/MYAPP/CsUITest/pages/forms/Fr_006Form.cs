@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class Fr_006Form : Form
+public class Fr_006Form : PopupForm
 {
 	/// <summary>
 	/// Date
@@ -39,5 +39,5 @@ public class Fr_006Form : Form
 	public SeeMorePage T_002F_002SeeMorePage => new SeeMorePage(driver, "FR_006", "FR_006__T_002F_002___");
 
 	public Fr_006Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "FR_006", containerLocator: containerLocator) { }
+		: base(driver, mode, "FR_006") { }
 }

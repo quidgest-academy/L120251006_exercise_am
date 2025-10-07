@@ -86,6 +86,24 @@ namespace GenioMVC.Models
 			set { _t_004 = value; }
 		}
 
+		[DisplayName("Size")]
+		/// <summary>Field : "Size" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValSize")]
+		[NumericAttribute(3)]
+		public decimal? ValSize { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValSize, 3)); } set { klass.ValSize = Convert.ToDecimal(value); } }
+
+		[DisplayName("Bathroums Number")]
+		/// <summary>Field : "Bathroums Number" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValBathnumber")]
+		[NumericAttribute(0)]
+		public decimal? ValBathnumber { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBathnumber, 0)); } set { klass.ValBathnumber = Convert.ToDecimal(value); } }
+
+		[DisplayName("Year Built")]
+		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValYearbuilt")]
+		[NumericAttribute(0)]
+		public decimal? ValYearbuilt { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValYearbuilt, 0)); } set { klass.ValYearbuilt = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

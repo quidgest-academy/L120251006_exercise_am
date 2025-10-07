@@ -334,7 +334,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'FR_006',
 					route: 'form-FR_006',
 					area: 'T_005',
@@ -707,6 +707,8 @@
 			// Called before the route that renders this component is confirmed.
 			// Does NOT have access to `this` component instance, because
 			// it has not been created yet when this guard is called!
+
+			to.params.isPopup = 'true'
 
 			next((vm) => {
 				vm.initFormProperties(to)

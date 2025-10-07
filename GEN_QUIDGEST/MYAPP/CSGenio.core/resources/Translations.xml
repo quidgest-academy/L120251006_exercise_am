@@ -99,6 +99,9 @@
   <msg id="Agendado para execução" code="AGENDADO_PARA_EXECUC11223">
     <ENUS>Agendado para execução</ENUS>
   </msg>
+  <msg id="Agent Infos" code="AGENT_INFOS64505">
+    <ENUS>Agent Infos</ENUS>
+  </msg>
   <msg id="Percentage" code="PERCENTAGE57728">
     <ENUS>Percentage</ENUS>
   </msg>
@@ -153,6 +156,9 @@
   <msg id="Cancelar" code="CANCELAR49513">
     <ENUS>Cancelar</ENUS>
   </msg>
+  <msg id="Details" code="DETAILS19591">
+    <ENUS>Details</ENUS>
+  </msg>
   <msg id="Modos de processamento" code="MODOS_DE_PROCESSAMEN07602">
     <ENUS>Modos de processamento</ENUS>
   </msg>
@@ -204,6 +210,9 @@
   <msg id="Cancelado" code="CANCELADO05982">
     <ENUS>Cancelado</ENUS>
   </msg>
+  <msg id="Main Infos" code="MAIN_INFOS57373">
+    <ENUS>Main Infos</ENUS>
+  </msg>
   <msg id="Created on" code="CREATED_ON00051">
     <ENUS>Created on</ENUS>
   </msg>
@@ -227,6 +236,9 @@
   </msg>
   <msg id="Notification Messages" code="NOTIFICATION_MESSAGE60981">
     <ENUS>Notification Messages</ENUS>
+  </msg>
+  <msg id="Bathroums Number" code="BATHROUMS_NUMBER42941">
+    <ENUS>Bathroums Number</ENUS>
   </msg>
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
@@ -287,6 +299,9 @@
   </msg>
   <msg id="Roles" code="ROLES61449">
     <ENUS>Roles</ENUS>
+  </msg>
+  <msg id="Localization" code="LOCALIZATION34148">
+    <ENUS>Localization</ENUS>
   </msg>
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
@@ -357,6 +372,9 @@
   <msg id="Module" code="MODULE42049">
     <ENUS>Module</ENUS>
   </msg>
+  <msg id="Size" code="SIZE10299">
+    <ENUS>Size</ENUS>
+  </msg>
   <msg id="User Profile" code="USER_PROFILE06358">
     <ENUS>User Profile</ENUS>
   </msg>
@@ -374,6 +392,9 @@
   </msg>
   <msg id="A cancelar" code="A_CANCELAR43988">
     <ENUS>A cancelar</ENUS>
+  </msg>
+  <msg id="Year Built" code="YEAR_BUILT55277">
+    <ENUS>Year Built</ENUS>
   </msg>
   <msg id="Country Name" code="COUNTRY_NAME26113">
     <ENUS>Country Name</ENUS>

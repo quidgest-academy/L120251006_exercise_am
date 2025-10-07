@@ -216,6 +216,9 @@
   <data name="AGENDADO_PARA_EXECUC11223" xml:space="preserve">
     <value>Agendado para execução</value>
   </data>
+  <data name="AGENT_INFOS64505" xml:space="preserve">
+    <value>Agent Infos</value>
+  </data>
   <data name="PERCENTAGE57728" xml:space="preserve">
     <value>Percentage</value>
   </data>
@@ -270,6 +273,9 @@
   <data name="CANCELAR49513" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="DETAILS19591" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="MODOS_DE_PROCESSAMEN07602" xml:space="preserve">
     <value>Modos de processamento</value>
   </data>
@@ -321,6 +327,9 @@
   <data name="CANCELADO05982" xml:space="preserve">
     <value>Cancelado</value>
   </data>
+  <data name="MAIN_INFOS57373" xml:space="preserve">
+    <value>Main Infos</value>
+  </data>
   <data name="CREATED_ON00051" xml:space="preserve">
     <value>Created on</value>
   </data>
@@ -344,6 +353,9 @@
   </data>
   <data name="NOTIFICATION_MESSAGE60981" xml:space="preserve">
     <value>Notification Messages</value>
+  </data>
+  <data name="BATHROUMS_NUMBER42941" xml:space="preserve">
+    <value>Bathroums Number</value>
   </data>
   <data name="AVISO03237" xml:space="preserve">
     <value>Aviso</value>
@@ -404,6 +416,9 @@
   </data>
   <data name="ROLES61449" xml:space="preserve">
     <value>Roles</value>
+  </data>
+  <data name="LOCALIZATION34148" xml:space="preserve">
+    <value>Localization</value>
   </data>
   <data name="SUCESSO65230" xml:space="preserve">
     <value>Sucesso</value>
@@ -474,6 +489,9 @@
   <data name="MODULE42049" xml:space="preserve">
     <value>Module</value>
   </data>
+  <data name="SIZE10299" xml:space="preserve">
+    <value>Size</value>
+  </data>
   <data name="USER_PROFILE06358" xml:space="preserve">
     <value>User Profile</value>
   </data>
@@ -491,6 +509,9 @@
   </data>
   <data name="A_CANCELAR43988" xml:space="preserve">
     <value>A cancelar</value>
+  </data>
+  <data name="YEAR_BUILT55277" xml:space="preserve">
+    <value>Year Built</value>
   </data>
   <data name="COUNTRY_NAME26113" xml:space="preserve">
     <value>Country Name</value>

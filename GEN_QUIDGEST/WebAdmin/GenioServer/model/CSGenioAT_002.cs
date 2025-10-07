@@ -108,6 +108,43 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "size", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Size";
+			Qfield.FieldSize =  10;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 6;
+			Qfield.Decimals = 3;
+			Qfield.CavDesignation = "SIZE10299";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "bathnumber", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Bathroums Number";
+			Qfield.FieldSize =  2;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 2;
+			Qfield.CavDesignation = "BATHROUMS_NUMBER42941";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "yearbuilt", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Year Built";
+			Qfield.FieldSize =  4;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 4;
+			Qfield.CavDesignation = "YEAR_BUILT55277";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -330,6 +367,39 @@ namespace CSGenio.business
 			set { insertNameValueField(FldCodt_004, value); }
 		}
 
+		/// <summary>Field : "Size" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldSize { get { return m_fldSize; } }
+		private static FieldRef m_fldSize = new FieldRef("t_002", "size");
+
+		/// <summary>Field : "Size" Tipo: "N" Formula:  ""</summary>
+		public decimal ValSize
+		{
+			get { return (decimal)returnValueField(FldSize); }
+			set { insertNameValueField(FldSize, value); }
+		}
+
+		/// <summary>Field : "Bathroums Number" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldBathnumber { get { return m_fldBathnumber; } }
+		private static FieldRef m_fldBathnumber = new FieldRef("t_002", "bathnumber");
+
+		/// <summary>Field : "Bathroums Number" Tipo: "N" Formula:  ""</summary>
+		public decimal ValBathnumber
+		{
+			get { return (decimal)returnValueField(FldBathnumber); }
+			set { insertNameValueField(FldBathnumber, value); }
+		}
+
+		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldYearbuilt { get { return m_fldYearbuilt; } }
+		private static FieldRef m_fldYearbuilt = new FieldRef("t_002", "yearbuilt");
+
+		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
+		public decimal ValYearbuilt
+		{
+			get { return (decimal)returnValueField(FldYearbuilt); }
+			set { insertNameValueField(FldYearbuilt, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -427,7 +497,7 @@ namespace CSGenio.business
 
  
 
-       
+          
 
 	}
 }
