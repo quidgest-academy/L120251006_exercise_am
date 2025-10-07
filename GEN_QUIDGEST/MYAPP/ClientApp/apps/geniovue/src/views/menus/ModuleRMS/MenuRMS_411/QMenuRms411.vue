@@ -249,7 +249,7 @@
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: computed(() => this.Resources.PROPERTIES34868),
-							showAlternatePagination: true,
+							showRecordCount: true,
 							permissions: {
 							},
 							searchBarConfig: {

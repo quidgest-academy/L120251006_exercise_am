@@ -195,10 +195,6 @@
 							tableTitle: computed(() => this.Resources.AGENTS29376),
 							showAlternatePagination: true,
 							permissions: {
-								canEdit: false,
-								canDuplicate: false,
-								canDelete: false,
-								canInsert: false
 							},
 							searchBarConfig: {
 								visibility: true,
@@ -224,8 +220,73 @@
 										isControlled: true
 									}
 								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
 							],
 							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
 							],
 							generalCustomActions: [
 							],
