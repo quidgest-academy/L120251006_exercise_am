@@ -462,6 +462,9 @@
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>
+  <msg id="No acess" code="NO_ACESS62326">
+    <ENUS>No acess</ENUS>
+  </msg>
   <msg id="System" code="SYSTEM02957">
     <ENUS>System</ENUS>
   </msg>

@@ -1447,6 +1447,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "No acess"
+        /// </summary>
+        public static string NO_ACESS62326 {
+            get {
+                return ResourceManager.GetString("NO_ACESS62326", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "System"
         /// </summary>
         public static string SYSTEM02957 {

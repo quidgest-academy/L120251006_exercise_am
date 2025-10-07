@@ -109,6 +109,22 @@ namespace GenioMVC.ViewModels.T_003
 			if (navigation != null)
 				model.LoadKeysFromHistory(navigation, navigation.CurrentLevel.Level);
 
+			Models.T_003 areaT_003 = model;
+			try
+			{
+				// (FR_003 form condition) [UserLevel]<30
+				if (!(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30))
+				{
+					var status = Status.E;
+					StatusMessage message = new(status, Resources.Resources.NO_ACESS62326); // Message: "No acess"
+					result.MergeStatusMessage(message);
+				}
+			}
+			catch (Exception exc)
+			{
+				Log.Error($"Error executing form FFR_003 access condition: {exc.Message}");
+				throw;
+			}
 			var tableResult = model.EvaluateTableConditions(ConditionType.INSERT);
 			result.MergeStatusMessage(tableResult);
 			return result;

@@ -52,6 +52,26 @@ namespace GenioMVC.Controllers
 
 
 
+		// POST: /T_003/FR_003_InsertCondition
+		[HttpPost]
+		public JsonResult FR_003_InsertCondition()
+		{
+			try
+			{
+				// Create a model from form data to avoid extra database queries.
+				var p = new Models.T_003(UserContext.Current);
+
+				// Formula: [UserLevel]<30
+				if (!((Logical)(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30)))
+					return JsonOK(false);
+
+				return JsonOK(true);
+			}
+			catch (Exception ex)
+			{
+				return JsonERROR(ex.Message);
+			}
+		}
 
 
 		/// <summary>
