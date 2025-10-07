@@ -88,6 +88,26 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "codt_001", FieldType.KEY_INT);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "codt_004", FieldType.KEY_INT);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -101,10 +121,15 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[2];
+			info.ChildTable[0]= new ChildRelation("t_006", new String[] {"codt_002"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("t_005", new String[] {"codt_002"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
+			info.ParentTables.Add("t_001", new Relation("RMS", "rmsproperty", "t_002", "codt_002", "codt_001", "RMS", "rmst_agent", "t_001", "codt_001", "codt_001"));
+			info.ParentTables.Add("t_004", new Relation("RMS", "rmsproperty", "t_002", "codt_002", "codt_004", "RMS", "rmscity", "t_004", "codt_004", "codt_004"));
 		}
 
 		/// <summary>
@@ -114,7 +139,10 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(0);
+			info.Pathways = new Dictionary<string, string>(3);
+			info.Pathways.Add("t_001","t_001");
+			info.Pathways.Add("t_004","t_004");
+			info.Pathways.Add("t_003","t_004");
 		}
 
 		/// <summary>
@@ -278,6 +306,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPrice, value); }
 		}
 
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldCodt_001 { get { return m_fldCodt_001; } }
+		private static FieldRef m_fldCodt_001 = new FieldRef("t_002", "codt_001");
+
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public string ValCodt_001
+		{
+			get { return (string)returnValueField(FldCodt_001); }
+			set { insertNameValueField(FldCodt_001, value); }
+		}
+
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldCodt_004 { get { return m_fldCodt_004; } }
+		private static FieldRef m_fldCodt_004 = new FieldRef("t_002", "codt_004");
+
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public string ValCodt_004
+		{
+			get { return (string)returnValueField(FldCodt_004); }
+			set { insertNameValueField(FldCodt_004, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -375,7 +425,7 @@ namespace CSGenio.business
 
  
 
-     
+       
 
 	}
 }

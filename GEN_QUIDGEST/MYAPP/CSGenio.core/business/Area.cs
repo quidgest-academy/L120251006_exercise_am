@@ -24,22 +24,30 @@ namespace CSGenio.business
         private static AreaRef m_AreaT_001 = new AreaRef("RMS", "rmst_agent", "t_001");
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
         private static AreaRef m_AreaS_UA = new AreaRef("RMS", "userauthorization", "s_ua");
+        public static AreaRef AreaT_004 { get { return m_AreaT_004; } }
+        private static AreaRef m_AreaT_004 = new AreaRef("RMS", "rmscity", "t_004");
         public static AreaRef AreaT_002 { get { return m_AreaT_002; } }
         private static AreaRef m_AreaT_002 = new AreaRef("RMS", "rmsproperty", "t_002");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("RMS", "asyncprocess", "s_apr");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("RMS", "asyncprocessargument", "s_arg");
+        public static AreaRef AreaT_006 { get { return m_AreaT_006; } }
+        private static AreaRef m_AreaT_006 = new AreaRef("RMS", "rmsphotoalbum", "t_006");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
         private static AreaRef m_AreaPSW = new AreaRef("RMS", "userlogin", "psw");
         public static AreaRef AreaS_NES { get { return m_AreaS_NES; } }
         private static AreaRef m_AreaS_NES = new AreaRef("RMS", "notificationemailsignature", "s_nes");
         public static AreaRef AreaMEM { get { return m_AreaMEM; } }
         private static AreaRef m_AreaMEM = new AreaRef("RMS", "rmsmem", "mem");
+        public static AreaRef AreaT_005 { get { return m_AreaT_005; } }
+        private static AreaRef m_AreaT_005 = new AreaRef("RMS", "rmscontact", "t_005");
         public static AreaRef AreaS_NM { get { return m_AreaS_NM; } }
         private static AreaRef m_AreaS_NM = new AreaRef("RMS", "notificationmessage", "s_nm");
         public static AreaRef AreaS_PAX { get { return m_AreaS_PAX; } }
         private static AreaRef m_AreaS_PAX = new AreaRef("RMS", "asyncprocessattachments", "s_pax");
+        public static AreaRef AreaT_003 { get { return m_AreaT_003; } }
+        private static AreaRef m_AreaT_003 = new AreaRef("RMS", "rmscountry", "t_003");
         //areas hardcoded
         public static AreaRef AreaDELEGA { get { return m_AreaDELEGA; } }
         private static AreaRef m_AreaDELEGA = new AreaRef("RMSdelega", "delega");
@@ -73,14 +81,18 @@ namespace CSGenio.business
             new List<string>() {
             "t_001",
             "s_ua",
+            "t_004",
             "t_002",
             "s_apr",
             "s_arg",
+            "t_006",
             "psw",
             "s_nes",
             "mem",
+            "t_005",
             "s_nm",
             "s_pax",
+            "t_003",
         });
 
         /// <summary>

@@ -53,6 +53,29 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodt_002))
 		this.stopWatchers.push(watch(() => this.ValCodt_002.value, (newValue, oldValue) => this.onUpdate('t_002.codt_002', this.ValCodt_002, newValue, oldValue)))
 
+		/** The hidden foreign keys. */
+		this.ValCodt_001 = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodt_001',
+			originId: 'ValCodt_001',
+			area: 'T_002',
+			field: 'F_004',
+			relatedArea: 'T_001',
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValCodt_001))
+		this.stopWatchers.push(watch(() => this.ValCodt_001.value, (newValue, oldValue) => this.onUpdate('t_002.codt_001', this.ValCodt_001, newValue, oldValue)))
+
+		this.ValCodt_004 = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodt_004',
+			originId: 'ValCodt_004',
+			area: 'T_002',
+			field: 'F_005',
+			relatedArea: 'T_004',
+			isFixed: true,
+			description: '',
+		}).cloneFrom(values?.ValCodt_004))
+		this.stopWatchers.push(watch(() => this.ValCodt_004.value, (newValue, oldValue) => this.onUpdate('t_002.codt_004', this.ValCodt_004, newValue, oldValue)))
+
 		/** The remaining form fields. */
 		this.ValPhoto = reactive(new modelFieldType.Image({
 			id: 'ValPhoto',

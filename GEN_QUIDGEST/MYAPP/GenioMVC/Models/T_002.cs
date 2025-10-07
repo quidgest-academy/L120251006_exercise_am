@@ -46,6 +46,46 @@ namespace GenioMVC.Models
 		[CurrencyAttribute("EUR", 2)]
 		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 2)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
 
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValCodt_001")]
+		public string ValCodt_001 { get { return klass.ValCodt_001; } set { klass.ValCodt_001 = value; } }
+
+		private T_001 _t_001;
+		[DisplayName("T_001")]
+		[ShouldSerialize("T_001")]
+		public virtual T_001 T_001
+		{
+			get
+			{
+				if (!isEmptyModel && (_t_001 == null || (!string.IsNullOrEmpty(ValCodt_001) && (_t_001.isEmptyModel || _t_001.klass.QPrimaryKey != ValCodt_001))))
+					_t_001 = Models.T_001.Find(ValCodt_001, m_userContext, Identifier, _fieldsToSerialize);
+				_t_001 ??= new Models.T_001(m_userContext, true, _fieldsToSerialize);
+				return _t_001;
+			}
+			set { _t_001 = value; }
+		}
+
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValCodt_004")]
+		public string ValCodt_004 { get { return klass.ValCodt_004; } set { klass.ValCodt_004 = value; } }
+
+		private T_004 _t_004;
+		[DisplayName("T_004")]
+		[ShouldSerialize("T_004")]
+		public virtual T_004 T_004
+		{
+			get
+			{
+				if (!isEmptyModel && (_t_004 == null || (!string.IsNullOrEmpty(ValCodt_004) && (_t_004.isEmptyModel || _t_004.klass.QPrimaryKey != ValCodt_004))))
+					_t_004 = Models.T_004.Find(ValCodt_004, m_userContext, Identifier, _fieldsToSerialize);
+				_t_004 ??= new Models.T_004(m_userContext, true, _fieldsToSerialize);
+				return _t_004;
+			}
+			set { _t_004 = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -77,6 +117,14 @@ namespace GenioMVC.Models
 			{
 				switch (Qfield.Area)
 				{
+					case "t_001":
+						_t_001 ??= new T_001(m_userContext, true, _fieldsToSerialize);
+						_t_001.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "t_004":
+						_t_004 ??= new T_004(m_userContext, true, _fieldsToSerialize);
+						_t_004.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
 					default:
 						break;
 				}

@@ -15,14 +15,23 @@
   <msg id="Quidgest" code="QUIDGEST26196">
     <ENUS>Quidgest</ENUS>
   </msg>
+  <msg id="Contact" code="CONTACT59247">
+    <ENUS>Contact</ENUS>
+  </msg>
   <msg id="Estados do processo" code="ESTADOS_DO_PROCESSO59118">
     <ENUS>Estados do processo</ENUS>
   </msg>
   <msg id="Email" code="EMAIL25170">
     <ENUS>Email</ENUS>
   </msg>
+  <msg id="Contacts" code="CONTACTS55742">
+    <ENUS>Contacts</ENUS>
+  </msg>
   <msg id="Duration" code="DURATION40426">
     <ENUS>Duration</ENUS>
+  </msg>
+  <msg id="City" code="CITY42505">
+    <ENUS>City</ENUS>
   </msg>
   <msg id="To" code="TO55217">
     <ENUS>To</ENUS>
@@ -81,6 +90,9 @@
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
   </msg>
+  <msg id="Countries" code="COUNTRIES64527">
+    <ENUS>Countries</ENUS>
+  </msg>
   <msg id="Agendado para execução" code="AGENDADO_PARA_EXECUC11223">
     <ENUS>Agendado para execução</ENUS>
   </msg>
@@ -107,6 +119,9 @@
   </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
+  </msg>
+  <msg id="Email Contact" code="EMAIL_CONTACT20056">
+    <ENUS>Email Contact</ENUS>
   </msg>
   <msg id="Changed on" code="CHANGED_ON19727">
     <ENUS>Changed on</ENUS>
@@ -138,11 +153,17 @@
   <msg id="Finished" code="FINISHED26993">
     <ENUS>Finished</ENUS>
   </msg>
+  <msg id="Photo Albums" code="PHOTO_ALBUMS41529">
+    <ENUS>Photo Albums</ENUS>
+  </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
   </msg>
   <msg id="Manual destination" code="MANUAL_DESTINATION21892">
     <ENUS>Manual destination</ENUS>
+  </msg>
+  <msg id="Phone Contact" code="PHONE_CONTACT15195">
+    <ENUS>Phone Contact</ENUS>
   </msg>
   <msg id="Bcc" code="BCC22049">
     <ENUS>Bcc</ENUS>
@@ -183,8 +204,14 @@
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
+  <msg id="Client Name" code="CLIENT_NAME26049">
+    <ENUS>Client Name</ENUS>
+  </msg>
   <msg id="Process Types" code="PROCESS_TYPES19050">
     <ENUS>Process Types</ENUS>
+  </msg>
+  <msg id="Country" code="COUNTRY64133">
+    <ENUS>Country</ENUS>
   </msg>
   <msg id="Name" code="NAME31974">
     <ENUS>Name</ENUS>
@@ -245,6 +272,9 @@
   </msg>
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
+  </msg>
+  <msg id="Photo Album" code="PHOTO_ALBUM45574">
+    <ENUS>Photo Album</ENUS>
   </msg>
   <msg id="Profile Photo" code="PROFILE_PHOTO12166">
     <ENUS>Profile Photo</ENUS>
@@ -321,6 +351,9 @@
   <msg id="User Profile" code="USER_PROFILE06358">
     <ENUS>User Profile</ENUS>
   </msg>
+  <msg id="Cities" code="CITIES41573">
+    <ENUS>Cities</ENUS>
+  </msg>
   <msg id="Changed by" code="CHANGED_BY08967">
     <ENUS>Changed by</ENUS>
   </msg>
@@ -332,6 +365,9 @@
   </msg>
   <msg id="A cancelar" code="A_CANCELAR43988">
     <ENUS>A cancelar</ENUS>
+  </msg>
+  <msg id="Country Name" code="COUNTRY_NAME26113">
+    <ENUS>Country Name</ENUS>
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
@@ -365,6 +401,9 @@
   </msg>
   <msg id="User Profiles" code="USER_PROFILES41435">
     <ENUS>User Profiles</ENUS>
+  </msg>
+  <msg id="Photo" code="PHOTO51874">
+    <ENUS>Photo</ENUS>
   </msg>
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>

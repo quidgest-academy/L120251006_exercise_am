@@ -185,18 +185,18 @@ namespace CSGenio.business
             }
                 
 
-            /* --- RMSProperty --- */
+            /* --- RMSCountry --- */
             dm = sp.Execute(
                 new SelectQuery()
-                .Select(CSGenioAt_002.FldCodt_002)
-                .From(CSGenioAt_002.AreaT_002)
-                .Where(CriteriaSet.And().In(CSGenioAt_002.FldZzstate, zzstateToRemove))
+                .Select(CSGenioAt_003.FldCodt_003)
+                .From(CSGenioAt_003.AreaT_003)
+                .Where(CriteriaSet.And().In(CSGenioAt_003.FldZzstate, zzstateToRemove))
                 );
 
             for (int i = 0; i < dm.NumRows; i++)
             {
-                CSGenioAt_002 model = new CSGenioAt_002(user);
-                model.ValCodt_002 = dm.GetKey(i, 0);
+                CSGenioAt_003 model = new CSGenioAt_003(user);
+                model.ValCodt_003 = dm.GetKey(i, 0);
 
                 try
                 {
@@ -275,6 +275,110 @@ namespace CSGenio.business
             {
                 CSGenioAs_ua model = new CSGenioAs_ua(user);
                 model.ValCodua = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- RMSCity --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_004.FldCodt_004)
+                .From(CSGenioAt_004.AreaT_004)
+                .Where(CriteriaSet.And().In(CSGenioAt_004.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_004 model = new CSGenioAt_004(user);
+                model.ValCodt_004 = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- RMSProperty --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_002.FldCodt_002)
+                .From(CSGenioAt_002.AreaT_002)
+                .Where(CriteriaSet.And().In(CSGenioAt_002.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_002 model = new CSGenioAt_002(user);
+                model.ValCodt_002 = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- RMSContact --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_005.FldCodt_005)
+                .From(CSGenioAt_005.AreaT_005)
+                .Where(CriteriaSet.And().In(CSGenioAt_005.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_005 model = new CSGenioAt_005(user);
+                model.ValCodt_005 = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- RMSPhotoAlbum --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_006.FldCodt_006)
+                .From(CSGenioAt_006.AreaT_006)
+                .Where(CriteriaSet.And().In(CSGenioAt_006.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_006 model = new CSGenioAt_006(user);
+                model.ValCodt_006 = dm.GetKey(i, 0);
 
                 try
                 {

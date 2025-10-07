@@ -30,6 +30,16 @@ namespace GenioMVC.ViewModels.T_002
 		public bool MsqActive { get; set; } = false;
 
 		#region Foreign keys
+		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValCodt_001 { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValCodt_004 { get; set; }
 
 		#endregion
 		/// <summary>
@@ -178,6 +188,8 @@ namespace GenioMVC.ViewModels.T_002
 
 			try
 			{
+				ValCodt_001 = ViewModelConversion.ToString(m.ValCodt_001);
+				ValCodt_004 = ViewModelConversion.ToString(m.ValCodt_004);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
@@ -212,6 +224,16 @@ namespace GenioMVC.ViewModels.T_002
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
 				m.ValCodt_002 = ViewModelConversion.ToString(ValCodt_002);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
+				m.ValCodt_004 = ViewModelConversion.ToString(ValCodt_004);
 			}
 			catch (Exception)
 			{
@@ -415,6 +437,8 @@ namespace GenioMVC.ViewModels.T_002
 		{
 			return identifier switch
 			{
+				"t_002.codt_001" => ViewModelConversion.ToString(modelValue),
+				"t_002.codt_004" => ViewModelConversion.ToString(modelValue),
 				"t_002.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_002.title" => ViewModelConversion.ToString(modelValue),
 				"t_002.price" => ViewModelConversion.ToNumeric(modelValue),

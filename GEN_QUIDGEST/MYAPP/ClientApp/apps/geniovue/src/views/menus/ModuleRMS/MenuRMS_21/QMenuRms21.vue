@@ -316,7 +316,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-T_002'],
+						globalEvents: ['changed-T_002', 'changed-T_001', 'changed-T_004'],
 						uuid: '6c6ea5f2-8239-4c40-aca1-bdcf0049591a',
 						allSelectedRows: 'false',
 						headerLevel: 1,

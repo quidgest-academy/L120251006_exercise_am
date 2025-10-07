@@ -1,0 +1,392 @@
+﻿<template>
+	<teleport
+		v-if="menuModalIsReady"
+		:to="`#${uiContainersId.body}`"
+		:disabled="!menuInfo.isPopup">
+		<form
+			class="form-horizontal"
+			@submit.prevent>
+			<q-row-container>
+				<q-table
+					v-bind="controls.menu"
+					v-on="controls.menu.handlers">
+				</q-table>
+
+				<q-table-extra-extension
+					:list-ctrl="controls.menu"
+					:filter-operators="controls.menu.filterOperators"
+					v-on="controls.menu.handlers" />
+			</q-row-container>
+		</form>
+	</teleport>
+
+	<teleport
+		v-if="menuModalIsReady && hasButtons"
+		:to="`#${uiContainersId.footer}`"
+		:disabled="!menuInfo.isPopup">
+		<q-row-container>
+			<div id="footer-action-btns">
+				<template
+					v-for="btn in menuButtons"
+					:key="btn.id">
+					<q-button
+						v-if="btn.isVisible"
+						:id="btn.id"
+						:label="btn.text"
+						:variant="btn.variant"
+						:disabled="btn.disabled"
+						:icon-pos="btn.iconPos"
+						:class="btn.classes"
+						@click="btn.action">
+						<q-icon
+							v-if="btn.icon"
+							v-bind="btn.icon" />
+					</q-button>
+				</template>
+			</div>
+		</q-row-container>
+	</teleport>
+</template>
+
+<script>
+	/* eslint-disable @typescript-eslint/no-unused-vars */
+	import asyncProcM from '@quidgest/clientapp/composables/async'
+	import qEnums from '@quidgest/clientapp/constants/enums'
+	import netAPI from '@quidgest/clientapp/network'
+	import openQSign from '@quidgest/clientapp/plugins/qSign'
+	import genericFunctions from '@quidgest/clientapp/utils/genericFunctions'
+	import { computed, readonly } from 'vue'
+
+	import MenuHandlers from '@/mixins/menuHandlers.js'
+	import controlClass from '@/mixins/fieldControl.js'
+	import listFunctions from '@/mixins/listFunctions.js'
+	import listColumnTypes from '@/mixins/listColumnTypes.js'
+	import { resetProgressBar, setProgressBar } from '@/utils/layout.js'
+
+	import { loadResources } from '@/plugins/i18n.js'
+
+	import hardcodedTexts from '@/hardcodedTexts'
+	import qApi from '@/api/genio/quidgestFunctions.js'
+	import qFunctions from '@/api/genio/projectFunctions.js'
+	import qProjArrays from '@/api/genio/projectArrays.js'
+	/* eslint-enable @typescript-eslint/no-unused-vars */
+
+	import MenuViewModel from './QMenuRMS_41ViewModel.js'
+
+	const requiredTextResources = ['QMenuRMS_41', 'hardcoded', 'messages']
+
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL RMS FORM_INCLUDEJS RMS_MENU_41]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+
+	export default {
+		name: 'QMenuRms41',
+
+		mixins: [
+			MenuHandlers
+		],
+
+		inheritAttrs: false,
+
+		props: {
+			/**
+			 * Whether or not the menu is used as a homepage.
+			 */
+			isHomePage: {
+				type: Boolean,
+				default: false
+			}
+		},
+
+		expose: [
+			'navigationId',
+			'onBeforeRouteLeave',
+			'updateMenuNavigation'
+		],
+
+		data()
+		{
+			// eslint-disable-next-line
+			const vm = this
+			return {
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuRMS_41', false),
+
+				interfaceMetadata: {
+					id: 'QMenuRMS_41', // Used for resources
+					requiredTextResources
+				},
+
+				menuInfo: {
+					id: '41',
+					isMenuList: true,
+					designation: computed(() => this.Resources.AGENTS29376),
+					acronym: 'RMS_41',
+					name: 'T_001',
+					route: 'menu-RMS_41',
+					order: '41',
+					controller: 'T_001',
+					action: 'RMS_Menu_41',
+					isPopup: false
+				},
+
+				model: new MenuViewModel(this),
+
+				controls: {
+					menu: new controlClass.TableSpecialRenderingControl({
+						fnHydrateViewModel: (data) => vm.model.hydrate(data),
+						id: 'RMS_Menu_41',
+						controller: 'T_001',
+						action: 'RMS_Menu_41',
+						hasDependencies: false,
+						isInCollapsible: false,
+						tableModeClasses: [
+							'q-table--full-height',
+							'page-full-height'
+						],
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValEmail',
+								area: 'T_001',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.EMAIL25170),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ImageColumn({
+								order: 2,
+								name: 'ValPhoto',
+								area: 'T_001',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PROFILE_PHOTO12166),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PROFILE_PHOTO12166)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValName',
+								area: 'T_001',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 4,
+								name: 'ValDobirth',
+								area: 'T_001',
+								field: 'DOBIRTH',
+								label: computed(() => this.Resources.DATE_OF_BIRTH36542),
+								scrollData: 8,
+								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'RMS_Menu_41',
+							serverMode: true,
+							pkColumn: 'ValCodt_001',
+							tableAlias: 'T_001',
+							tableNamePlural: computed(() => this.Resources.AGENTS29376),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.AGENTS29376),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: true,
+								searchOnPressEnter: true
+							},
+							filtersVisible: true,
+							allowColumnFilters: true,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'FR_001',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA_RMS_411',
+								name: 'form-FR_001',
+								params: {
+									isRoute: true,
+									limits: [
+										{
+											identifier: 'id',
+											fnValueSelector: (row) => row.ValCodt_001
+										},
+									],
+									isControlled: true,
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_001'
+								}
+							},
+							formsDefinition: {
+								'FR_001': {
+									fnKeySelector: (row) => row.Fields.ValCodt_001,
+									isPopup: false
+								},
+							},
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
+							defaultColumnSorting: {
+								columnName: 'ValEmail',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-T_001'],
+						uuid: '355990eb-6ea4-45a8-863a-d109e3ab68a5',
+						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 1,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
+								},
+								groups: {
+								}
+							},
+						],
+						headerLevel: 1,
+					}, this),
+				}
+			}
+		},
+
+		beforeRouteEnter(to, _, next)
+		{
+			// called before the route that renders this component is confirmed.
+			// does NOT have access to `this` component instance,
+			// because it has not been created yet when this guard is called!
+
+			next((vm) => vm.updateMenuNavigation(to))
+		},
+
+		beforeRouteLeave(to, _, next)
+		{
+			this.onBeforeRouteLeave(next)
+		},
+
+		mounted()
+		{
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL RMS FORM_CODEJS RMS_MENU_41]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+		},
+
+		beforeUnmount()
+		{
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL RMS COMPONENT_BEFORE_UNMOUNT RMS_MENU_41]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+		},
+
+		methods: {
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL RMS FUNCTIONS_JS RMS_41]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+/* eslint-disable indent, vue/html-indent, vue/script-indent */
+// USE /[MANUAL RMS LISTING_CODEJS RMS_MENU_41]/
+// eslint-disable-next-line
+/* eslint-enable indent, vue/html-indent, vue/script-indent */
+		}
+	}
+</script>

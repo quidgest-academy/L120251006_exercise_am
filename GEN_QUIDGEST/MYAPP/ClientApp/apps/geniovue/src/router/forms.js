@@ -25,5 +25,49 @@ export default function getFormsRoutes()
 				humanKeyFields: ['ValTitle']
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/FR_003/:mode/:id?',
+			name: 'form-FR_003',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFr003/QFormFr003.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'T_003',
+				humanKeyFields: ['ValCountry']
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/FR_004/:mode/:id?',
+			name: 'form-FR_004',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFr004/QFormFr004.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'T_004',
+				humanKeyFields: ['ValCity']
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/FR_005/:mode/:id?',
+			name: 'form-FR_005',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFr005/QFormFr005.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'T_006',
+				humanKeyFields: ['ValDescription']
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/FR_006/:mode/:id?',
+			name: 'form-FR_006',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormFr006/QFormFr006.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'T_005',
+				humanKeyFields: ['ValClientname']
+			}
+		},
 	]
 }

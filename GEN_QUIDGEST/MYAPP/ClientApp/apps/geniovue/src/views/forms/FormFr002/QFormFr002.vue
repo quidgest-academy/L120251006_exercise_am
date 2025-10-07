@@ -565,10 +565,18 @@
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
 						get ValPrice() { return vm.model.ValPrice.value },
 						set ValPrice(value) { vm.model.ValPrice.updateValue(value) },
+						get ValCodt_001() { return vm.model.ValCodt_001.value },
+						set ValCodt_001(value) { vm.model.ValCodt_001.updateValue(value) },
+						get ValCodt_004() { return vm.model.ValCodt_004.value },
+						set ValCodt_004(value) { vm.model.ValCodt_004.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_002 table */
 						get t_002() { return vm.model.ValCodt_002 },
+						/** The foreign key to the T_001 table */
+						get t_001() { return vm.model.ValCodt_001 },
+						/** The foreign key to the T_004 table */
+						get t_004() { return vm.model.ValCodt_004 },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

@@ -120,12 +120,12 @@
 				menuInfo: {
 					id: '11',
 					isMenuList: true,
-					designation: computed(() => this.Resources.AGENTS29376),
+					designation: computed(() => this.Resources.CONTACTS55742),
 					acronym: 'RMS_11',
-					name: 'T_001',
+					name: 'T_005',
 					route: 'menu-RMS_11',
 					order: '11',
-					controller: 'T_001',
+					controller: 'T_005',
 					action: 'RMS_Menu_11',
 					isPopup: false
 				},
@@ -133,10 +133,10 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableSpecialRenderingControl({
+					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'RMS_Menu_11',
-						controller: 'T_001',
+						controller: 'T_005',
 						action: 'RMS_Menu_11',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,51 +148,68 @@
 							new listColumnTypes.TextColumn({
 								order: 1,
 								name: 'ValEmail',
-								area: 'T_001',
+								area: 'T_005',
 								field: 'EMAIL',
-								label: computed(() => this.Resources.EMAIL25170),
+								label: computed(() => this.Resources.EMAIL_CONTACT20056),
 								dataLength: 50,
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ImageColumn({
-								order: 2,
-								name: 'ValPhoto',
-								area: 'T_001',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PROFILE_PHOTO12166),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PROFILE_PHOTO12166)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValName',
-								area: 'T_001',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
+								order: 2,
+								name: 'ValPhone',
+								area: 'T_005',
+								field: 'PHONE',
+								label: computed(() => this.Resources.PHONE_CONTACT15195),
 								dataLength: 50,
 								scrollData: 30,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.DateColumn({
-								order: 4,
-								name: 'ValDobirth',
-								area: 'T_001',
-								field: 'DOBIRTH',
-								label: computed(() => this.Resources.DATE_OF_BIRTH36542),
+								order: 3,
+								name: 'ValDatre',
+								area: 'T_005',
+								field: 'DATRE',
+								label: computed(() => this.Resources.DATE18475),
 								scrollData: 8,
 								dateTimeType: 'date',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'ValDescription',
+								area: 'T_005',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 5,
+								name: 'ValClientname',
+								area: 'T_005',
+								field: 'CLIENTNAME',
+								label: computed(() => this.Resources.CLIENT_NAME26049),
+								dataLength: 50,
+								scrollData: 30,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 6,
+								name: 'T_002.ValTitle',
+								area: 'T_002',
+								field: 'TITLE',
+								label: computed(() => this.Resources.PROPERTY_TITLE56931),
+								dataLength: 50,
+								scrollData: 30,
+								pkColumn: 'ValCodt_002',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'RMS_Menu_11',
 							serverMode: true,
-							pkColumn: 'ValCodt_001',
-							tableAlias: 'T_001',
-							tableNamePlural: computed(() => this.Resources.AGENTS29376),
+							pkColumn: 'ValCodt_005',
+							tableAlias: 'T_005',
+							tableNamePlural: computed(() => this.Resources.CONTACTS55742),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.AGENTS29376),
+							tableTitle: computed(() => this.Resources.CONTACTS55742),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -215,7 +232,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_006',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -231,7 +248,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_006',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -247,7 +264,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_006',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -263,7 +280,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_006',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -281,7 +298,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'FR_001',
+										formName: 'FR_006',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -298,50 +315,35 @@
 							],
 							rowClickAction: {
 								id: 'RCA_RMS_111',
-								name: 'form-FR_001',
+								name: 'form-FR_006',
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodt_001
+											fnValueSelector: (row) => row.ValCodt_005
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_001'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'FR_006'
 								}
 							},
 							formsDefinition: {
-								'FR_001': {
-									fnKeySelector: (row) => row.Fields.ValCodt_001,
+								'FR_006': {
+									fnKeySelector: (row) => row.Fields.ValCodt_005,
 									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: 'ValClientname',
+							defaultSearchColumnNameOriginal: 'ValClientname',
 							defaultColumnSorting: {
 								columnName: 'ValEmail',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-T_001'],
-						uuid: '355990eb-6ea4-45a8-863a-d109e3ab68a5',
+						globalEvents: ['changed-T_005', 'changed-T_002'],
+						uuid: '28d0e347-1264-4bfe-ab2c-2c699511af57',
 						allSelectedRows: 'false',
-						viewModes: [
-							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 1,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-						],
 						headerLevel: 1,
 					}, this),
 				}

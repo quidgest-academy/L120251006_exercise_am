@@ -15,9 +15,9 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.T_001
+namespace GenioMVC.ViewModels.T_005
 {
-	public class RMS_Menu_11_ViewModel : MenuListViewModel<Models.T_001>
+	public class RMS_Menu_11_ViewModel : MenuListViewModel<Models.T_005>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
@@ -27,10 +27,10 @@ namespace GenioMVC.ViewModels.T_001
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "t_001";
+		public override string TableAlias => "t_005";
 
 		/// <inheritdoc/>
-		public override string Uuid => "355990eb-6ea4-45a8-863a-d109e3ab68a5";
+		public override string Uuid => "28d0e347-1264-4bfe-ab2c-2c699511af57";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -89,19 +89,19 @@ namespace GenioMVC.ViewModels.T_001
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("t_001", user, "RMS");
+			var areaBase = CSGenio.business.Area.createArea("t_005", user, "RMS");
 
 			//gets eph conditions to be applied in listing
 			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML11");
-			conditions.Equal(CSGenioAt_001.FldZzstate, 0); //valid zzstate only
+			conditions.Equal(CSGenioAt_005.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAt_001.FldCodt_001, CSGenioAt_001.FldZzstate, CSGenioAt_001.FldEmail, CSGenioAt_001.FldPhoto, CSGenioAt_001.FldName, CSGenioAt_001.FldDobirth };
+			FieldRef[] fields = new FieldRef[] { CSGenioAt_005.FldCodt_005, CSGenioAt_005.FldZzstate, CSGenioAt_005.FldEmail, CSGenioAt_005.FldPhone, CSGenioAt_005.FldDatre, CSGenioAt_005.FldDescription, CSGenioAt_005.FldClientname, CSGenioAt_005.FldCodt_002, CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldTitle };
 
-			ListingMVC<CSGenioAt_001> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAt_005> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
@@ -144,19 +144,22 @@ namespace GenioMVC.ViewModels.T_001
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAt_001.FldEmail, FieldType.TEXT, Resources.Resources.EMAIL25170, 30, 0, true),
-				new Exports.QColumn(CSGenioAt_001.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAt_001.FldDobirth, FieldType.DATE, Resources.Resources.DATE_OF_BIRTH36542, 8, 0, true),
+				new Exports.QColumn(CSGenioAt_005.FldEmail, FieldType.TEXT, Resources.Resources.EMAIL_CONTACT20056, 30, 0, true),
+				new Exports.QColumn(CSGenioAt_005.FldPhone, FieldType.TEXT, Resources.Resources.PHONE_CONTACT15195, 30, 0, true),
+				new Exports.QColumn(CSGenioAt_005.FldDatre, FieldType.DATE, Resources.Resources.DATE18475, 8, 0, true),
+				new Exports.QColumn(CSGenioAt_005.FldDescription, FieldType.TEXT, Resources.Resources.DESCRIPTION07383, 30, 0, true),
+				new Exports.QColumn(CSGenioAt_005.FldClientname, FieldType.TEXT, Resources.Resources.CLIENT_NAME26049, 30, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldTitle, FieldType.TEXT, Resources.Resources.PROPERTY_TITLE56931, 30, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAt_001> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAt_005> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAt_001> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAt_005> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -212,25 +215,25 @@ namespace GenioMVC.ViewModels.T_001
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.T_001.AddEPH<CSGenioAt_001>(ref u, crs, "ML11");
+				crs = Models.T_005.AddEPH<CSGenioAt_005>(ref u, crs, "ML11");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAt_001.FldZzstate, 0);
+				crs.Equal(CSGenioAt_005.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("T_001", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAt_001.FldZzstate, null);
+			if (!Navigation.checkFormMode("T_005", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAt_005.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_001");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_t_001");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_005");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_t_005");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.T_001.AddEPH<CSGenioAt_001>(ref u, null, "ML11"));
+					crs.Equals(Models.T_005.AddEPH<CSGenioAt_005>(ref u, null, "ML11"));
 			}
 
 			return crs;
@@ -255,7 +258,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAt_001> listing = null;
+			ListingMVC<CSGenioAt_005> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -269,7 +272,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAt_001> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAt_005> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.framework.TableConfiguration.TableConfiguration tableConfig = new CSGenio.framework.TableConfiguration.TableConfiguration();
 
@@ -288,7 +291,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAt_001> listing = null;
+			ListingMVC<CSGenioAt_005> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -302,7 +305,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAt_001> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAt_005> Qlisting, ref CriteriaSet conditions)
 		{
 				User u = m_userContext.User;
 				Menu = new TablePartial<RMS_Menu_11_RowViewModel>();
@@ -312,8 +315,8 @@ namespace GenioMVC.ViewModels.T_001
 
 				//FOR: MENU LIST SORTING
 				Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-				allSortOrders.Add("T_001.EMAIL", new OrderedDictionary());
-				allSortOrders["T_001.EMAIL"].Add("T_001.EMAIL", "A");
+				allSortOrders.Add("T_005.EMAIL", new OrderedDictionary());
+				allSortOrders["T_005.EMAIL"].Add("T_005.EMAIL", "A");
 
 
 
@@ -324,16 +327,16 @@ namespace GenioMVC.ViewModels.T_001
 				if (pageNumber < 1)
 					pageNumber = 1;
 
-				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "t_001", allSortOrders);
+				List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig.ColumnOrderBy, "t_005", allSortOrders);
 
 				if (sorts == null || sorts.Count == 0)
 				{
 					sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAt_001.FldEmail), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAt_005.FldEmail), SortOrder.Ascending));
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAt_001.FldCodt_001, CSGenioAt_001.FldZzstate, CSGenioAt_001.FldEmail, CSGenioAt_001.FldPhoto, CSGenioAt_001.FldName, CSGenioAt_001.FldDobirth };
+				FieldRef[] fields = new FieldRef[] { CSGenioAt_005.FldCodt_005, CSGenioAt_005.FldZzstate, CSGenioAt_005.FldEmail, CSGenioAt_005.FldPhone, CSGenioAt_005.FldDatre, CSGenioAt_005.FldDescription, CSGenioAt_005.FldClientname, CSGenioAt_005.FldCodt_002, CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldTitle };
 
 
 				// Totalizers
@@ -345,7 +348,7 @@ namespace GenioMVC.ViewModels.T_001
 				{
 					firstVisibleColumn = tableConfig?.getFirstVisibleColumn(TableAlias);
 
-					firstVisibleColumn ??= new FieldRef("t_001", "email");
+					firstVisibleColumn ??= new FieldRef("t_005", "email");
 				}
 
 
@@ -358,7 +361,7 @@ namespace GenioMVC.ViewModels.T_001
 				{
 					Limit limit = new Limit();
 					limit.TipoLimite = LimitType.EPH;
-					CSGenioAt_001 model_limit_area = new CSGenioAt_001(m_userContext.User);
+					CSGenioAt_005 model_limit_area = new CSGenioAt_005(m_userContext.User);
 					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML11");
 					if (area_EPH_limits.Count > 0)
 						this.tableLimits.AddRange(area_EPH_limits);
@@ -381,7 +384,7 @@ namespace GenioMVC.ViewModels.T_001
 					if (!tableReload)
 						return;
 
-					Qlisting = Models.ModelBase.Where<CSGenioAt_001>(m_userContext, false, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, firstVisibleColumn: firstVisibleColumn);
+					Qlisting = Models.ModelBase.Where<CSGenioAt_005>(m_userContext, false, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, firstVisibleColumn: firstVisibleColumn);
 
 // USE /[MANUAL RMS OVERRQLSTEXP 11]/
 
@@ -392,18 +395,18 @@ namespace GenioMVC.ViewModels.T_001
 				{
 // USE /[MANUAL RMS OVERRQLIST 11]/
 
-					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_001");
-					Navigation.DestroyEntry("QMVC_POS_RECORD_t_001");
+					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_005");
+					Navigation.DestroyEntry("QMVC_POS_RECORD_t_005");
 					CriteriaSet m_PagingPosEPHs = null;
 
 					if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 					{
-						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAt_001.GetInformation(), QMVC_POS_RECORD, sorts, rms_menu_11Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAt_005.GetInformation(), QMVC_POS_RECORD, sorts, rms_menu_11Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 						if (m_iCurPag != -1)
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAt_001> listing = Models.ModelBase.Where<CSGenioAt_001>(m_userContext, distinct, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAt_005> listing = Models.ModelBase.Where<CSGenioAt_005>(m_userContext, distinct, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;
@@ -442,7 +445,7 @@ namespace GenioMVC.ViewModels.T_001
 				LoadUserTableConfigNameProperties();
 		}
 
-		private List<RMS_Menu_11_RowViewModel> MapRMS_Menu_11(ListingMVC<CSGenioAt_001> Qlisting)
+		private List<RMS_Menu_11_RowViewModel> MapRMS_Menu_11(ListingMVC<CSGenioAt_005> Qlisting)
 		{
 			List<RMS_Menu_11_RowViewModel> Elements = [];
 			int i = 0;
@@ -462,11 +465,11 @@ namespace GenioMVC.ViewModels.T_001
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAt_001 row
+		/// Maps a single CSGenioAt_005 row
 		/// to a RMS_Menu_11_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private RMS_Menu_11_RowViewModel MapRMS_Menu_11(CSGenioAt_001 row)
+		private RMS_Menu_11_RowViewModel MapRMS_Menu_11(CSGenioAt_005 row)
 		{
 			var model = new RMS_Menu_11_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
@@ -476,8 +479,10 @@ namespace GenioMVC.ViewModels.T_001
 			{
 				switch (Qfield.Area)
 				{
-					case "t_001":
+					case "t_005":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "t_002":
+						model.T_002.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -485,7 +490,6 @@ namespace GenioMVC.ViewModels.T_001
 
 			model.InitRowData();
 
-			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -504,19 +508,19 @@ namespace GenioMVC.ViewModels.T_001
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAt_001> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAt_005> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.T_001 m)
+		public override void MapFromModel(Models.T_005 m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.T_001 m)
+		public override void MapToModel(Models.T_005 m)
 		{
 		}
 
@@ -530,21 +534,17 @@ namespace GenioMVC.ViewModels.T_001
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"T_001", "T_001.ValCodt_001", "T_001.ValZzstate", "T_001.ValEmail", "T_001.ValPhoto", "T_001.ValName", "T_001.ValDobirth"
+			"T_005", "T_005.ValCodt_005", "T_005.ValZzstate", "T_005.ValEmail", "T_005.ValPhone", "T_005.ValDatre", "T_005.ValDescription", "T_005.ValClientname", "T_002", "T_002.ValTitle", "T_005.ValCodt_002"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValEmail", CSGenioAt_001.FldEmail, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValName", CSGenioAt_001.FldName, typeof(string), defaultSearch : true),
-			new TableSearchColumn("ValDobirth", CSGenioAt_001.FldDobirth, typeof(DateTime?)),
+			new TableSearchColumn("ValEmail", CSGenioAt_005.FldEmail, typeof(string)),
+			new TableSearchColumn("ValPhone", CSGenioAt_005.FldPhone, typeof(string)),
+			new TableSearchColumn("ValDatre", CSGenioAt_005.FldDatre, typeof(DateTime?)),
+			new TableSearchColumn("ValDescription", CSGenioAt_005.FldDescription, typeof(string)),
+			new TableSearchColumn("ValClientname", CSGenioAt_005.FldClientname, typeof(string), defaultSearch : true),
+			new TableSearchColumn("T_002_ValTitle", CSGenioAt_002.FldTitle, typeof(string)),
 		];
-		protected void SetTicketToImageFields(Models.T_001 row)
-		{
-			if (row == null)
-				return;
-
-			row.ValPhotoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaT_001, CSGenioAt_001.FldPhoto.Field, null, row.ValCodt_001);
-		}
 	}
 }

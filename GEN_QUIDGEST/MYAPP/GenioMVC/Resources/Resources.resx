@@ -132,14 +132,23 @@
 	<data name="QUIDGEST26196" xml:space="preserve">
 		<value>Quidgest</value>
 	</data>
+	<data name="CONTACT59247" xml:space="preserve">
+		<value>Contact</value>
+	</data>
 	<data name="ESTADOS_DO_PROCESSO59118" xml:space="preserve">
 		<value>Estados do processo</value>
 	</data>
 	<data name="EMAIL25170" xml:space="preserve">
 		<value>Email</value>
 	</data>
+	<data name="CONTACTS55742" xml:space="preserve">
+		<value>Contacts</value>
+	</data>
 	<data name="DURATION40426" xml:space="preserve">
 		<value>Duration</value>
+	</data>
+	<data name="CITY42505" xml:space="preserve">
+		<value>City</value>
 	</data>
 	<data name="TO55217" xml:space="preserve">
 		<value>To</value>
@@ -198,6 +207,9 @@
 	<data name="PROCESS_ID11161" xml:space="preserve">
 		<value>Process ID</value>
 	</data>
+	<data name="COUNTRIES64527" xml:space="preserve">
+		<value>Countries</value>
+	</data>
 	<data name="AGENDADO_PARA_EXECUC11223" xml:space="preserve">
 		<value>Agendado para execução</value>
 	</data>
@@ -224,6 +236,9 @@
 	</data>
 	<data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
 		<value>Em fila de espera</value>
+	</data>
+	<data name="EMAIL_CONTACT20056" xml:space="preserve">
+		<value>Email Contact</value>
 	</data>
 	<data name="CHANGED_ON19727" xml:space="preserve">
 		<value>Changed on</value>
@@ -255,11 +270,17 @@
 	<data name="FINISHED26993" xml:space="preserve">
 		<value>Finished</value>
 	</data>
+	<data name="PHOTO_ALBUMS41529" xml:space="preserve">
+		<value>Photo Albums</value>
+	</data>
 	<data name="PASSWORD_TYPE03035" xml:space="preserve">
 		<value>Password type</value>
 	</data>
 	<data name="MANUAL_DESTINATION21892" xml:space="preserve">
 		<value>Manual destination</value>
+	</data>
+	<data name="PHONE_CONTACT15195" xml:space="preserve">
+		<value>Phone Contact</value>
 	</data>
 	<data name="BCC22049" xml:space="preserve">
 		<value>Bcc</value>
@@ -300,8 +321,14 @@
 	<data name="HORARIO56549" xml:space="preserve">
 		<value>Horário</value>
 	</data>
+	<data name="CLIENT_NAME26049" xml:space="preserve">
+		<value>Client Name</value>
+	</data>
 	<data name="PROCESS_TYPES19050" xml:space="preserve">
 		<value>Process Types</value>
+	</data>
+	<data name="COUNTRY64133" xml:space="preserve">
+		<value>Country</value>
 	</data>
 	<data name="NAME31974" xml:space="preserve">
 		<value>Name</value>
@@ -362,6 +389,9 @@
 	</data>
 	<data name="SENDS_EMAIL_12942" xml:space="preserve">
 		<value>Sends email?</value>
+	</data>
+	<data name="PHOTO_ALBUM45574" xml:space="preserve">
+		<value>Photo Album</value>
 	</data>
 	<data name="PROFILE_PHOTO12166" xml:space="preserve">
 		<value>Profile Photo</value>
@@ -438,6 +468,9 @@
 	<data name="USER_PROFILE06358" xml:space="preserve">
 		<value>User Profile</value>
 	</data>
+	<data name="CITIES41573" xml:space="preserve">
+		<value>Cities</value>
+	</data>
 	<data name="CHANGED_BY08967" xml:space="preserve">
 		<value>Changed by</value>
 	</data>
@@ -449,6 +482,9 @@
 	</data>
 	<data name="A_CANCELAR43988" xml:space="preserve">
 		<value>A cancelar</value>
+	</data>
+	<data name="COUNTRY_NAME26113" xml:space="preserve">
+		<value>Country Name</value>
 	</data>
 	<data name="USER_AUTHORIZATION53599" xml:space="preserve">
 		<value>User Authorization</value>
@@ -482,6 +518,9 @@
 	</data>
 	<data name="USER_PROFILES41435" xml:space="preserve">
 		<value>User Profiles</value>
+	</data>
+	<data name="PHOTO51874" xml:space="preserve">
+		<value>Photo</value>
 	</data>
 	<data name="MESSAGE30602" xml:space="preserve">
 		<value>Message</value>

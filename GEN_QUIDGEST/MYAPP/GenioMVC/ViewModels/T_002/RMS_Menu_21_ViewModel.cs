@@ -529,7 +529,7 @@ namespace GenioMVC.ViewModels.T_002
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValPhoto", "T_002.ValTitle", "T_002.ValPrice"
+			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValPhoto", "T_002.ValTitle", "T_002.ValPrice", "T_002.ValCodt_001", "T_002.ValCodt_004"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
