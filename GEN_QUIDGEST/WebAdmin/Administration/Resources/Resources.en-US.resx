@@ -240,6 +240,9 @@
   <data name="PASSWORD09467" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="TELEPHONE28697" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
   <data name="SAVES_ON_DB_61384" xml:space="preserve">
     <value>Saves on DB?</value>
   </data>
@@ -341,6 +344,9 @@
   </data>
   <data name="SALT05277" xml:space="preserve">
     <value>Salt</value>
+  </data>
+  <data name="PROPERTY_PHOTO29666" xml:space="preserve">
+    <value>Property Photo</value>
   </data>
   <data name="ROLE60946" xml:space="preserve">
     <value>Role</value>
@@ -461,6 +467,9 @@
   </data>
   <data name="NOTIFICATION_ID25507" xml:space="preserve">
     <value>Notification ID</value>
+  </data>
+  <data name="PROPERTY_TITLE56931" xml:space="preserve">
+    <value>Property Title</value>
   </data>
   <data name="DATE18475" xml:space="preserve">
     <value>Date</value>

@@ -102,6 +102,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "tel", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Telephone";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 8;
+			Qfield.CavDesignation = "TELEPHONE28697";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -303,6 +314,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPhoto, value); }
 		}
 
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldTel { get { return m_fldTel; } }
+		private static FieldRef m_fldTel = new FieldRef("t_001", "tel");
+
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		public decimal ValTel
+		{
+			get { return (decimal)returnValueField(FldTel); }
+			set { insertNameValueField(FldTel, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_001", "zzstate");
@@ -400,7 +422,7 @@ namespace CSGenio.business
 
  
 
-      
+       
 
 	}
 }

@@ -185,6 +185,32 @@ namespace CSGenio.business
             }
                 
 
+            /* --- RMSProperty --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAt_002.FldCodt_002)
+                .From(CSGenioAt_002.AreaT_002)
+                .Where(CriteriaSet.And().In(CSGenioAt_002.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAt_002 model = new CSGenioAt_002(user);
+                model.ValCodt_002 = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
             /* --- AsyncProcessArgument --- */
             dm = sp.Execute(
                 new SelectQuery()

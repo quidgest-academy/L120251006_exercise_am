@@ -35,7 +35,7 @@ namespace GenioMVC.ViewModels.T_001
 		/// <summary>
 		/// Title: "Profile Photo" | Type: "IJ"
 		/// </summary>
-		[ImageThumbnailJsonConverter(100, 50)]
+		[ImageThumbnailJsonConverter(30, 50)]
 		public GenioMVC.Models.ImageModel ValPhoto { get; set; }
 		/// <summary>
 		/// Title: "Name" | Type: "C"
@@ -49,6 +49,10 @@ namespace GenioMVC.ViewModels.T_001
 		/// Title: "Date of Birth" | Type: "D"
 		/// </summary>
 		public DateTime? ValDobirth { get; set; }
+		/// <summary>
+		/// Title: "Telephone" | Type: "N"
+		/// </summary>
+		public decimal? ValTel { get; set; }
 
 
 
@@ -186,6 +190,7 @@ namespace GenioMVC.ViewModels.T_001
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
 				ValDobirth = ViewModelConversion.ToDateTime(m.ValDobirth);
+				ValTel = ViewModelConversion.ToNumeric(m.ValTel);
 				ValCodt_001 = ViewModelConversion.ToString(m.ValCodt_001);
 			}
 			catch (Exception)
@@ -217,6 +222,7 @@ namespace GenioMVC.ViewModels.T_001
 				m.ValName = ViewModelConversion.ToString(ValName);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValDobirth = ViewModelConversion.ToDateTime(ValDobirth);
+				m.ValTel = ViewModelConversion.ToNumeric(ValTel);
 				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
 			}
 			catch (Exception)
@@ -253,6 +259,9 @@ namespace GenioMVC.ViewModels.T_001
 						break;
 					case "t_001.dobirth":
 						this.ValDobirth = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "t_001.tel":
+						this.ValTel = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "t_001.codt_001":
 						this.ValCodt_001 = ViewModelConversion.ToString(_value);
@@ -431,6 +440,7 @@ namespace GenioMVC.ViewModels.T_001
 				"t_001.name" => ViewModelConversion.ToString(modelValue),
 				"t_001.email" => ViewModelConversion.ToString(modelValue),
 				"t_001.dobirth" => ViewModelConversion.ToDateTime(modelValue),
+				"t_001.tel" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.codt_001" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

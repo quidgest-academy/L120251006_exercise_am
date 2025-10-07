@@ -17,5 +17,18 @@ export default function getMenusRoutes()
 				humanKeyFields: ['ValEmail'],
 			}
 		},
+		{
+			path: '/:culture/:system/RMS/menu/RMS_21',
+			name: 'menu-RMS_21',
+			component: () => import('@/views/menus/ModuleRMS/MenuRMS_21/QMenuRms21.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'RMS',
+				order: '21',
+				baseArea: 'T_002',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle'],
+			}
+		},
 	]
 }

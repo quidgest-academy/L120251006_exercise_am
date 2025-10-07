@@ -27,6 +27,11 @@ public class Fr_001Form : Form
 	/// </summary>
 	public DateInputControl T_001F_003 => new DateInputControl(driver, ContainerLocator, "#FR_001__T_001F_003___");
 
+	/// <summary>
+	/// Telephone
+	/// </summary>
+	public BaseInputControl T_001F_005 => new BaseInputControl(driver, ContainerLocator, "container-FR_001__T_001F_005___", "#FR_001__T_001F_005___");
+
 	public Fr_001Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_001", containerLocator: containerLocator) { }
 }

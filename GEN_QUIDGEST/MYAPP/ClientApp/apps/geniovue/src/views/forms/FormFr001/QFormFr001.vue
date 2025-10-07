@@ -151,7 +151,7 @@
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
-				<q-row-container v-if="controls.FR_001__T_001F_003___.isVisible">
+				<q-row-container v-if="controls.FR_001__T_001F_003___.isVisible || controls.FR_001__T_001F_005___.isVisible">
 					<q-control-wrapper
 						v-if="controls.FR_001__T_001F_003___.isVisible"
 						class="control-join-group">
@@ -169,6 +169,23 @@
 								:model-value="model.ValDobirth.value"
 								@reset-icon-click="model.ValDobirth.fnUpdateValue(model.ValDobirth.originalValue ?? new Date())"
 								@update:model-value="model.ValDobirth.fnUpdateValue($event ?? '')" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.FR_001__T_001F_005___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_001__T_001F_005___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_001__T_001F_005___"
+							v-on="controls.FR_001__T_001F_005___.handlers"
+							:loading="controls.FR_001__T_001F_005___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.FR_001__T_001F_005___.isVisible"
+								v-bind="controls.FR_001__T_001F_005___.props"
+								@update:model-value="model.ValTel.fnUpdateValue" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -523,7 +540,7 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						height: 50,
-						width: 100,
+						width: 30,
 						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PROFILE_PHOTO12166)),
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
@@ -574,6 +591,20 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_001__T_001F_005___: new fieldControlClass.NumberControl({
+						modelField: 'ValTel',
+						valueChangeEvent: 'fieldChange:t_001.tel',
+						id: 'FR_001__T_001F_005___',
+						name: 'F_005',
+						size: 'small',
+						label: computed(() => this.Resources.TELEPHONE28697),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 8,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -605,6 +636,8 @@
 						set ValDobirth(value) { vm.model.ValDobirth.updateValue(value) },
 						get ValPhoto() { return vm.model.ValPhoto.value },
 						set ValPhoto(value) { vm.model.ValPhoto.updateValue(value) },
+						get ValTel() { return vm.model.ValTel.value },
+						set ValTel(value) { vm.model.ValTel.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_001 table */

@@ -24,6 +24,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaT_001 = new AreaRef("RMS", "rmst_agent", "t_001");
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
         private static AreaRef m_AreaS_UA = new AreaRef("RMS", "userauthorization", "s_ua");
+        public static AreaRef AreaT_002 { get { return m_AreaT_002; } }
+        private static AreaRef m_AreaT_002 = new AreaRef("RMS", "rmsproperty", "t_002");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("RMS", "asyncprocess", "s_apr");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
@@ -71,6 +73,7 @@ namespace CSGenio.business
             new List<string>() {
             "t_001",
             "s_ua",
+            "t_002",
             "s_apr",
             "s_arg",
             "psw",

@@ -92,6 +92,17 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.DATE_OF_BIRTH36542),
 		}).cloneFrom(values?.ValDobirth))
 		this.stopWatchers.push(watch(() => this.ValDobirth.value, (newValue, oldValue) => this.onUpdate('t_001.dobirth', this.ValDobirth, newValue, oldValue)))
+
+		this.ValTel = reactive(new modelFieldType.Number({
+			id: 'ValTel',
+			originId: 'ValTel',
+			area: 'T_001',
+			field: 'F_005',
+			maxDigits: 8,
+			decimalDigits: 0,
+			description: computed(() => this.Resources.TELEPHONE28697),
+		}).cloneFrom(values?.ValTel))
+		this.stopWatchers.push(watch(() => this.ValTel.value, (newValue, oldValue) => this.onUpdate('t_001.tel', this.ValTel, newValue, oldValue)))
 	}
 
 	/**

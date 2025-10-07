@@ -123,6 +123,9 @@
   <msg id="Password" code="PASSWORD09467">
     <ENUS>Password</ENUS>
   </msg>
+  <msg id="Telephone" code="TELEPHONE28697">
+    <ENUS>Telephone</ENUS>
+  </msg>
   <msg id="Saves on DB?" code="SAVES_ON_DB_61384">
     <ENUS>Saves on DB?</ENUS>
   </msg>
@@ -224,6 +227,9 @@
   </msg>
   <msg id="Salt" code="SALT05277">
     <ENUS>Salt</ENUS>
+  </msg>
+  <msg id="Property Photo" code="PROPERTY_PHOTO29666">
+    <ENUS>Property Photo</ENUS>
   </msg>
   <msg id="Role" code="ROLE60946">
     <ENUS>Role</ENUS>
@@ -344,6 +350,9 @@
   </msg>
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
+  </msg>
+  <msg id="Property Title" code="PROPERTY_TITLE56931">
+    <ENUS>Property Title</ENUS>
   </msg>
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>

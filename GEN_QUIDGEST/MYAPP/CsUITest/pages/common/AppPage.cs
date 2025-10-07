@@ -80,6 +80,7 @@ public class AppPage: PageObject
 		module = "RMS";
 		res.AddModule(module);
 		res.AddMenu(module, "1", null);
+		res.AddMenu(module, "2", null);
         return res;
     }
 }

@@ -52,6 +52,12 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public string ValPhotoQTicket = null;
 
+		[DisplayName("Telephone")]
+		/// <summary>Field : "Telephone" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("T_001.ValTel")]
+		[NumericAttribute(0)]
+		public decimal? ValTel { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTel, 0)); } set { klass.ValTel = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_001.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
