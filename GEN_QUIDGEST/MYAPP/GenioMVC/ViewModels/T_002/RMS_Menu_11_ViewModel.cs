@@ -214,7 +214,7 @@ namespace GenioMVC.ViewModels.T_002
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
-			Menu.SetFilters(false, false);
+			Menu.SetFilters(false, true);
 
 
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfiguration), tableConfig));
@@ -223,6 +223,33 @@ namespace GenioMVC.ViewModels.T_002
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
+			if (!tableConfig.StaticFilters.ContainsKey("filter_RMS_Menu_11_FI_01"))
+				tableConfig.StaticFilters.Add("filter_RMS_Menu_11_FI_01", null);
+
+			{
+				var groupFilters = CriteriaSet.Or();
+				bool filter_RMS_Menu_11_FI_01_1 = false;
+				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
+					filter_RMS_Menu_11_FI_01_1 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("1");
+				else if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] == null)
+					filter_RMS_Menu_11_FI_01_1 = true;
+				if (filter_RMS_Menu_11_FI_01_1)
+				{
+					groupFilters.Equal(CSGenioAt_002.FldType, "EE_02");
+
+				}
+
+				bool filter_RMS_Menu_11_FI_01_2 = false;
+				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
+					filter_RMS_Menu_11_FI_01_2 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("2");
+				if (filter_RMS_Menu_11_FI_01_2)
+				{
+					groupFilters.Equal(CSGenioAt_002.FldType, "EE_01");
+
+				}
+
+				subfilters.SubSets.Add(groupFilters);
+			}
 
 			crs.SubSets.Add(subfilters);
 

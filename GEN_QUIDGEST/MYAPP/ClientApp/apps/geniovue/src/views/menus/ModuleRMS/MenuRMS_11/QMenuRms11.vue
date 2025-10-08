@@ -318,6 +318,28 @@
 								sortOrder: 'asc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'filter_RMS_Menu_11_FI_01',
+								isMultiple: false,
+								filters: [
+									{
+										id: 'filter_RMS_Menu_11_FI_01_1',
+										key: '1',
+										value: computed(() => this.Resources.HOUSE01993),
+										selected: true
+									},
+									{
+										id: 'filter_RMS_Menu_11_FI_01_2',
+										key: '2',
+										value: computed(() => this.Resources.APARTMENT12665),
+										selected: false
+									},
+								],
+								value: '1',
+								defaultValue: '1'
+							},
+						],
 						globalEvents: ['changed-T_002', 'changed-T_001', 'changed-T_004'],
 						uuid: '6c6ea5f2-8239-4c40-aca1-bdcf0049591a',
 						allSelectedRows: 'false',
