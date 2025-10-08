@@ -99,10 +99,11 @@ namespace GenioMVC.Models
 		public decimal? ValBathnumber { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBathnumber, 0)); } set { klass.ValBathnumber = Convert.ToDecimal(value); } }
 
 		[DisplayName("Year Built")]
-		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Year Built" Tipo: "D" Formula:  ""</summary>
 		[ShouldSerialize("T_002.ValYearbuilt")]
-		[NumericAttribute(0)]
-		public decimal? ValYearbuilt { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValYearbuilt, 0)); } set { klass.ValYearbuilt = Convert.ToDecimal(value); } }
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValYearbuilt { get { return klass.ValYearbuilt; } set { klass.ValYearbuilt = value ?? DateTime.MinValue; } }
 
 		[DisplayName("Building Type")]
 		/// <summary>Field : "Building Type" Tipo: "AC" Formula:  ""</summary>
@@ -125,6 +126,12 @@ namespace GenioMVC.Models
 		[ShouldSerialize("T_002.ValOrder")]
 		[NumericAttribute(0)]
 		public decimal? ValOrder { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValOrder, 0)); } set { klass.ValOrder = Convert.ToDecimal(value); } }
+
+		[DisplayName("Property Age")]
+		/// <summary>Field : "Property Age" Tipo: "N" Formula: + "floor(DateDiffPart([T_002->F_009],[Today],"D")/365)"</summary>
+		[ShouldSerialize("T_002.ValAge")]
+		[NumericAttribute(0)]
+		public decimal? ValAge { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAge, 0)); } set { klass.ValAge = Convert.ToDecimal(value); } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]

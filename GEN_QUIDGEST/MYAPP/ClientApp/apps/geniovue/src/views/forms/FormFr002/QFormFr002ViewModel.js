@@ -99,6 +99,30 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValOrder))
 		this.stopWatchers.push(watch(() => this.ValOrder.value, (newValue, oldValue) => this.onUpdate('t_002.order', this.ValOrder, newValue, oldValue)))
 
+		this.ValAge = reactive(new modelFieldType.Number({
+			id: 'ValAge',
+			originId: 'ValAge',
+			area: 'T_002',
+			field: 'F_013',
+			maxDigits: 3,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: floor(DateDiffPart([T_002->F_009],[Today],"D")/365)
+					return qApi.Floor(qApi.DateDiffPart(this.ValYearbuilt.value,qApi.Today(),"D")/365)
+				},
+				dependencyEvents: ['fieldChange:t_002.yearbuilt'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.PROPERTY_AGE34629),
+		}).cloneFrom(values?.ValAge))
+		this.stopWatchers.push(watch(() => this.ValAge.value, (newValue, oldValue) => this.onUpdate('t_002.age', this.ValAge, newValue, oldValue)))
+
 		this.ValPhoto = reactive(new modelFieldType.Image({
 			id: 'ValPhoto',
 			originId: 'ValPhoto',
@@ -174,13 +198,11 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValTypology))
 		this.stopWatchers.push(watch(() => this.ValTypology.value, (newValue, oldValue) => this.onUpdate('t_002.typology', this.ValTypology, newValue, oldValue)))
 
-		this.ValYearbuilt = reactive(new modelFieldType.Number({
+		this.ValYearbuilt = reactive(new modelFieldType.Date({
 			id: 'ValYearbuilt',
 			originId: 'ValYearbuilt',
 			area: 'T_002',
 			field: 'F_009',
-			maxDigits: 4,
-			decimalDigits: 0,
 			description: computed(() => this.Resources.YEAR_BUILT55277),
 		}).cloneFrom(values?.ValYearbuilt))
 		this.stopWatchers.push(watch(() => this.ValYearbuilt.value, (newValue, oldValue) => this.onUpdate('t_002.yearbuilt', this.ValYearbuilt, newValue, oldValue)))

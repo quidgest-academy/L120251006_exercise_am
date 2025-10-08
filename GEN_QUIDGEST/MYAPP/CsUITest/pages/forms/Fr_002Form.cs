@@ -13,6 +13,11 @@ public class Fr_002Form : Form
 	public BaseInputControl T_002F_012 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_012___", "#FR_002__T_002F_012___");
 
 	/// <summary>
+	/// Property Age
+	/// </summary>
+	public BaseInputControl T_002F_013 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_013___", "#FR_002__T_002F_013___");
+
+	/// <summary>
 	/// Main Infos
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP01-container");
@@ -71,7 +76,7 @@ public class Fr_002Form : Form
 	/// <summary>
 	/// Year Built
 	/// </summary>
-	public BaseInputControl T_002F_009 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_009___", "#FR_002__T_002F_009___");
+	public DateInputControl T_002F_009 => new DateInputControl(driver, ContainerLocator, "#FR_002__T_002F_009___");
 
 	/// <summary>
 	/// Size

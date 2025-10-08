@@ -219,15 +219,14 @@
 								scrollData: 30,
 								pkColumn: 'ValCodt_004',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
+							new listColumnTypes.DateColumn({
 								order: 8,
 								name: 'ValYearbuilt',
 								area: 'T_002',
 								field: 'YEARBUILT',
 								label: computed(() => this.Resources.YEAR_BUILT55277),
 								scrollData: 4,
-								maxDigits: 4,
-								decimalPlaces: 0,
+								dateTimeType: 'date',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.CurrencyColumn({
 								order: 9,

@@ -808,6 +808,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Property Age"
+        /// </summary>
+        public static string PROPERTY_AGE34629 {
+            get {
+                return ResourceManager.GetString("PROPERTY_AGE34629", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Officer"
         /// </summary>
         public static string OFFICER20358 {

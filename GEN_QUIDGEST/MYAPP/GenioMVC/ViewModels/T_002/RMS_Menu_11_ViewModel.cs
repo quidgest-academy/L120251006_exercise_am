@@ -184,7 +184,7 @@ namespace GenioMVC.ViewModels.T_002
 				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 11, 2, true),
 				new Exports.QColumn(CSGenioAt_002.FldSize, FieldType.NUMERIC, Resources.Resources.SIZE10299, 9, 3, true),
 				new Exports.QColumn(CSGenioAt_002.FldBathnumber, FieldType.NUMERIC, Resources.Resources.BATHROUMS_NUMBER42941, 2, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.NUMERIC, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.DATE, Resources.Resources.YEAR_BUILT55277, 8, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldType, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE39168, 10, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldTypology, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPOLOGY07362, 5, 0, true),
 			};

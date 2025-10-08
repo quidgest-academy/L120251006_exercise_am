@@ -133,11 +133,10 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "yearbuilt", FieldType.NUMERIC);
+			Qfield = new Field(info.Alias, "yearbuilt", FieldType.DATE);
 			Qfield.FieldDescription = "Year Built";
-			Qfield.FieldSize =  4;
+			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 4;
 			Qfield.CavDesignation = "YEAR_BUILT55277";
 
             Qfield.NotNull = true;
@@ -184,6 +183,22 @@ namespace CSGenio.business
 			}));
 
 			Qfield.DefaultValue = new DefaultValue(DefaultValue.getLastPlus1, "order");
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "age", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Property Age";
+			Qfield.FieldSize =  3;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 3;
+			Qfield.CavDesignation = "PROPERTY_AGE34629";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"yearbuilt"}, new int[] {0}, "t_002", "codt_002"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return Math.Floor(GenFunctions.DateDiffPart(((DateTime)args[0]),DateTime.Today,"D")/365);
+			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -235,6 +250,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.InternalOperationFields = new string[] {
+			 "age"
+			};
 
 			info.DefaultValues = new string[] {
 			 "order"
@@ -435,14 +454,14 @@ namespace CSGenio.business
 			set { insertNameValueField(FldBathnumber, value); }
 		}
 
-		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Year Built" Tipo: "D" Formula:  ""</summary>
 		public static FieldRef FldYearbuilt { get { return m_fldYearbuilt; } }
 		private static FieldRef m_fldYearbuilt = new FieldRef("t_002", "yearbuilt");
 
-		/// <summary>Field : "Year Built" Tipo: "N" Formula:  ""</summary>
-		public decimal ValYearbuilt
+		/// <summary>Field : "Year Built" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValYearbuilt
 		{
-			get { return (decimal)returnValueField(FldYearbuilt); }
+			get { return (DateTime)returnValueField(FldYearbuilt); }
 			set { insertNameValueField(FldYearbuilt, value); }
 		}
 
@@ -477,6 +496,17 @@ namespace CSGenio.business
 		{
 			get { return (decimal)returnValueField(FldOrder); }
 			set { insertNameValueField(FldOrder, value); }
+		}
+
+		/// <summary>Field : "Property Age" Tipo: "N" Formula: + "floor(DateDiffPart([T_002->F_009],[Today],"D")/365)"</summary>
+		public static FieldRef FldAge { get { return m_fldAge; } }
+		private static FieldRef m_fldAge = new FieldRef("t_002", "age");
+
+		/// <summary>Field : "Property Age" Tipo: "N" Formula: + "floor(DateDiffPart([T_002->F_009],[Today],"D")/365)"</summary>
+		public decimal ValAge
+		{
+			get { return (decimal)returnValueField(FldAge); }
+			set { insertNameValueField(FldAge, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
@@ -576,7 +606,7 @@ namespace CSGenio.business
 
  
 
-             
+              
 
 	}
 }

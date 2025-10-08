@@ -155,7 +155,7 @@ namespace GenioMVC.ViewModels.T_002
 				new Exports.QColumn(CSGenioAt_002.FldType, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE39168, 10, 0, true, "E_01"),
 				new Exports.QColumn(CSGenioAt_002.FldBathnumber, FieldType.NUMERIC, Resources.Resources.BATHROUMS_NUMBER42941, 2, 0, true),
 				new Exports.QColumn(CSGenioAt_004.FldCity, FieldType.TEXT, Resources.Resources.CITY42505, 30, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.NUMERIC, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.DATE, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 12, 0, true),
 			];
 		}
@@ -575,7 +575,7 @@ namespace GenioMVC.ViewModels.T_002
 			new TableSearchColumn("ValType", CSGenioAt_002.FldType, typeof(string), array : "E_01"),
 			new TableSearchColumn("ValBathnumber", CSGenioAt_002.FldBathnumber, typeof(decimal?)),
 			new TableSearchColumn("T_004_ValCity", CSGenioAt_004.FldCity, typeof(string)),
-			new TableSearchColumn("ValYearbuilt", CSGenioAt_002.FldYearbuilt, typeof(decimal?)),
+			new TableSearchColumn("ValYearbuilt", CSGenioAt_002.FldYearbuilt, typeof(DateTime?)),
 			new TableSearchColumn("ValPrice", CSGenioAt_002.FldPrice, typeof(decimal?)),
 		];
 		protected void SetTicketToImageFields(Models.T_002 row)

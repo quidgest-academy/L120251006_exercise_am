@@ -45,6 +45,11 @@ namespace GenioMVC.ViewModels.T_002
 		/// </summary>
 		public decimal? ValOrder { get; set; }
 		/// <summary>
+		/// Title: "Property Age" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValAge { get; set; }
+		/// <summary>
 		/// Title: "Property Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -98,9 +103,9 @@ namespace GenioMVC.ViewModels.T_002
 		[JsonIgnore]
 		public SelectList List_ValTypology { get; set; }
 		/// <summary>
-		/// Title: "Year Built" | Type: "N"
+		/// Title: "Year Built" | Type: "D"
 		/// </summary>
-		public decimal? ValYearbuilt { get; set; }
+		public DateTime? ValYearbuilt { get; set; }
 		/// <summary>
 		/// Title: "Size" | Type: "N"
 		/// </summary>
@@ -285,12 +290,13 @@ namespace GenioMVC.ViewModels.T_002
 				ValCodt_001 = ViewModelConversion.ToString(m.ValCodt_001);
 				ValCodt_004 = ViewModelConversion.ToString(m.ValCodt_004);
 				ValOrder = ViewModelConversion.ToNumeric(m.ValOrder);
+				ValAge = ViewModelConversion.ToNumeric(m.ValAge);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
 				ValType = ViewModelConversion.ToString(m.ValType);
 				ValTypology = ViewModelConversion.ToString(m.ValTypology);
-				ValYearbuilt = ViewModelConversion.ToNumeric(m.ValYearbuilt);
+				ValYearbuilt = ViewModelConversion.ToDateTime(m.ValYearbuilt);
 				ValSize = ViewModelConversion.ToNumeric(m.ValSize);
 				ValBathnumber = ViewModelConversion.ToNumeric(m.ValBathnumber);
 				funcT_001ValName = () => ViewModelConversion.ToString(m.T_001.ValName);
@@ -330,7 +336,7 @@ namespace GenioMVC.ViewModels.T_002
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
 				m.ValType = ViewModelConversion.ToString(ValType);
 				m.ValTypology = ViewModelConversion.ToString(ValTypology);
-				m.ValYearbuilt = ViewModelConversion.ToNumeric(ValYearbuilt);
+				m.ValYearbuilt = ViewModelConversion.ToDateTime(ValYearbuilt);
 				m.ValSize = ViewModelConversion.ToNumeric(ValSize);
 				m.ValBathnumber = ViewModelConversion.ToNumeric(ValBathnumber);
 				m.ValCodt_002 = ViewModelConversion.ToString(ValCodt_002);
@@ -342,6 +348,7 @@ namespace GenioMVC.ViewModels.T_002
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
+				m.ValAge = ViewModelConversion.ToNumeric(ValAge);
 			}
 			catch (Exception)
 			{
@@ -391,7 +398,7 @@ namespace GenioMVC.ViewModels.T_002
 						this.ValTypology = ViewModelConversion.ToString(_value);
 						break;
 					case "t_002.yearbuilt":
-						this.ValYearbuilt = ViewModelConversion.ToNumeric(_value);
+						this.ValYearbuilt = ViewModelConversion.ToDateTime(_value);
 						break;
 					case "t_002.size":
 						this.ValSize = ViewModelConversion.ToNumeric(_value);
@@ -532,7 +539,7 @@ namespace GenioMVC.ViewModels.T_002
 			validator.Required("ValPrice", Resources.Resources.PROPERTY_PRICE21441, ViewModelConversion.ToNumeric(ValPrice), FieldType.CURRENCY.GetFormatting());
 			validator.StringLength("T_004T_003ValCountry", Resources.Resources.COUNTRY_NAME26113, T_004T_003ValCountry, 50);
 
-			validator.Required("ValYearbuilt", Resources.Resources.YEAR_BUILT55277, ViewModelConversion.ToNumeric(ValYearbuilt), FieldType.NUMERIC.GetFormatting());
+			validator.Required("ValYearbuilt", Resources.Resources.YEAR_BUILT55277, ViewModelConversion.ToDateTime(ValYearbuilt), FieldType.DATE.GetFormatting());
 
 			validator.Required("ValSize", Resources.Resources.SIZE10299, ViewModelConversion.ToNumeric(ValSize), FieldType.NUMERIC.GetFormatting());
 
@@ -965,13 +972,14 @@ namespace GenioMVC.ViewModels.T_002
 				"t_002.codt_001" => ViewModelConversion.ToString(modelValue),
 				"t_002.codt_004" => ViewModelConversion.ToString(modelValue),
 				"t_002.order" => ViewModelConversion.ToNumeric(modelValue),
+				"t_002.age" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_002.title" => ViewModelConversion.ToString(modelValue),
 				"t_002.price" => ViewModelConversion.ToNumeric(modelValue),
 				"t_003.country" => ViewModelConversion.ToString(modelValue),
 				"t_002.type" => ViewModelConversion.ToString(modelValue),
 				"t_002.typology" => ViewModelConversion.ToString(modelValue),
-				"t_002.yearbuilt" => ViewModelConversion.ToNumeric(modelValue),
+				"t_002.yearbuilt" => ViewModelConversion.ToDateTime(modelValue),
 				"t_002.size" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.bathnumber" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.name" => ViewModelConversion.ToString(modelValue),

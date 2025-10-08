@@ -366,6 +366,9 @@
   <data name="NOTIFICATION_EMAIL_S37352" xml:space="preserve">
     <value>Notification Email Signatures</value>
   </data>
+  <data name="PROPERTY_AGE34629" xml:space="preserve">
+    <value>Property Age</value>
+  </data>
   <data name="OFFICER20358" xml:space="preserve">
     <value>Officer</value>
   </data>
