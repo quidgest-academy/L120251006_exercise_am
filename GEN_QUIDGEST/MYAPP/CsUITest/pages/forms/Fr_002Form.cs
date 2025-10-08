@@ -66,7 +66,7 @@ public class Fr_002Form : Form
 	/// <summary>
 	/// Building Type
 	/// </summary>
-	public IWebElement T_002F_010 => throw new NotImplementedException();
+	public RadiobuttonControl T_002F_010 => new RadiobuttonControl(driver, ContainerLocator, "container-FR_002__T_002F_010___");
 
 	/// <summary>
 	/// Ground Size

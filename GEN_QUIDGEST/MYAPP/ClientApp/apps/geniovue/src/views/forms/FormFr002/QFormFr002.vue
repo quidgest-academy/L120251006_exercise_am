@@ -273,17 +273,23 @@
 										class="control-join-group">
 										<base-input-structure
 											v-if="controls.FR_002__T_002F_010___.isVisible"
-											class="i-text"
+											class="i-radio-container"
 											v-bind="controls.FR_002__T_002F_010___"
 											v-on="controls.FR_002__T_002F_010___.handlers"
+											:label-position="labelAlignment.topleft"
 											:loading="controls.FR_002__T_002F_010___.props.loading"
 											:reporting-mode-on="reportingModeCAV"
 											:suggestion-mode-on="suggestionModeOn">
-											<q-combobox
+											<q-radio-group
 												v-if="controls.FR_002__T_002F_010___.isVisible"
 												v-bind="controls.FR_002__T_002F_010___.props"
-												:model-value="model.ValType.value"
-												@update:model-value="model.ValType.fnUpdateValue" />
+												v-on="controls.FR_002__T_002F_010___.handlers">
+												<q-radio-button
+													v-for="radio in controls.FR_002__T_002F_010___.items"
+													:key="radio.key"
+													:label="radio.value"
+													:value="radio.key" />
+											</q-radio-group>
 										</base-input-structure>
 									</q-control-wrapper>
 									<q-control-wrapper
@@ -1036,19 +1042,19 @@
 						controlLimits: [
 						],
 					}, this),
-					FR_002__T_002F_010___: new fieldControlClass.ArrayStringControl({
+					FR_002__T_002F_010___: new fieldControlClass.RadioGroupControl({
 						modelField: 'ValType',
 						valueChangeEvent: 'fieldChange:t_002.type',
 						id: 'FR_002__T_002F_010___',
 						name: 'F_010',
-						size: 'medium',
 						label: computed(() => this.Resources.BUILDING_TYPE39168),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'FR_002__PSEUDNEWGRP03',
+						maxLength: 10,
+						labelId: 'label_FR_002__T_002F_010___',
 						arrayName: 'E_01',
-						helpShortItem: '',
-						helpDetailedItem: '',
+						columns: 3,
 						controlLimits: [
 						],
 					}, this),
