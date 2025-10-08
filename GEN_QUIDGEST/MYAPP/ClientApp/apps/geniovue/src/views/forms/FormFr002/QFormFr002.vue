@@ -1645,6 +1645,19 @@
 							},
 						],
 					}, this),
+					FR_002__T_002F_018___: new fieldControlClass.DateControl({
+						modelField: 'ValSolddate',
+						valueChangeEvent: 'fieldChange:t_002.solddate',
+						id: 'FR_002__T_002F_018___',
+						name: 'F_018',
+						size: 'small',
+						label: computed(() => this.Resources.SOLD_DATE51428),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -1713,6 +1726,8 @@
 						set ValFlrnum(value) { vm.model.ValFlrnum.updateValue(value) },
 						get ValSold() { return vm.model.ValSold.value },
 						set ValSold(value) { vm.model.ValSold.updateValue(value) },
+						get ValSolddate() { return vm.model.ValSolddate.value },
+						set ValSolddate(value) { vm.model.ValSolddate.updateValue(value) },
 					},
 					T_003: {
 						get ValCountry() { return vm.model.T_004T_003ValCountry.value },

@@ -3,6 +3,9 @@
   <msg id="Sends attachment?" code="SENDS_ATTACHMENT_64661">
     <ENUS>Sends attachment?</ENUS>
   </msg>
+  <msg id="Sales" code="SALES57222">
+    <ENUS>Sales</ENUS>
+  </msg>
   <msg id="Estado do processo" code="ESTADO_DO_PROCESSO07540">
     <ENUS>Estado do processo</ENUS>
   </msg>
@@ -47,6 +50,9 @@
   </msg>
   <msg id="Routine" code="ROUTINE58306">
     <ENUS>Routine</ENUS>
+  </msg>
+  <msg id="Sold Date" code="SOLD_DATE51428">
+    <ENUS>Sold Date</ENUS>
   </msg>
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>
@@ -428,6 +434,9 @@
   </msg>
   <msg id="Module" code="MODULE42049">
     <ENUS>Module</ENUS>
+  </msg>
+  <msg id="Last Sale" code="LAST_SALE23105">
+    <ENUS>Last Sale</ENUS>
   </msg>
   <msg id="Size" code="SIZE10299">
     <ENUS>Size</ENUS>

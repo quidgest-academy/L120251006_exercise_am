@@ -159,6 +159,13 @@ namespace GenioMVC.Models
 		[CurrencyAttribute("EUR", 4)]
 		public decimal? ValProfit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValProfit, 4)); } set { klass.ValProfit = Convert.ToDecimal(value); } }
 
+		[DisplayName("Sold Date")]
+		/// <summary>Field : "Sold Date" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValSolddate")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValSolddate { get { return klass.ValSolddate; } set { klass.ValSolddate = value ?? DateTime.MinValue; } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

@@ -51,6 +51,11 @@ namespace GenioMVC.ViewModels.T_001
 		[ValidateSetAccess]
 		public decimal? ValProfit { get; set; }
 		/// <summary>
+		/// Title: "Last Sale" | Type: "$"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValLastsale { get; set; }
+		/// <summary>
 		/// Title: "Profile Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -218,6 +223,7 @@ namespace GenioMVC.ViewModels.T_001
 				ValF_007 = ViewModelConversion.ToString(m.ValF_007);
 				ValPropsold = ViewModelConversion.ToNumeric(m.ValPropsold);
 				ValProfit = ViewModelConversion.ToNumeric(m.ValProfit);
+				ValLastsale = ViewModelConversion.ToNumeric(m.ValLastsale);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
@@ -268,6 +274,7 @@ namespace GenioMVC.ViewModels.T_001
 
 				m.ValPropsold = ViewModelConversion.ToNumeric(ValPropsold);
 				m.ValProfit = ViewModelConversion.ToNumeric(ValProfit);
+				m.ValLastsale = ViewModelConversion.ToNumeric(ValLastsale);
 			}
 			catch (Exception)
 			{
@@ -872,6 +879,7 @@ namespace GenioMVC.ViewModels.T_001
 				"t_001.f_007" => ViewModelConversion.ToString(modelValue),
 				"t_001.propsold" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.profit" => ViewModelConversion.ToNumeric(modelValue),
+				"t_001.lastsale" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_001.name" => ViewModelConversion.ToString(modelValue),
 				"t_001.email" => ViewModelConversion.ToString(modelValue),

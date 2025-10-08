@@ -70,6 +70,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Sales"
+        /// </summary>
+        public static string SALES57222 {
+            get {
+                return ResourceManager.GetString("SALES57222", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Estado do processo"
         /// </summary>
         public static string ESTADO_DO_PROCESSO07540 {
@@ -201,6 +210,15 @@ namespace Administration.Resources {
         public static string ROUTINE58306 {
             get {
                 return ResourceManager.GetString("ROUTINE58306", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Sold Date"
+        /// </summary>
+        public static string SOLD_DATE51428 {
+            get {
+                return ResourceManager.GetString("SOLD_DATE51428", resourceCulture);
             }
         }
 
@@ -1344,6 +1362,15 @@ namespace Administration.Resources {
         public static string MODULE42049 {
             get {
                 return ResourceManager.GetString("MODULE42049", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Last Sale"
+        /// </summary>
+        public static string LAST_SALE23105 {
+            get {
+                return ResourceManager.GetString("LAST_SALE23105", resourceCulture);
             }
         }
 

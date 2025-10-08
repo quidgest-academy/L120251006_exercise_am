@@ -263,6 +263,22 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "solddate", FieldType.DATE);
+			Qfield.FieldDescription = "Sold Date";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "SOLD_DATE51428";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sold"}, new int[] {0}, "t_002", "codt_002"));
+			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((int)args[0])==1;
+			});
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -316,8 +332,23 @@ namespace CSGenio.business
 
 
 
+			//Actualiza as seguintes rotinas de ultimo Qvalue:
+			info.LastValueArgs = new List<LastValueArgument>();
+			info.LastValueArgs.Add( new LastValueArgument("t_001",
+				new string [] {"lastsale"},
+				new string [] {"profit"},
+				"solddate",
+				null,
+
+				null, false));
+
+
 			info.InternalOperationFields = new string[] {
 			 "order","age","profit"
+			};
+
+			info.DefaultValues = new string[] {
+			 "solddate"
 			};
 
 
@@ -629,6 +660,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldProfit, value); }
 		}
 
+		/// <summary>Field : "Sold Date" Tipo: "D" Formula:  ""</summary>
+		public static FieldRef FldSolddate { get { return m_fldSolddate; } }
+		private static FieldRef m_fldSolddate = new FieldRef("t_002", "solddate");
+
+		/// <summary>Field : "Sold Date" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValSolddate
+		{
+			get { return (DateTime)returnValueField(FldSolddate); }
+			set { insertNameValueField(FldSolddate, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -726,7 +768,7 @@ namespace CSGenio.business
 
  
 
-                  
+                   
 
 	}
 }

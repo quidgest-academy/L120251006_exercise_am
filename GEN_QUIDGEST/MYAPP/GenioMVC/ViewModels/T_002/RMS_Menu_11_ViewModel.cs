@@ -190,6 +190,7 @@ namespace GenioMVC.ViewModels.T_002
 				new Exports.QColumn(CSGenioAt_002.FldGrndsize, FieldType.NUMERIC, Resources.Resources.GROUND_SIZE62055, 9, 3, true),
 				new Exports.QColumn(CSGenioAt_002.FldFlrnum, FieldType.NUMERIC, Resources.Resources.FLOOR_NUMBER38410, 2, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldSold, FieldType.ARRAY_LOGIC, Resources.Resources.SOLD59824, 1, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldSolddate, FieldType.DATE, Resources.Resources.SOLD_DATE51428, 8, 0, true),
 			};
 		}
 

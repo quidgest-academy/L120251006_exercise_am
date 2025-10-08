@@ -157,6 +157,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "lastsale", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Last Sale";
+			Qfield.FieldSize =  15;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
+			Qfield.CavDesignation = "LAST_SALE23105";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -212,6 +224,9 @@ namespace CSGenio.business
 			};
 
 
+			info.LastValueFields = new string[] {
+			 "lastsale"
+			};
 
 
 
@@ -427,6 +442,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldProfit, value); }
 		}
 
+		/// <summary>Field : "Last Sale" Tipo: "$" Formula: U1 "T_002[T_002->F_018][T_002->F_017]"</summary>
+		public static FieldRef FldLastsale { get { return m_fldLastsale; } }
+		private static FieldRef m_fldLastsale = new FieldRef("t_001", "lastsale");
+
+		/// <summary>Field : "Last Sale" Tipo: "$" Formula: U1 "T_002[T_002->F_018][T_002->F_017]"</summary>
+		public decimal ValLastsale
+		{
+			get { return (decimal)returnValueField(FldLastsale); }
+			set { insertNameValueField(FldLastsale, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_001", "zzstate");
@@ -524,7 +550,7 @@ namespace CSGenio.business
 
  
 
-           
+            
 
 	}
 }

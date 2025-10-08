@@ -134,6 +134,11 @@ public class Fr_002Form : Form
 	/// </summary>
 	public ListControl PseudTab_002 => new ListControl(driver, ContainerLocator, "#FR_002__PSEUDTAB_002_");
 
+	/// <summary>
+	/// Sold Date
+	/// </summary>
+	public DateInputControl T_002F_018 => new DateInputControl(driver, ContainerLocator, "#FR_002__T_002F_018___");
+
 	public Fr_002Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_002", containerLocator: containerLocator) { }
 }

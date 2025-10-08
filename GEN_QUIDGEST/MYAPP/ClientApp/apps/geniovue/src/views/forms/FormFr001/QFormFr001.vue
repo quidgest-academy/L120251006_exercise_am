@@ -91,40 +91,73 @@
 			data-key="FR_001"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.FR_001__T_001F_008___.isVisible || controls.FR_001__T_001F_009___.isVisible">
+				<q-row-container
+					v-if="controls.FR_001__PSEUDSALES___.isVisible"
+					is-large>
 					<q-control-wrapper
-						v-if="controls.FR_001__T_001F_008___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.FR_001__T_001F_008___.isVisible"
-							class="i-text"
-							v-bind="controls.FR_001__T_001F_008___"
-							v-on="controls.FR_001__T_001F_008___.handlers"
-							:loading="controls.FR_001__T_001F_008___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.FR_001__T_001F_008___.isVisible"
-								v-bind="controls.FR_001__T_001F_008___.props"
-								@update:model-value="model.ValPropsold.fnUpdateValue" />
-						</base-input-structure>
-					</q-control-wrapper>
-					<q-control-wrapper
-						v-if="controls.FR_001__T_001F_009___.isVisible"
-						class="control-join-group">
-						<base-input-structure
-							v-if="controls.FR_001__T_001F_009___.isVisible"
-							class="i-text"
-							v-bind="controls.FR_001__T_001F_009___"
-							v-on="controls.FR_001__T_001F_009___.handlers"
-							:loading="controls.FR_001__T_001F_009___.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.FR_001__T_001F_009___.isVisible"
-								v-bind="controls.FR_001__T_001F_009___.props"
-								@update:model-value="model.ValProfit.fnUpdateValue" />
-						</base-input-structure>
+						v-if="controls.FR_001__PSEUDSALES___.isVisible"
+						class="row-line-group">
+						<q-group-box-container
+							v-if="controls.FR_001__PSEUDSALES___.isVisible"
+							id="FR_001__PSEUDSALES___"
+							v-bind="controls.FR_001__PSEUDSALES___"
+							:is-visible="controls.FR_001__PSEUDSALES___.isVisible">
+							<!-- Start FR_001__PSEUDSALES___ -->
+							<q-row-container v-if="controls.FR_001__T_001F_008___.isVisible || controls.FR_001__T_001F_009___.isVisible || controls.FR_001__T_001F_010___.isVisible">
+								<q-control-wrapper
+									v-if="controls.FR_001__T_001F_008___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_001__T_001F_008___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_001__T_001F_008___"
+										v-on="controls.FR_001__T_001F_008___.handlers"
+										:loading="controls.FR_001__T_001F_008___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_001__T_001F_008___.isVisible"
+											v-bind="controls.FR_001__T_001F_008___.props"
+											@update:model-value="model.ValPropsold.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.FR_001__T_001F_009___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_001__T_001F_009___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_001__T_001F_009___"
+										v-on="controls.FR_001__T_001F_009___.handlers"
+										:loading="controls.FR_001__T_001F_009___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_001__T_001F_009___.isVisible"
+											v-bind="controls.FR_001__T_001F_009___.props"
+											@update:model-value="model.ValProfit.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+								<q-control-wrapper
+									v-if="controls.FR_001__T_001F_010___.isVisible"
+									class="control-join-group">
+									<base-input-structure
+										v-if="controls.FR_001__T_001F_010___.isVisible"
+										class="i-text"
+										v-bind="controls.FR_001__T_001F_010___"
+										v-on="controls.FR_001__T_001F_010___.handlers"
+										:loading="controls.FR_001__T_001F_010___.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.FR_001__T_001F_010___.isVisible"
+											v-bind="controls.FR_001__T_001F_010___.props"
+											@update:model-value="model.ValLastsale.fnUpdateValue" />
+									</base-input-structure>
+								</q-control-wrapper>
+							</q-row-container>
+							<!-- End FR_001__PSEUDSALES___ -->
+						</q-group-box-container>
 					</q-control-wrapper>
 				</q-row-container>
 				<q-row-container
@@ -628,6 +661,19 @@
 				},
 
 				controls: {
+					FR_001__PSEUDSALES___: new fieldControlClass.GroupControl({
+						id: 'FR_001__PSEUDSALES___',
+						name: 'SALES',
+						size: 'block',
+						label: computed(() => this.Resources.SALES57222),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['FR_001__T_001F_008___', 'FR_001__T_001F_009___', 'FR_001__T_001F_010___'],
+						controlLimits: [
+						],
+					}, this),
 					FR_001__T_001F_008___: new fieldControlClass.NumberControl({
 						modelField: 'ValPropsold',
 						valueChangeEvent: 'fieldChange:t_001.propsold',
@@ -637,6 +683,7 @@
 						label: computed(() => this.Resources.PROPERTIES_SOLD24318),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_001__PSEUDSALES___',
 						isFormulaBlocked: true,
 						maxIntegers: 3,
 						maxDecimals: 0,
@@ -652,6 +699,23 @@
 						label: computed(() => this.Resources.PROFITS_GENERATED31914),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_001__PSEUDSALES___',
+						isFormulaBlocked: true,
+						maxIntegers: 10,
+						maxDecimals: 4,
+						controlLimits: [
+						],
+					}, this),
+					FR_001__T_001F_010___: new fieldControlClass.CurrencyControl({
+						modelField: 'ValLastsale',
+						valueChangeEvent: 'fieldChange:t_001.lastsale',
+						id: 'FR_001__T_001F_010___',
+						name: 'F_010',
+						size: 'medium',
+						label: computed(() => this.Resources.LAST_SALE23105),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_001__PSEUDSALES___',
 						isFormulaBlocked: true,
 						maxIntegers: 10,
 						maxDecimals: 4,
@@ -820,6 +884,7 @@
 				}),
 
 				groupFields: readonly([
+					'FR_001__PSEUDSALES___',
 					'FR_001__PSEUDNEWGRP01',
 				]),
 
@@ -860,6 +925,8 @@
 						set ValPropsold(value) { vm.model.ValPropsold.updateValue(value) },
 						get ValProfit() { return vm.model.ValProfit.value },
 						set ValProfit(value) { vm.model.ValProfit.updateValue(value) },
+						get ValLastsale() { return vm.model.ValLastsale.value },
+						set ValLastsale(value) { vm.model.ValLastsale.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_001 table */

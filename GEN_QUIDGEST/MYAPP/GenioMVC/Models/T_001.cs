@@ -110,6 +110,12 @@ namespace GenioMVC.Models
 		[CurrencyAttribute("EUR", 4)]
 		public decimal? ValProfit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValProfit, 4)); } set { klass.ValProfit = Convert.ToDecimal(value); } }
 
+		[DisplayName("Last Sale")]
+		/// <summary>Field : "Last Sale" Tipo: "$" Formula: U1 "T_002[T_002->F_018][T_002->F_017]"</summary>
+		[ShouldSerialize("T_001.ValLastsale")]
+		[CurrencyAttribute("EUR", 4)]
+		public decimal? ValLastsale { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValLastsale, 4)); } set { klass.ValLastsale = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_001.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
