@@ -62,6 +62,7 @@ namespace CSGenio.business
 
             Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getToday);
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -167,6 +168,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.DefaultValues = new string[] {
+			 "datre"
+			};
 
 
 
