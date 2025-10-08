@@ -13,6 +13,11 @@ public class Fr_001Form : Form
 	public BaseInputControl T_001F_008 => new BaseInputControl(driver, ContainerLocator, "container-FR_001__T_001F_008___", "#FR_001__T_001F_008___");
 
 	/// <summary>
+	/// Profits Generated
+	/// </summary>
+	public BaseInputControl T_001F_009 => new BaseInputControl(driver, ContainerLocator, "container-FR_001__T_001F_009___", "#FR_001__T_001F_009___");
+
+	/// <summary>
 	/// Agent Infos
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_001__PSEUDNEWGRP01-container");

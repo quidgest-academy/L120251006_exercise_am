@@ -258,6 +258,9 @@
 	<data name="COUNTRY_OF_ORIGIN50623" xml:space="preserve">
 		<value>Country of Origin</value>
 	</data>
+	<data name="PROFITS_GENERATED31914" xml:space="preserve">
+		<value>Profits Generated</value>
+	</data>
 	<data name="EMAIL_CONTACT20056" xml:space="preserve">
 		<value>Email Contact</value>
 	</data>
@@ -548,6 +551,9 @@
 	</data>
 	<data name="USER_PROFILE06358" xml:space="preserve">
 		<value>User Profile</value>
+	</data>
+	<data name="PROFIT_GENERATED09504" xml:space="preserve">
+		<value>Profit Generated</value>
 	</data>
 	<data name="CITIES41573" xml:space="preserve">
 		<value>Cities</value>

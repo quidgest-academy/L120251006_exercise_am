@@ -91,7 +91,7 @@
 			data-key="FR_001"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.FR_001__T_001F_008___.isVisible">
+				<q-row-container v-if="controls.FR_001__T_001F_008___.isVisible || controls.FR_001__T_001F_009___.isVisible">
 					<q-control-wrapper
 						v-if="controls.FR_001__T_001F_008___.isVisible"
 						class="control-join-group">
@@ -107,6 +107,23 @@
 								v-if="controls.FR_001__T_001F_008___.isVisible"
 								v-bind="controls.FR_001__T_001F_008___.props"
 								@update:model-value="model.ValPropsold.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.FR_001__T_001F_009___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_001__T_001F_009___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_001__T_001F_009___"
+							v-on="controls.FR_001__T_001F_009___.handlers"
+							:loading="controls.FR_001__T_001F_009___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.FR_001__T_001F_009___.isVisible"
+								v-bind="controls.FR_001__T_001F_009___.props"
+								@update:model-value="model.ValProfit.fnUpdateValue" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -626,6 +643,21 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_001__T_001F_009___: new fieldControlClass.CurrencyControl({
+						modelField: 'ValProfit',
+						valueChangeEvent: 'fieldChange:t_001.profit',
+						id: 'FR_001__T_001F_009___',
+						name: 'F_009',
+						size: 'medium',
+						label: computed(() => this.Resources.PROFITS_GENERATED31914),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 10,
+						maxDecimals: 4,
+						controlLimits: [
+						],
+					}, this),
 					FR_001__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
 						id: 'FR_001__PSEUDNEWGRP01',
 						name: 'NEWGRP01',
@@ -826,6 +858,8 @@
 						set ValF_007(value) { vm.model.ValF_007.updateValue(value) },
 						get ValPropsold() { return vm.model.ValPropsold.value },
 						set ValPropsold(value) { vm.model.ValPropsold.updateValue(value) },
+						get ValProfit() { return vm.model.ValProfit.value },
+						set ValProfit(value) { vm.model.ValProfit.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_001 table */

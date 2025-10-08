@@ -151,7 +151,7 @@ namespace GenioMVC.ViewModels.T_002
 			return
 			[
 				new Exports.QColumn(CSGenioAt_002.FldTitle, FieldType.TEXT, Resources.Resources.PROPERTY_TITLE56931, 30, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 12, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 12, 2, true),
 			];
 		}
 
@@ -187,7 +187,7 @@ namespace GenioMVC.ViewModels.T_002
 			{
 				new Exports.QColumn(CSGenioAt_002.FldPhoto, FieldType.IMAGE, Resources.Resources.PROPERTY_PHOTO29666, 3, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldTitle, FieldType.TEXT, Resources.Resources.PROPERTY_TITLE56931, 50, 0, true),
-				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 11, 2, true),
+				new Exports.QColumn(CSGenioAt_002.FldPrice, FieldType.CURRENCY, Resources.Resources.PROPERTY_PRICE21441, 14, 4, true),
 				new Exports.QColumn(CSGenioAt_002.FldSize, FieldType.NUMERIC, Resources.Resources.SIZE10299, 9, 3, true),
 				new Exports.QColumn(CSGenioAt_002.FldBathnumber, FieldType.NUMERIC, Resources.Resources.BATHROUMS_NUMBER42941, 2, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.DATE, Resources.Resources.YEAR_BUILT55277, 8, 0, true),

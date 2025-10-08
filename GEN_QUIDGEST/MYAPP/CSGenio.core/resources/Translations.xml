@@ -141,6 +141,9 @@
   <msg id="Country of Origin" code="COUNTRY_OF_ORIGIN50623">
     <ENUS>Country of Origin</ENUS>
   </msg>
+  <msg id="Profits Generated" code="PROFITS_GENERATED31914">
+    <ENUS>Profits Generated</ENUS>
+  </msg>
   <msg id="Email Contact" code="EMAIL_CONTACT20056">
     <ENUS>Email Contact</ENUS>
   </msg>
@@ -431,6 +434,9 @@
   </msg>
   <msg id="User Profile" code="USER_PROFILE06358">
     <ENUS>User Profile</ENUS>
+  </msg>
+  <msg id="Profit Generated" code="PROFIT_GENERATED09504">
+    <ENUS>Profit Generated</ENUS>
   </msg>
   <msg id="Cities" code="CITIES41573">
     <ENUS>Cities</ENUS>

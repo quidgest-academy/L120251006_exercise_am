@@ -486,6 +486,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Profits Generated"
+		/// </summary>
+		public static string PROFITS_GENERATED31914 {
+			get {
+				return ResourceManager.GetString("PROFITS_GENERATED31914", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Email Contact"
 		/// </summary>
 		public static string EMAIL_CONTACT20056 {
@@ -1355,6 +1364,15 @@ namespace GenioMVC.Resources
 		public static string USER_PROFILE06358 {
 			get {
 				return ResourceManager.GetString("USER_PROFILE06358", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Profit Generated"
+		/// </summary>
+		public static string PROFIT_GENERATED09504 {
+			get {
+				return ResourceManager.GetString("PROFIT_GENERATED09504", resourceCulture);
 			}
 		}
 

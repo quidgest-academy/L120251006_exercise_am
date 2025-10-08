@@ -976,8 +976,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'FR_002__PSEUDNEWGRP01',
-						maxIntegers: 9,
-						maxDecimals: 2,
+						maxIntegers: 10,
+						maxDecimals: 4,
 						mustBeFilled: true,
 						controlLimits: [
 						],

@@ -77,10 +77,10 @@ namespace CSGenio.business
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "price", FieldType.CURRENCY);
 			Qfield.FieldDescription = "Property Price";
-			Qfield.FieldSize =  12;
+			Qfield.FieldSize =  15;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 9;
-			Qfield.Decimals = 2;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
 			Qfield.CavDesignation = "PROPERTY_PRICE21441";
 
             Qfield.NotNull = true;
@@ -246,6 +246,23 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "profit", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Profit Generated";
+			Qfield.FieldSize =  15;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
+			Qfield.CavDesignation = "PROFIT_GENERATED09504";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"profit","price"}, new int[] {0,1}, "t_002", "codt_002"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 2, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((((decimal)args[0])==1)?(((decimal)args[1])):(0));
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -295,11 +312,12 @@ namespace CSGenio.business
 			//Actualiza as seguintes somas relacionadas:
 			info.RelatedSumArgs = new List<RelatedSumArgument>();
 			info.RelatedSumArgs.Add( new RelatedSumArgument("t_002", "t_001", "propsold", "1", '+', false));
+			info.RelatedSumArgs.Add( new RelatedSumArgument("t_002", "t_001", "profit", "profit", '+', true));
 
 
 
 			info.InternalOperationFields = new string[] {
-			 "order","age"
+			 "order","age","profit"
 			};
 
 
@@ -600,6 +618,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSold, value); }
 		}
 
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		public static FieldRef FldProfit { get { return m_fldProfit; } }
+		private static FieldRef m_fldProfit = new FieldRef("t_002", "profit");
+
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		public decimal ValProfit
+		{
+			get { return (decimal)returnValueField(FldProfit); }
+			set { insertNameValueField(FldProfit, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -697,7 +726,7 @@ namespace CSGenio.business
 
  
 
-                 
+                  
 
 	}
 }

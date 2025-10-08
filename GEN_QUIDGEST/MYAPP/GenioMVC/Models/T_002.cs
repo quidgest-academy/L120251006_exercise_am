@@ -43,8 +43,8 @@ namespace GenioMVC.Models
 		[DisplayName("Property Price")]
 		/// <summary>Field : "Property Price" Tipo: "$" Formula:  ""</summary>
 		[ShouldSerialize("T_002.ValPrice")]
-		[CurrencyAttribute("EUR", 2)]
-		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 2)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
+		[CurrencyAttribute("EUR", 4)]
+		public decimal? ValPrice { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPrice, 4)); } set { klass.ValPrice = Convert.ToDecimal(value); } }
 
 		[DisplayName("")]
 		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
@@ -152,6 +152,12 @@ namespace GenioMVC.Models
 		public int ValSold { get { return klass.ValSold; } set { klass.ValSold = value; } }
 		[JsonIgnore]
 		public SelectList ArrayValsold { get { return new SelectList(CSGenio.business.ArrayE_03.GetDictionary(), "Key", "Value", ValSold); } set { ValSold = (int)value.SelectedValue; } }
+
+		[DisplayName("Profit Generated")]
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		[ShouldSerialize("T_002.ValProfit")]
+		[CurrencyAttribute("EUR", 4)]
+		public decimal? ValProfit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValProfit, 4)); } set { klass.ValProfit = Convert.ToDecimal(value); } }
 
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]

@@ -158,8 +158,8 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValPrice',
 			area: 'T_002',
 			field: 'F_003',
-			maxDigits: 9,
-			decimalDigits: 2,
+			maxDigits: 10,
+			decimalDigits: 4,
 			description: computed(() => this.Resources.PROPERTY_PRICE21441),
 		}).cloneFrom(values?.ValPrice))
 		this.stopWatchers.push(watch(() => this.ValPrice.value, (newValue, oldValue) => this.onUpdate('t_002.price', this.ValPrice, newValue, oldValue)))

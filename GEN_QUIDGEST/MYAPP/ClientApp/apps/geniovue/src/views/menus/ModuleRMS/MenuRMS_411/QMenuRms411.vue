@@ -235,8 +235,8 @@
 								field: 'PRICE',
 								label: computed(() => this.Resources.PROPERTY_PRICE21441),
 								scrollData: 12,
-								maxDigits: 9,
-								decimalPlaces: 2,
+								maxDigits: 10,
+								decimalPlaces: 4,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {

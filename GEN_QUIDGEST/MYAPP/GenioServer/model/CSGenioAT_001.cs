@@ -145,6 +145,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "profit", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Profits Generated";
+			Qfield.FieldSize =  15;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
+			Qfield.CavDesignation = "PROFITS_GENERATED31914";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -196,7 +208,7 @@ namespace CSGenio.business
 
 
 			info.RelatedSumFields = new string[] {
-			 "propsold"
+			 "propsold","profit"
 			};
 
 
@@ -404,6 +416,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldPropsold, value); }
 		}
 
+		/// <summary>Field : "Profits Generated" Tipo: "$" Formula: SR "[T_002->F_017]"</summary>
+		public static FieldRef FldProfit { get { return m_fldProfit; } }
+		private static FieldRef m_fldProfit = new FieldRef("t_001", "profit");
+
+		/// <summary>Field : "Profits Generated" Tipo: "$" Formula: SR "[T_002->F_017]"</summary>
+		public decimal ValProfit
+		{
+			get { return (decimal)returnValueField(FldProfit); }
+			set { insertNameValueField(FldProfit, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_001", "zzstate");
@@ -501,7 +524,7 @@ namespace CSGenio.business
 
  
 
-          
+           
 
 	}
 }
