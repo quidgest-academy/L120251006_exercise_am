@@ -327,7 +327,7 @@
 										id: 'filter_RMS_Menu_11_FI_01_1',
 										key: '1',
 										value: computed(() => this.Resources.HOUSE01993),
-										selected: true
+										selected: false
 									},
 									{
 										id: 'filter_RMS_Menu_11_FI_01_2',
@@ -335,9 +335,21 @@
 										value: computed(() => this.Resources.APARTMENT12665),
 										selected: false
 									},
+									{
+										id: 'filter_RMS_Menu_11_FI_01_3',
+										key: '3',
+										value: computed(() => this.Resources.OTHER37293),
+										selected: false
+									},
+									{
+										id: 'filter_RMS_Menu_11_FI_01_4',
+										key: '4',
+										value: computed(() => this.Resources.ALL51013),
+										selected: true
+									},
 								],
-								value: '1',
-								defaultValue: '1'
+								value: '4',
+								defaultValue: '4'
 							},
 						],
 						globalEvents: ['changed-T_002', 'changed-T_001', 'changed-T_004'],

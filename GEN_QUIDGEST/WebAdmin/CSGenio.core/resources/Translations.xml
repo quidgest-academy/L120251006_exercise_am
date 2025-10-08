@@ -321,6 +321,9 @@
   <msg id="Other" code="OTHER37293">
     <ENUS>Other</ENUS>
   </msg>
+  <msg id="ALL" code="ALL51013">
+    <ENUS>ALL</ENUS>
+  </msg>
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>

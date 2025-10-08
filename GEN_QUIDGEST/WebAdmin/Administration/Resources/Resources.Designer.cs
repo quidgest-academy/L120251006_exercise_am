@@ -1024,6 +1024,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "ALL"
+        /// </summary>
+        public static string ALL51013 {
+            get {
+                return ResourceManager.GetString("ALL51013", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Sends email?"
         /// </summary>
         public static string SENDS_EMAIL_12942 {

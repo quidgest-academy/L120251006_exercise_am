@@ -231,8 +231,6 @@ namespace GenioMVC.ViewModels.T_002
 				bool filter_RMS_Menu_11_FI_01_1 = false;
 				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
 					filter_RMS_Menu_11_FI_01_1 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("1");
-				else if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] == null)
-					filter_RMS_Menu_11_FI_01_1 = true;
 				if (filter_RMS_Menu_11_FI_01_1)
 				{
 					groupFilters.Equal(CSGenioAt_002.FldType, "EE_02");
@@ -245,6 +243,25 @@ namespace GenioMVC.ViewModels.T_002
 				if (filter_RMS_Menu_11_FI_01_2)
 				{
 					groupFilters.Equal(CSGenioAt_002.FldType, "EE_01");
+
+				}
+
+				bool filter_RMS_Menu_11_FI_01_3 = false;
+				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
+					filter_RMS_Menu_11_FI_01_3 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("3");
+				if (filter_RMS_Menu_11_FI_01_3)
+				{
+					groupFilters.Equal(CSGenioAt_002.FldType, "EE_03");
+
+				}
+
+				bool filter_RMS_Menu_11_FI_01_4 = false;
+				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
+					filter_RMS_Menu_11_FI_01_4 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("4");
+				else if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] == null)
+					filter_RMS_Menu_11_FI_01_4 = true;
+				if (filter_RMS_Menu_11_FI_01_4)
+				{
 
 				}
 
