@@ -1053,6 +1053,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Property Order"
+		/// </summary>
+		public static string PROPERTY_ORDER02127 {
+			get {
+				return ResourceManager.GetString("PROPERTY_ORDER02127", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Sucesso"
 		/// </summary>
 		public static string SUCESSO65230 {

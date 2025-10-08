@@ -447,6 +447,9 @@
 	<data name="LOCALIZATION34148" xml:space="preserve">
 		<value>Localization</value>
 	</data>
+	<data name="PROPERTY_ORDER02127" xml:space="preserve">
+		<value>Property Order</value>
+	</data>
 	<data name="SUCESSO65230" xml:space="preserve">
 		<value>Sucesso</value>
 	</data>

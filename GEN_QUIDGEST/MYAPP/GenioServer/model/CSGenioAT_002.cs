@@ -169,6 +169,19 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "order", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Property Order";
+			Qfield.FieldSize =  4;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 4;
+			Qfield.CavDesignation = "PROPERTY_ORDER02127";
+
+			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getLastPlus1, "order");
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -218,6 +231,9 @@ namespace CSGenio.business
 
 
 
+			info.SequentialDefaultValues = new string[] {
+			 "order"
+			};
 
 
 
@@ -446,6 +462,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTypology, value); }
 		}
 
+		/// <summary>Field : "Property Order" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldOrder { get { return m_fldOrder; } }
+		private static FieldRef m_fldOrder = new FieldRef("t_002", "order");
+
+		/// <summary>Field : "Property Order" Tipo: "N" Formula:  ""</summary>
+		public decimal ValOrder
+		{
+			get { return (decimal)returnValueField(FldOrder); }
+			set { insertNameValueField(FldOrder, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -543,7 +570,7 @@ namespace CSGenio.business
 
  
 
-            
+             
 
 	}
 }

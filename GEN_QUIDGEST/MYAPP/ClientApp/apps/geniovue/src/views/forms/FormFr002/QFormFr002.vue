@@ -91,6 +91,25 @@
 			data-key="FR_002"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.FR_002__T_002F_012___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_002__T_002F_012___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_002F_012___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_002__T_002F_012___"
+							v-on="controls.FR_002__T_002F_012___.handlers"
+							:loading="controls.FR_002__T_002F_012___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.FR_002__T_002F_012___.isVisible"
+								v-bind="controls.FR_002__T_002F_012___.props"
+								@update:model-value="model.ValOrder.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 				<q-row-container
 					v-if="controls.FR_002__PSEUDNEWGRP01.isVisible"
 					is-large>
@@ -778,6 +797,21 @@
 				},
 
 				controls: {
+					FR_002__T_002F_012___: new fieldControlClass.NumberControl({
+						modelField: 'ValOrder',
+						valueChangeEvent: 'fieldChange:t_002.order',
+						id: 'FR_002__T_002F_012___',
+						name: 'F_012',
+						size: 'medium',
+						label: computed(() => this.Resources.PROPERTY_ORDER02127),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 4,
+						maxDecimals: 0,
+						isSequencial: true,
+						controlLimits: [
+						],
+					}, this),
 					FR_002__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
 						id: 'FR_002__PSEUDNEWGRP01',
 						name: 'NEWGRP01',
@@ -1534,6 +1568,8 @@
 						set ValType(value) { vm.model.ValType.updateValue(value) },
 						get ValTypology() { return vm.model.ValTypology.value },
 						set ValTypology(value) { vm.model.ValTypology.updateValue(value) },
+						get ValOrder() { return vm.model.ValOrder.value },
+						set ValOrder(value) { vm.model.ValOrder.updateValue(value) },
 					},
 					T_003: {
 						get ValCountry() { return vm.model.T_004T_003ValCountry.value },

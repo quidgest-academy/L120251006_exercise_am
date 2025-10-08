@@ -8,6 +8,11 @@ namespace quidgest.uitests.pages.forms;
 public class Fr_002Form : Form
 {
 	/// <summary>
+	/// Property Order
+	/// </summary>
+	public BaseInputControl T_002F_012 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_012___", "#FR_002__T_002F_012___");
+
+	/// <summary>
 	/// Main Infos
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP01-container");

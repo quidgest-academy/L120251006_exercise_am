@@ -120,6 +120,12 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public SelectList ArrayValtypology { get { return new SelectList(CSGenio.business.ArrayE_02.GetDictionary(), "Key", "Value", ValTypology); } set { ValTypology = value.SelectedValue as string; } }
 
+		[DisplayName("Property Order")]
+		/// <summary>Field : "Property Order" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValOrder")]
+		[NumericAttribute(0)]
+		public decimal? ValOrder { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValOrder, 0)); } set { klass.ValOrder = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

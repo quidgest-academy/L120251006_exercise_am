@@ -330,6 +330,9 @@
   <msg id="Localization" code="LOCALIZATION34148">
     <ENUS>Localization</ENUS>
   </msg>
+  <msg id="Property Order" code="PROPERTY_ORDER02127">
+    <ENUS>Property Order</ENUS>
+  </msg>
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
   </msg>

@@ -187,6 +187,7 @@ namespace GenioMVC.ViewModels.T_002
 				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.NUMERIC, Resources.Resources.YEAR_BUILT55277, 4, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldType, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE39168, 10, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldTypology, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPOLOGY07362, 5, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldOrder, FieldType.NUMERIC, Resources.Resources.PROPERTY_ORDER02127, 4, 0, true),
 			};
 		}
 
