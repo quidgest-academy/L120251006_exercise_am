@@ -292,6 +292,9 @@ namespace CSGenio.business
 		{
 			// Formulas
 			//------------------------------
+			//Actualiza as seguintes somas relacionadas:
+			info.RelatedSumArgs = new List<RelatedSumArgument>();
+			info.RelatedSumArgs.Add( new RelatedSumArgument("t_002", "t_001", "propsold", "1", '+', false));
 
 
 

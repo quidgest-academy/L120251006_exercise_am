@@ -134,6 +134,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "propsold", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Properties Sold";
+			Qfield.FieldSize =  3;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 3;
+			Qfield.CavDesignation = "PROPERTIES_SOLD24318";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -183,6 +194,10 @@ namespace CSGenio.business
 			 "email"
 			};
 
+
+			info.RelatedSumFields = new string[] {
+			 "propsold"
+			};
 
 
 
@@ -378,6 +393,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldF_007, value); }
 		}
 
+		/// <summary>Field : "Properties Sold" Tipo: "N" Formula: SR "[T_002->1]"</summary>
+		public static FieldRef FldPropsold { get { return m_fldPropsold; } }
+		private static FieldRef m_fldPropsold = new FieldRef("t_001", "propsold");
+
+		/// <summary>Field : "Properties Sold" Tipo: "N" Formula: SR "[T_002->1]"</summary>
+		public decimal ValPropsold
+		{
+			get { return (decimal)returnValueField(FldPropsold); }
+			set { insertNameValueField(FldPropsold, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_001", "zzstate");
@@ -475,7 +501,7 @@ namespace CSGenio.business
 
  
 
-         
+          
 
 	}
 }

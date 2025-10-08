@@ -98,6 +98,12 @@ namespace GenioMVC.Models
 			set { _at_02 = value; }
 		}
 
+		[DisplayName("Properties Sold")]
+		/// <summary>Field : "Properties Sold" Tipo: "N" Formula: SR "[T_002->1]"</summary>
+		[ShouldSerialize("T_001.ValPropsold")]
+		[NumericAttribute(0)]
+		public decimal? ValPropsold { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValPropsold, 0)); } set { klass.ValPropsold = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_001.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

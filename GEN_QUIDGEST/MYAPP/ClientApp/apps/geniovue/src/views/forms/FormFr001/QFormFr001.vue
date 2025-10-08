@@ -91,6 +91,25 @@
 			data-key="FR_001"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
+				<q-row-container v-if="controls.FR_001__T_001F_008___.isVisible">
+					<q-control-wrapper
+						v-if="controls.FR_001__T_001F_008___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_001__T_001F_008___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_001__T_001F_008___"
+							v-on="controls.FR_001__T_001F_008___.handlers"
+							:loading="controls.FR_001__T_001F_008___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-numeric-input
+								v-if="controls.FR_001__T_001F_008___.isVisible"
+								v-bind="controls.FR_001__T_001F_008___.props"
+								@update:model-value="model.ValPropsold.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+				</q-row-container>
 				<q-row-container
 					v-if="controls.FR_001__PSEUDNEWGRP01.isVisible"
 					is-large>
@@ -592,6 +611,21 @@
 				},
 
 				controls: {
+					FR_001__T_001F_008___: new fieldControlClass.NumberControl({
+						modelField: 'ValPropsold',
+						valueChangeEvent: 'fieldChange:t_001.propsold',
+						id: 'FR_001__T_001F_008___',
+						name: 'F_008',
+						size: 'medium',
+						label: computed(() => this.Resources.PROPERTIES_SOLD24318),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
+						maxIntegers: 3,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
 					FR_001__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
 						id: 'FR_001__PSEUDNEWGRP01',
 						name: 'NEWGRP01',
@@ -790,6 +824,8 @@
 						set ValF_006(value) { vm.model.ValF_006.updateValue(value) },
 						get ValF_007() { return vm.model.ValF_007.value },
 						set ValF_007(value) { vm.model.ValF_007.updateValue(value) },
+						get ValPropsold() { return vm.model.ValPropsold.value },
+						set ValPropsold(value) { vm.model.ValPropsold.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the T_001 table */

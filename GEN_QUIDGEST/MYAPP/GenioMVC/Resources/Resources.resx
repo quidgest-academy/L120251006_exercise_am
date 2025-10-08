@@ -354,6 +354,9 @@
 	<data name="HORARIO56549" xml:space="preserve">
 		<value>Horário</value>
 	</data>
+	<data name="PROPERTIES_SOLD24318" xml:space="preserve">
+		<value>Properties Sold</value>
+	</data>
 	<data name="CLIENT_NAME26049" xml:space="preserve">
 		<value>Client Name</value>
 	</data>

@@ -41,6 +41,11 @@ namespace GenioMVC.ViewModels.T_001
 
 		#endregion
 		/// <summary>
+		/// Title: "Properties Sold" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValPropsold { get; set; }
+		/// <summary>
 		/// Title: "Profile Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -206,6 +211,7 @@ namespace GenioMVC.ViewModels.T_001
 			{
 				ValF_006 = ViewModelConversion.ToString(m.ValF_006);
 				ValF_007 = ViewModelConversion.ToString(m.ValF_007);
+				ValPropsold = ViewModelConversion.ToNumeric(m.ValPropsold);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
@@ -246,6 +252,15 @@ namespace GenioMVC.ViewModels.T_001
 				m.ValDobirth = ViewModelConversion.ToDateTime(ValDobirth);
 				m.ValTel = ViewModelConversion.ToNumeric(ValTel);
 				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValPropsold = ViewModelConversion.ToNumeric(ValPropsold);
 			}
 			catch (Exception)
 			{
@@ -848,6 +863,7 @@ namespace GenioMVC.ViewModels.T_001
 			{
 				"t_001.f_006" => ViewModelConversion.ToString(modelValue),
 				"t_001.f_007" => ViewModelConversion.ToString(modelValue),
+				"t_001.propsold" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_001.name" => ViewModelConversion.ToString(modelValue),
 				"t_001.email" => ViewModelConversion.ToString(modelValue),

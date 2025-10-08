@@ -237,6 +237,9 @@
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
+  <msg id="Properties Sold" code="PROPERTIES_SOLD24318">
+    <ENUS>Properties Sold</ENUS>
+  </msg>
   <msg id="Client Name" code="CLIENT_NAME26049">
     <ENUS>Client Name</ENUS>
   </msg>
