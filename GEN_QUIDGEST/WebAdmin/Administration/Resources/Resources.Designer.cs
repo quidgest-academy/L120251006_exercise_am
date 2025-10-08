@@ -1294,6 +1294,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Please insert property price."
+        /// </summary>
+        public static string PLEASE_INSERT_PROPER51921 {
+            get {
+                return ResourceManager.GetString("PLEASE_INSERT_PROPER51921", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Obs"
         /// </summary>
         public static string OBS42026 {

@@ -67,6 +67,8 @@ public class RMS_Menu_11_RowViewModel : Models.T_002
 
 		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
 		{
+
+			// Table T_002 CRUD conditions.
 		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()

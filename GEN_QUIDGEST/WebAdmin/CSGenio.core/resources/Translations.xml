@@ -411,6 +411,9 @@
   <msg id="Resultado" code="RESULTADO50955">
     <ENUS>Resultado</ENUS>
   </msg>
+  <msg id="Please insert property price." code="PLEASE_INSERT_PROPER51921">
+    <ENUS>Please insert property price.</ENUS>
+  </msg>
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>
   </msg>

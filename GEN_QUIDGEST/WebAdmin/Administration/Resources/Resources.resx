@@ -528,6 +528,9 @@
   <data name="RESULTADO50955" xml:space="preserve">
     <value>Resultado</value>
   </data>
+  <data name="PLEASE_INSERT_PROPER51921" xml:space="preserve">
+    <value>Please insert property price.</value>
+  </data>
   <data name="OBS42026" xml:space="preserve">
     <value>Obs</value>
   </data>
