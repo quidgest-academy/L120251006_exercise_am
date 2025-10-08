@@ -95,6 +95,14 @@ namespace GenioMVC.ViewModels.T_002
 		[JsonIgnore]
 		public SelectList List_ValType { get; set; }
 		/// <summary>
+		/// Title: "Ground Size" | Type: "N"
+		/// </summary>
+		public decimal? ValGrndsize { get; set; }
+		/// <summary>
+		/// Title: "Floor Number" | Type: "N"
+		/// </summary>
+		public decimal? ValFlrnum { get; set; }
+		/// <summary>
 		/// Title: "Building Typology" | Type: "AC"
 		/// </summary>
 		public string ValTypology { get; set; }
@@ -296,6 +304,8 @@ namespace GenioMVC.ViewModels.T_002
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
 				ValType = ViewModelConversion.ToString(m.ValType);
+				ValGrndsize = ViewModelConversion.ToNumeric(m.ValGrndsize);
+				ValFlrnum = ViewModelConversion.ToNumeric(m.ValFlrnum);
 				ValTypology = ViewModelConversion.ToString(m.ValTypology);
 				ValYearbuilt = ViewModelConversion.ToDateTime(m.ValYearbuilt);
 				ValSize = ViewModelConversion.ToNumeric(m.ValSize);
@@ -335,6 +345,8 @@ namespace GenioMVC.ViewModels.T_002
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValPrice = ViewModelConversion.ToNumeric(ValPrice);
 				m.ValType = ViewModelConversion.ToString(ValType);
+				m.ValGrndsize = ViewModelConversion.ToNumeric(ValGrndsize);
+				m.ValFlrnum = ViewModelConversion.ToNumeric(ValFlrnum);
 				m.ValTypology = ViewModelConversion.ToString(ValTypology);
 				m.ValYearbuilt = ViewModelConversion.ToDateTime(ValYearbuilt);
 				m.ValSize = ViewModelConversion.ToNumeric(ValSize);
@@ -391,6 +403,12 @@ namespace GenioMVC.ViewModels.T_002
 						break;
 					case "t_002.type":
 						this.ValType = ViewModelConversion.ToString(_value);
+						break;
+					case "t_002.grndsize":
+						this.ValGrndsize = ViewModelConversion.ToNumeric(_value);
+						break;
+					case "t_002.flrnum":
+						this.ValFlrnum = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "t_002.typology":
 						this.ValTypology = ViewModelConversion.ToString(_value);
@@ -976,6 +994,8 @@ namespace GenioMVC.ViewModels.T_002
 				"t_002.price" => ViewModelConversion.ToNumeric(modelValue),
 				"t_003.country" => ViewModelConversion.ToString(modelValue),
 				"t_002.type" => ViewModelConversion.ToString(modelValue),
+				"t_002.grndsize" => ViewModelConversion.ToNumeric(modelValue),
+				"t_002.flrnum" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.typology" => ViewModelConversion.ToString(modelValue),
 				"t_002.yearbuilt" => ViewModelConversion.ToDateTime(modelValue),
 				"t_002.size" => ViewModelConversion.ToNumeric(modelValue),

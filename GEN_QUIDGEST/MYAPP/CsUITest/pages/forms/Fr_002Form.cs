@@ -69,6 +69,16 @@ public class Fr_002Form : Form
 	public IWebElement T_002F_010 => throw new NotImplementedException();
 
 	/// <summary>
+	/// Ground Size
+	/// </summary>
+	public BaseInputControl T_002F_014 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_014___", "#FR_002__T_002F_014___");
+
+	/// <summary>
+	/// Floor Number
+	/// </summary>
+	public BaseInputControl T_002F_015 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_015___", "#FR_002__T_002F_015___");
+
+	/// <summary>
 	/// Building Typology
 	/// </summary>
 	public RadiobuttonControl T_002F_011 => new RadiobuttonControl(driver, ContainerLocator, "container-FR_002__T_002F_011___");

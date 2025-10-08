@@ -187,6 +187,50 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValType))
 		this.stopWatchers.push(watch(() => this.ValType.value, (newValue, oldValue) => this.onUpdate('t_002.type', this.ValType, newValue, oldValue)))
 
+		this.ValGrndsize = reactive(new modelFieldType.Number({
+			id: 'ValGrndsize',
+			originId: 'ValGrndsize',
+			area: 'T_002',
+			field: 'F_014',
+			maxDigits: 6,
+			decimalDigits: 3,
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [T_002->F_010]==("House")
+					return this.ValType.value===("House")
+				},
+				dependencyEvents: ['fieldChange:t_002.type'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.GROUND_SIZE62055),
+		}).cloneFrom(values?.ValGrndsize))
+		this.stopWatchers.push(watch(() => this.ValGrndsize.value, (newValue, oldValue) => this.onUpdate('t_002.grndsize', this.ValGrndsize, newValue, oldValue)))
+
+		this.ValFlrnum = reactive(new modelFieldType.Number({
+			id: 'ValFlrnum',
+			originId: 'ValFlrnum',
+			area: 'T_002',
+			field: 'F_015',
+			maxDigits: 2,
+			decimalDigits: 0,
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [T_002->F_010]==("Apartment")
+					return this.ValType.value===("Apartment")
+				},
+				dependencyEvents: ['fieldChange:t_002.type'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.FLOOR_NUMBER38410),
+		}).cloneFrom(values?.ValFlrnum))
+		this.stopWatchers.push(watch(() => this.ValFlrnum.value, (newValue, oldValue) => this.onUpdate('t_002.flrnum', this.ValFlrnum, newValue, oldValue)))
+
 		this.ValTypology = reactive(new modelFieldType.String({
 			id: 'ValTypology',
 			originId: 'ValTypology',

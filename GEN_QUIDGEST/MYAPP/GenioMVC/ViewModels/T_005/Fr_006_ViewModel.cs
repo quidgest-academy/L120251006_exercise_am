@@ -231,7 +231,11 @@ namespace GenioMVC.ViewModels.T_005
 				m.ValClientname = ViewModelConversion.ToString(ValClientname);
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValPhone = ViewModelConversion.ToString(ValPhone);
-				m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				// Block When condition(s)
+				if (HasDisabledUserValuesSecurity || !(Logical)(CSGenio.framework.GenFunctions.emptyC(((string)m.ValPhone))))
+				{
+					m.ValDescription = ViewModelConversion.ToString(ValDescription);
+				}
 				m.ValCodt_005 = ViewModelConversion.ToString(ValCodt_005);
 			}
 			catch (Exception)

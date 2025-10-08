@@ -110,6 +110,11 @@ namespace CSGenio.business
 			Qfield.CavDesignation = "DESCRIPTION07383";
 
 			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"phone"}, new int[] {0}, "t_005", "codt_005"));
+			Qfield.BlockWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return GenFunctions.emptyC(((string)args[0]));
+			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -

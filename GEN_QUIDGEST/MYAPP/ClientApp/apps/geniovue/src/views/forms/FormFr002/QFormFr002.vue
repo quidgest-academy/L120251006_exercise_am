@@ -267,7 +267,7 @@
 								value="FR_002__PSEUDNEWGRP03"
 								:title="controls.FR_002__PSEUDNEWGRP03.label">
 								<!-- Start FR_002__PSEUDNEWGRP03 -->
-								<q-row-container v-if="controls.FR_002__T_002F_010___.isVisible">
+								<q-row-container v-if="controls.FR_002__T_002F_010___.isVisible || controls.FR_002__T_002F_014___.isVisible || controls.FR_002__T_002F_015___.isVisible">
 									<q-control-wrapper
 										v-if="controls.FR_002__T_002F_010___.isVisible"
 										class="control-join-group">
@@ -284,6 +284,40 @@
 												v-bind="controls.FR_002__T_002F_010___.props"
 												:model-value="model.ValType.value"
 												@update:model-value="model.ValType.fnUpdateValue" />
+										</base-input-structure>
+									</q-control-wrapper>
+									<q-control-wrapper
+										v-if="controls.FR_002__T_002F_014___.isVisible"
+										class="control-join-group">
+										<base-input-structure
+											v-if="controls.FR_002__T_002F_014___.isVisible"
+											class="i-text"
+											v-bind="controls.FR_002__T_002F_014___"
+											v-on="controls.FR_002__T_002F_014___.handlers"
+											:loading="controls.FR_002__T_002F_014___.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-numeric-input
+												v-if="controls.FR_002__T_002F_014___.isVisible"
+												v-bind="controls.FR_002__T_002F_014___.props"
+												@update:model-value="model.ValGrndsize.fnUpdateValue" />
+										</base-input-structure>
+									</q-control-wrapper>
+									<q-control-wrapper
+										v-if="controls.FR_002__T_002F_015___.isVisible"
+										class="control-join-group">
+										<base-input-structure
+											v-if="controls.FR_002__T_002F_015___.isVisible"
+											class="i-text"
+											v-bind="controls.FR_002__T_002F_015___"
+											v-on="controls.FR_002__T_002F_015___.handlers"
+											:loading="controls.FR_002__T_002F_015___.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-numeric-input
+												v-if="controls.FR_002__T_002F_015___.isVisible"
+												v-bind="controls.FR_002__T_002F_015___.props"
+												@update:model-value="model.ValFlrnum.fnUpdateValue" />
 										</base-input-structure>
 									</q-control-wrapper>
 								</q-row-container>
@@ -997,7 +1031,7 @@
 						isInAccordion: true,
 						isCollapsible: true,
 						anchored: false,
-						directChildren: ['FR_002__T_002F_010___', 'FR_002__T_002F_011___', 'FR_002__T_002F_009___', 'FR_002__T_002F_007___', 'FR_002__T_002F_008___'],
+						directChildren: ['FR_002__T_002F_010___', 'FR_002__T_002F_014___', 'FR_002__T_002F_015___', 'FR_002__T_002F_011___', 'FR_002__T_002F_009___', 'FR_002__T_002F_007___', 'FR_002__T_002F_008___'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -1015,6 +1049,36 @@
 						arrayName: 'E_01',
 						helpShortItem: '',
 						helpDetailedItem: '',
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_014___: new fieldControlClass.NumberControl({
+						modelField: 'ValGrndsize',
+						valueChangeEvent: 'fieldChange:t_002.grndsize',
+						id: 'FR_002__T_002F_014___',
+						name: 'F_014',
+						size: 'small',
+						label: computed(() => this.Resources.GROUND_SIZE62055),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxIntegers: 6,
+						maxDecimals: 3,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_015___: new fieldControlClass.NumberControl({
+						modelField: 'ValFlrnum',
+						valueChangeEvent: 'fieldChange:t_002.flrnum',
+						id: 'FR_002__T_002F_015___',
+						name: 'F_015',
+						size: 'medium',
+						label: computed(() => this.Resources.FLOOR_NUMBER38410),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'FR_002__PSEUDNEWGRP03',
+						maxIntegers: 2,
+						maxDecimals: 0,
 						controlLimits: [
 						],
 					}, this),
@@ -1605,6 +1669,10 @@
 						set ValOrder(value) { vm.model.ValOrder.updateValue(value) },
 						get ValAge() { return vm.model.ValAge.value },
 						set ValAge(value) { vm.model.ValAge.updateValue(value) },
+						get ValGrndsize() { return vm.model.ValGrndsize.value },
+						set ValGrndsize(value) { vm.model.ValGrndsize.updateValue(value) },
+						get ValFlrnum() { return vm.model.ValFlrnum.value },
+						set ValFlrnum(value) { vm.model.ValFlrnum.updateValue(value) },
 					},
 					T_003: {
 						get ValCountry() { return vm.model.T_004T_003ValCountry.value },

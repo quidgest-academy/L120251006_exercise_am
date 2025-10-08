@@ -111,6 +111,17 @@ export default class ViewModel extends FormViewModelBase
 			area: 'T_005',
 			field: 'F_005',
 			maxLength: 50,
+			blockWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: emptyC([T_005->F_004])
+					return qApi.emptyC(this.ValPhone.value)
+				},
+				dependencyEvents: ['fieldChange:t_005.phone'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyC,
+			},
 			description: computed(() => this.Resources.DESCRIPTION07383),
 		}).cloneFrom(values?.ValDescription))
 		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('t_005.description', this.ValDescription, newValue, oldValue)))

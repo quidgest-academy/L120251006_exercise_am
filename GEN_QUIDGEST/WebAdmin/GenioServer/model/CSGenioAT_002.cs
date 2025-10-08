@@ -201,6 +201,39 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "grndsize", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Ground Size";
+			Qfield.FieldSize =  10;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 6;
+			Qfield.Decimals = 3;
+			Qfield.CavDesignation = "GROUND_SIZE62055";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"type"}, new int[] {0}, "t_002", "codt_002"));
+			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((string)args[0])==("House");
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "flrnum", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Floor Number";
+			Qfield.FieldSize =  2;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 2;
+			Qfield.CavDesignation = "FLOOR_NUMBER38410";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"type"}, new int[] {0}, "t_002", "codt_002"));
+			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((string)args[0])==("Apartment");
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -504,6 +537,28 @@ namespace CSGenio.business
 			set { insertNameValueField(FldAge, value); }
 		}
 
+		/// <summary>Field : "Ground Size" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldGrndsize { get { return m_fldGrndsize; } }
+		private static FieldRef m_fldGrndsize = new FieldRef("t_002", "grndsize");
+
+		/// <summary>Field : "Ground Size" Tipo: "N" Formula:  ""</summary>
+		public decimal ValGrndsize
+		{
+			get { return (decimal)returnValueField(FldGrndsize); }
+			set { insertNameValueField(FldGrndsize, value); }
+		}
+
+		/// <summary>Field : "Floor Number" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldFlrnum { get { return m_fldFlrnum; } }
+		private static FieldRef m_fldFlrnum = new FieldRef("t_002", "flrnum");
+
+		/// <summary>Field : "Floor Number" Tipo: "N" Formula:  ""</summary>
+		public decimal ValFlrnum
+		{
+			get { return (decimal)returnValueField(FldFlrnum); }
+			set { insertNameValueField(FldFlrnum, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -601,7 +656,7 @@ namespace CSGenio.business
 
  
 
-              
+                
 
 	}
 }

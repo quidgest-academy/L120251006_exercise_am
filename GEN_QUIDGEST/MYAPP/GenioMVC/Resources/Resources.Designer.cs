@@ -234,6 +234,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Floor Number"
+		/// </summary>
+		public static string FLOOR_NUMBER38410 {
+			get {
+				return ResourceManager.GetString("FLOOR_NUMBER38410", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Property name"
 		/// </summary>
 		public static string PROPERTY_NAME18934 {
@@ -1436,6 +1445,15 @@ namespace GenioMVC.Resources
 		public static string NOTIFICATION_ID25507 {
 			get {
 				return ResourceManager.GetString("NOTIFICATION_ID25507", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Ground Size"
+		/// </summary>
+		public static string GROUND_SIZE62055 {
+			get {
+				return ResourceManager.GetString("GROUND_SIZE62055", resourceCulture);
 			}
 		}
 

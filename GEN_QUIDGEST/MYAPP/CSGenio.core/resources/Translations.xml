@@ -57,6 +57,9 @@
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
   </msg>
+  <msg id="Floor Number" code="FLOOR_NUMBER38410">
+    <ENUS>Floor Number</ENUS>
+  </msg>
   <msg id="Property name" code="PROPERTY_NAME18934">
     <ENUS>Property name</ENUS>
   </msg>
@@ -458,6 +461,9 @@
   </msg>
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
+  </msg>
+  <msg id="Ground Size" code="GROUND_SIZE62055">
+    <ENUS>Ground Size</ENUS>
   </msg>
   <msg id="T0" code="T036607">
     <ENUS>T0</ENUS>

@@ -187,6 +187,8 @@ namespace GenioMVC.ViewModels.T_002
 				new Exports.QColumn(CSGenioAt_002.FldYearbuilt, FieldType.DATE, Resources.Resources.YEAR_BUILT55277, 8, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldType, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPE39168, 10, 0, true),
 				new Exports.QColumn(CSGenioAt_002.FldTypology, FieldType.ARRAY_TEXT, Resources.Resources.BUILDING_TYPOLOGY07362, 5, 0, true),
+				new Exports.QColumn(CSGenioAt_002.FldGrndsize, FieldType.NUMERIC, Resources.Resources.GROUND_SIZE62055, 9, 3, true),
+				new Exports.QColumn(CSGenioAt_002.FldFlrnum, FieldType.NUMERIC, Resources.Resources.FLOOR_NUMBER38410, 2, 0, true),
 			};
 		}
 
