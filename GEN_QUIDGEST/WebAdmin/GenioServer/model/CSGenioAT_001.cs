@@ -78,7 +78,7 @@ namespace CSGenio.business
 			{
 				return Validation.validateEM(rule);
 			};
-			Qfield.DefaultValue = new DefaultValue("@agency.com");
+			Qfield.DefaultValue = new DefaultValue("@@agency.com");
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
