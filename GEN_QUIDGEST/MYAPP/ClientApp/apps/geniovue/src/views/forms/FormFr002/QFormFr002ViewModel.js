@@ -88,8 +88,8 @@ export default class ViewModel extends FormViewModelBase
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{
-					// Formula: 1
-					return 1
+					// Formula: (1)
+					return (1)
 				},
 				dependencyEvents: [],
 				isServerRecalc: false,

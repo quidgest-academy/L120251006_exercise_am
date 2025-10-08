@@ -58,13 +58,6 @@ public class RMS_Menu_321_RowViewModel : Models.T_003
 			// Support Form FR_003 CRUD conditions.
 			// [UserLevel]<30
 			canDelete &= (Logical)(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30);
-			// [UserLevel]<30
-			{
-				bool formulaResult = (Logical)(m_userContext.User.getLevelByModule(m_userContext.User.CurrentModule)<30);
-				canInsert &= formulaResult;
-				// If Insert is blocked by CRUD condition, Duplicate should also be blocked.
-				canDuplicate &= formulaResult;
-			}
 		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
