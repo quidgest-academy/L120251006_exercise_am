@@ -23,6 +23,11 @@ public class Fr_002Form : Form
 	public RadiobuttonControl T_002F_016 => new RadiobuttonControl(driver, ContainerLocator, "container-FR_002__T_002F_016___");
 
 	/// <summary>
+	/// Sold Date
+	/// </summary>
+	public DateInputControl T_002F_018 => new DateInputControl(driver, ContainerLocator, "#FR_002__T_002F_018___");
+
+	/// <summary>
 	/// Main Infos
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP01-container");
@@ -133,11 +138,6 @@ public class Fr_002Form : Form
 	/// Contacts
 	/// </summary>
 	public ListControl PseudTab_002 => new ListControl(driver, ContainerLocator, "#FR_002__PSEUDTAB_002_");
-
-	/// <summary>
-	/// Sold Date
-	/// </summary>
-	public DateInputControl T_002F_018 => new DateInputControl(driver, ContainerLocator, "#FR_002__T_002F_018___");
 
 	public Fr_002Form(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "FR_002", containerLocator: containerLocator) { }

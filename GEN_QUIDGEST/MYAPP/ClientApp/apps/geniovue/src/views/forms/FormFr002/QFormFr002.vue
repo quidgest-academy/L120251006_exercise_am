@@ -91,7 +91,7 @@
 			data-key="FR_002"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.FR_002__T_002F_012___.isVisible || controls.FR_002__T_002F_013___.isVisible || controls.FR_002__T_002F_016___.isVisible">
+				<q-row-container v-if="controls.FR_002__T_002F_012___.isVisible || controls.FR_002__T_002F_013___.isVisible || controls.FR_002__T_002F_016___.isVisible || controls.FR_002__T_002F_018___.isVisible">
 					<q-control-wrapper
 						v-if="controls.FR_002__T_002F_012___.isVisible"
 						class="control-join-group">
@@ -141,6 +141,25 @@
 								v-if="controls.FR_002__T_002F_016___.isVisible"
 								v-bind="controls.FR_002__T_002F_016___.props"
 								v-on="controls.FR_002__T_002F_016___.handlers" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.FR_002__T_002F_018___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_002F_018___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_002__T_002F_018___"
+							v-on="controls.FR_002__T_002F_018___.handlers"
+							:loading="controls.FR_002__T_002F_018___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-date-time-picker
+								v-if="controls.FR_002__T_002F_018___.isVisible"
+								v-bind="controls.FR_002__T_002F_018___.props"
+								:model-value="model.ValSolddate.value"
+								@reset-icon-click="model.ValSolddate.fnUpdateValue(model.ValSolddate.originalValue ?? new Date())"
+								@update:model-value="model.ValSolddate.fnUpdateValue($event ?? '')" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -918,6 +937,19 @@
 						controlLimits: [
 						],
 					}, this),
+					FR_002__T_002F_018___: new fieldControlClass.DateControl({
+						modelField: 'ValSolddate',
+						valueChangeEvent: 'fieldChange:t_002.solddate',
+						id: 'FR_002__T_002F_018___',
+						name: 'F_018',
+						size: 'small',
+						label: computed(() => this.Resources.SOLD_DATE51428),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
 					FR_002__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
 						id: 'FR_002__PSEUDNEWGRP01',
 						name: 'NEWGRP01',
@@ -1643,19 +1675,6 @@
 								dependencyField: 'T_002.CODT_002',
 								fnValueSelector: (model) => model.ValCodt_002.value
 							},
-						],
-					}, this),
-					FR_002__T_002F_018___: new fieldControlClass.DateControl({
-						modelField: 'ValSolddate',
-						valueChangeEvent: 'fieldChange:t_002.solddate',
-						id: 'FR_002__T_002F_018___',
-						name: 'F_018',
-						size: 'small',
-						label: computed(() => this.Resources.SOLD_DATE51428),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						dateTimeType: 'date',
-						controlLimits: [
 						],
 					}, this),
 				},

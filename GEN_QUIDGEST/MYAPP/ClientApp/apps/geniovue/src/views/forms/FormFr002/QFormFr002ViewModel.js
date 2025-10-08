@@ -134,6 +134,26 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValSold))
 		this.stopWatchers.push(watch(() => this.ValSold.value, (newValue, oldValue) => this.onUpdate('t_002.sold', this.ValSold, newValue, oldValue)))
 
+		this.ValSolddate = reactive(new modelFieldType.Date({
+			id: 'ValSolddate',
+			originId: 'ValSolddate',
+			area: 'T_002',
+			field: 'F_018',
+			showWhen: {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: [T_002->F_016]==1
+					return this.ValSold.value===1
+				},
+				dependencyEvents: ['fieldChange:t_002.sold'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyD,
+			},
+			description: computed(() => this.Resources.SOLD_DATE51428),
+		}).cloneFrom(values?.ValSolddate))
+		this.stopWatchers.push(watch(() => this.ValSolddate.value, (newValue, oldValue) => this.onUpdate('t_002.solddate', this.ValSolddate, newValue, oldValue)))
+
 		this.ValPhoto = reactive(new modelFieldType.Image({
 			id: 'ValPhoto',
 			originId: 'ValPhoto',
@@ -315,26 +335,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.PROFILE_PHOTO12166),
 		}).cloneFrom(values?.T_001ValPhoto))
 		this.stopWatchers.push(watch(() => this.T_001ValPhoto.value, (newValue, oldValue) => this.onUpdate('t_001.photo', this.T_001ValPhoto, newValue, oldValue)))
-
-		this.ValSolddate = reactive(new modelFieldType.Date({
-			id: 'ValSolddate',
-			originId: 'ValSolddate',
-			area: 'T_002',
-			field: 'F_018',
-			showWhen: {
-				// eslint-disable-next-line @typescript-eslint/no-unused-vars
-				fnFormula(params)
-				{
-					// Formula: [T_002->F_016]==1
-					return this.ValSold.value===1
-				},
-				dependencyEvents: ['fieldChange:t_002.sold'],
-				isServerRecalc: false,
-				isEmpty: qApi.emptyD,
-			},
-			description: computed(() => this.Resources.SOLD_DATE51428),
-		}).cloneFrom(values?.ValSolddate))
-		this.stopWatchers.push(watch(() => this.ValSolddate.value, (newValue, oldValue) => this.onUpdate('t_002.solddate', this.ValSolddate, newValue, oldValue)))
 	}
 
 	/**

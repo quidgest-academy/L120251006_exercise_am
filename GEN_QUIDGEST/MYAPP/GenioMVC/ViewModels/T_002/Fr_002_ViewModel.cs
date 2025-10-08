@@ -60,6 +60,10 @@ namespace GenioMVC.ViewModels.T_002
 		[JsonIgnore]
 		public SelectList List_ValSold { get; set; }
 		/// <summary>
+		/// Title: "Sold Date" | Type: "D"
+		/// </summary>
+		public DateTime? ValSolddate { get; set; }
+		/// <summary>
 		/// Title: "Property Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -172,10 +176,6 @@ namespace GenioMVC.ViewModels.T_002
 		public Func<GenioMVC.Models.ImageModel> funcT_001ValPhoto { get; set; }
 
 		private GenioMVC.Models.ImageModel _auxT_001ValPhoto { get; set; }
-		/// <summary>
-		/// Title: "Sold Date" | Type: "D"
-		/// </summary>
-		public DateTime? ValSolddate { get; set; }
 
 
 
@@ -314,6 +314,7 @@ namespace GenioMVC.ViewModels.T_002
 				ValOrder = ViewModelConversion.ToNumeric(m.ValOrder);
 				ValAge = ViewModelConversion.ToNumeric(m.ValAge);
 				ValSold = ViewModelConversion.ToInteger(m.ValSold);
+				ValSolddate = ViewModelConversion.ToDateTime(m.ValSolddate);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
@@ -326,7 +327,6 @@ namespace GenioMVC.ViewModels.T_002
 				ValBathnumber = ViewModelConversion.ToNumeric(m.ValBathnumber);
 				funcT_001ValName = () => ViewModelConversion.ToString(m.T_001.ValName);
 				funcT_001ValPhoto = () => ViewModelConversion.ToImage(m.T_001.ValPhoto);
-				ValSolddate = ViewModelConversion.ToDateTime(m.ValSolddate);
 				ValCodt_002 = ViewModelConversion.ToString(m.ValCodt_002);
 			}
 			catch (Exception)
@@ -356,6 +356,7 @@ namespace GenioMVC.ViewModels.T_002
 				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
 				m.ValCodt_004 = ViewModelConversion.ToString(ValCodt_004);
 				m.ValSold = ViewModelConversion.ToInteger(ValSold);
+				m.ValSolddate = ViewModelConversion.ToDateTime(ValSolddate);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
@@ -367,7 +368,6 @@ namespace GenioMVC.ViewModels.T_002
 				m.ValYearbuilt = ViewModelConversion.ToDateTime(ValYearbuilt);
 				m.ValSize = ViewModelConversion.ToNumeric(ValSize);
 				m.ValBathnumber = ViewModelConversion.ToNumeric(ValBathnumber);
-				m.ValSolddate = ViewModelConversion.ToDateTime(ValSolddate);
 				m.ValCodt_002 = ViewModelConversion.ToString(ValCodt_002);
 
 				/*
@@ -412,6 +412,9 @@ namespace GenioMVC.ViewModels.T_002
 					case "t_002.sold":
 						this.ValSold = ViewModelConversion.ToInteger(_value);
 						break;
+					case "t_002.solddate":
+						this.ValSolddate = ViewModelConversion.ToDateTime(_value);
+						break;
 					case "t_002.photo":
 						this.ValPhoto = ViewModelConversion.ToImage(_value);
 						break;
@@ -441,9 +444,6 @@ namespace GenioMVC.ViewModels.T_002
 						break;
 					case "t_002.bathnumber":
 						this.ValBathnumber = ViewModelConversion.ToNumeric(_value);
-						break;
-					case "t_002.solddate":
-						this.ValSolddate = ViewModelConversion.ToDateTime(_value);
 						break;
 					case "t_002.codt_002":
 						this.ValCodt_002 = ViewModelConversion.ToString(_value);
@@ -1013,6 +1013,7 @@ namespace GenioMVC.ViewModels.T_002
 				"t_002.order" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.age" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.sold" => ViewModelConversion.ToInteger(modelValue),
+				"t_002.solddate" => ViewModelConversion.ToDateTime(modelValue),
 				"t_002.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_002.title" => ViewModelConversion.ToString(modelValue),
 				"t_002.price" => ViewModelConversion.ToNumeric(modelValue),
@@ -1026,7 +1027,6 @@ namespace GenioMVC.ViewModels.T_002
 				"t_002.bathnumber" => ViewModelConversion.ToNumeric(modelValue),
 				"t_001.name" => ViewModelConversion.ToString(modelValue),
 				"t_001.photo" => ViewModelConversion.ToImage(modelValue),
-				"t_002.solddate" => ViewModelConversion.ToDateTime(modelValue),
 				"t_002.codt_002" => ViewModelConversion.ToString(modelValue),
 				"t_004.codt_004" => ViewModelConversion.ToString(modelValue),
 				"t_004.city" => ViewModelConversion.ToString(modelValue),
