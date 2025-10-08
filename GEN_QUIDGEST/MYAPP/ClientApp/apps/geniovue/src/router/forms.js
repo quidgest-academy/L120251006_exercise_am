@@ -22,7 +22,7 @@ export default function getFormsRoutes()
 			meta: {
 				routeType: 'form',
 				baseArea: 'T_002',
-				humanKeyFields: ['ValTitle']
+				humanKeyFields: ['ValTitle', 'ValOrder']
 			}
 		},
 		{

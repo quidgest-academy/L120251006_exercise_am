@@ -82,6 +82,19 @@ export default class ViewModel extends FormViewModelBase
 			field: 'F_012',
 			maxDigits: 4,
 			decimalDigits: 0,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				execCondition() { return qApi.emptyN(this.ValOrder.value) },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: 1
+					return 1
+				},
+				dependencyEvents: [],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
 			description: computed(() => this.Resources.PROPERTY_ORDER02127),
 		}).cloneFrom(values?.ValOrder))
 		this.stopWatchers.push(watch(() => this.ValOrder.value, (newValue, oldValue) => this.onUpdate('t_002.order', this.ValOrder, newValue, oldValue)))

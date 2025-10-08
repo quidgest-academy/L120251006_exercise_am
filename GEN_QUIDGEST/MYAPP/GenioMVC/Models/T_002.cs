@@ -121,7 +121,7 @@ namespace GenioMVC.Models
 		public SelectList ArrayValtypology { get { return new SelectList(CSGenio.business.ArrayE_02.GetDictionary(), "Key", "Value", ValTypology); } set { ValTypology = value.SelectedValue as string; } }
 
 		[DisplayName("Property Order")]
-		/// <summary>Field : "Property Order" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Property Order" Tipo: "N" Formula: DG "1"</summary>
 		[ShouldSerialize("T_002.ValOrder")]
 		[NumericAttribute(0)]
 		public decimal? ValOrder { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValOrder, 0)); } set { klass.ValOrder = Convert.ToDecimal(value); } }

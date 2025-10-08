@@ -53,7 +53,7 @@ export default function getMenusRoutes()
 				order: '11',
 				baseArea: 'T_002',
 				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
+				humanKeyFields: ['ValTitle', 'ValOrder'],
 			}
 		},
 		{
@@ -67,7 +67,7 @@ export default function getMenusRoutes()
 				order: '411',
 				baseArea: 'T_002',
 				hasInitialPHE: false,
-				humanKeyFields: ['ValTitle'],
+				humanKeyFields: ['ValTitle', 'ValOrder'],
 				limitations: ['t_001' /* DB */]
 			}
 		},
