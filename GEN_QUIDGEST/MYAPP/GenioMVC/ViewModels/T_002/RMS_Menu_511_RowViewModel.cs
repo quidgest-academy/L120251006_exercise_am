@@ -128,9 +128,10 @@ public class RMS_Menu_511_RowViewModel : Models.T_002
 
 	/// <summary>
 	/// The background color
+	/// Formula: iif([T_002->F_017] < 5000000, HEXCOLOUR ("f7c65c"), iif ([T_002->F_017] > 5000000, HEXCOLOUR ("4deb94") , HEXCOLOUR("fffff")))
 	/// </summary>
 	[JsonPropertyName("backgroundColor")]
-	public string BackgroundColor => "";
+	public string BackgroundColor => ((((decimal)this.ValProfit)<5000000)?("#"+"f7c65c"):(((((decimal)this.ValProfit)>5000000)?("#"+"4deb94"):("#"+"fffff"))));
 
 	/// <summary>
 	/// Runs init logic that depends on row data.

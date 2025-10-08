@@ -104,7 +104,7 @@ namespace GenioMVC.ViewModels.T_002
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldPrice };
+			FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldPrice, CSGenioAt_002.FldProfit };
 
 			ListingMVC<CSGenioAt_002> listing = new(fields, null, 1, 1, false, user, true, string.Empty, true);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -369,7 +369,7 @@ namespace GenioMVC.ViewModels.T_002
 
 				}
 
-				FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldPrice };
+				FieldRef[] fields = new FieldRef[] { CSGenioAt_002.FldCodt_002, CSGenioAt_002.FldZzstate, CSGenioAt_002.FldPhoto, CSGenioAt_002.FldTitle, CSGenioAt_002.FldPrice, CSGenioAt_002.FldProfit };
 
 
 				// Totalizers
@@ -585,7 +585,7 @@ namespace GenioMVC.ViewModels.T_002
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValPhoto", "T_002.ValTitle", "T_002.ValPrice", "T_002.ValCodt_001", "T_002.ValCodt_004"
+			"T_002", "T_002.ValCodt_002", "T_002.ValZzstate", "T_002.ValPhoto", "T_002.ValTitle", "T_002.ValPrice", "T_002.ValProfit", "T_002.ValCodt_001", "T_002.ValCodt_004"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
