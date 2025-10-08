@@ -34,5 +34,11 @@
         <MENU TYPE="ITEM" DESC="PROPERTIES34868" ID="411" PRTID="41" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="RMS_Menu_411" ACTVUE="menu-RMS_411" CONT="T_002" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="true" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="411" />
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="SOLD_PROPERTIES37611" SIGLA="" ID="5" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="true" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5" DEFAULTACTION="">
+      <ACCESS>1</ACCESS>
+      <MENU TYPE="ITEM" DESC="PROPERTIES34868" ID="51" PRTID="5" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="RMS_Menu_511" ACTVUE="menu-RMS_511" CONT="T_002" FILTERS="seleoComCondies" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="true" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="51">
+        <MENU TYPE="ITEM" ID="5111" PRTID="511" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="5111" />
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

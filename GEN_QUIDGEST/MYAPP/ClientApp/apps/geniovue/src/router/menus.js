@@ -72,6 +72,19 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/RMS/menu/RMS_511',
+			name: 'menu-RMS_511',
+			component: () => import('@/views/menus/ModuleRMS/MenuRMS_511/QMenuRms511.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'RMS',
+				order: '511',
+				baseArea: 'T_002',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValTitle', 'ValOrder'],
+			}
+		},
+		{
 			path: '/:culture/:system/RMS/menu/RMS_321',
 			name: 'menu-RMS_321',
 			component: () => import('@/views/menus/ModuleRMS/MenuRMS_321/QMenuRms321.vue'),

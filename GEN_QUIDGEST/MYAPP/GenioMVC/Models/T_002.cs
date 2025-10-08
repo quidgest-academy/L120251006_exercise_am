@@ -145,6 +145,14 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValFlrnum { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValFlrnum, 0)); } set { klass.ValFlrnum = Convert.ToDecimal(value); } }
 
+		[DisplayName("Sold")]
+		/// <summary>Field : "Sold" Tipo: "AL" Formula:  ""</summary>
+		[ShouldSerialize("T_002.ValSold")]
+		[DataArray("E_03", GenioMVC.Helpers.ArrayType.Logical)]
+		public int ValSold { get { return klass.ValSold; } set { klass.ValSold = value; } }
+		[JsonIgnore]
+		public SelectList ArrayValsold { get { return new SelectList(CSGenio.business.ArrayE_03.GetDictionary(), "Key", "Value", ValSold); } set { ValSold = (int)value.SelectedValue; } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("T_002.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

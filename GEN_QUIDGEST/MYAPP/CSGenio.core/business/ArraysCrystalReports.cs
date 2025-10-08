@@ -35,6 +35,11 @@ namespace CSGenio.business
 			            Qresult.AppendLine("if {{{0}}} = \"EE_04\" then \"More\" else");
             Qresult.Append("\"                                              \"");
             todasArrays.Add("e_02", Qresult.ToString());
+			// e_03
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"1\" then \"\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("e_03", Qresult.ToString());
 			// s_modpro
             Qresult = new StringBuilder();
 			            Qresult.AppendLine("if {{{0}}} = \"INDIV\" then \"Individual\" else");

@@ -186,6 +186,30 @@ export class QArrayE_02
 }
 
 /**
+ * The E_03 array.
+ */
+export class QArrayE_03
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'L'
+		this.pluralName = 'SOLD59824'
+		this.singularName = 'SOLD59824'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 1,
+				resourceId: '',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
  * The s_modpro array.
  */
 export class QArrayS_modpro
@@ -456,6 +480,7 @@ export class QArrayS_tpproc
 export default {
 	QArrayE_01,
 	QArrayE_02,
+	QArrayE_03,
 	QArrayS_modpro,
 	QArrayS_module,
 	QArrayS_prstat,

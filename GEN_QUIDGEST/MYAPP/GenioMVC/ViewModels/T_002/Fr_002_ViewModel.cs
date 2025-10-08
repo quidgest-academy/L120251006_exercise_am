@@ -51,6 +51,15 @@ namespace GenioMVC.ViewModels.T_002
 		[ValidateSetAccess]
 		public decimal? ValAge { get; set; }
 		/// <summary>
+		/// Title: "Sold" | Type: "AL"
+		/// </summary>
+		public int ValSold { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "PSEUD"
+		/// </summary>
+		[JsonIgnore]
+		public SelectList List_ValSold { get; set; }
+		/// <summary>
 		/// Title: "Property Photo" | Type: "IJ"
 		/// </summary>
 		[ImageThumbnailJsonConverter(30, 50)]
@@ -300,6 +309,7 @@ namespace GenioMVC.ViewModels.T_002
 				ValCodt_004 = ViewModelConversion.ToString(m.ValCodt_004);
 				ValOrder = ViewModelConversion.ToNumeric(m.ValOrder);
 				ValAge = ViewModelConversion.ToNumeric(m.ValAge);
+				ValSold = ViewModelConversion.ToInteger(m.ValSold);
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValPrice = ViewModelConversion.ToNumeric(m.ValPrice);
@@ -340,6 +350,7 @@ namespace GenioMVC.ViewModels.T_002
 			{
 				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
 				m.ValCodt_004 = ViewModelConversion.ToString(ValCodt_004);
+				m.ValSold = ViewModelConversion.ToInteger(ValSold);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
@@ -391,6 +402,9 @@ namespace GenioMVC.ViewModels.T_002
 						break;
 					case "t_002.codt_004":
 						this.ValCodt_004 = ViewModelConversion.ToString(_value);
+						break;
+					case "t_002.sold":
+						this.ValSold = ViewModelConversion.ToInteger(_value);
 						break;
 					case "t_002.photo":
 						this.ValPhoto = ViewModelConversion.ToImage(_value);
@@ -989,6 +1003,7 @@ namespace GenioMVC.ViewModels.T_002
 				"t_002.codt_004" => ViewModelConversion.ToString(modelValue),
 				"t_002.order" => ViewModelConversion.ToNumeric(modelValue),
 				"t_002.age" => ViewModelConversion.ToNumeric(modelValue),
+				"t_002.sold" => ViewModelConversion.ToInteger(modelValue),
 				"t_002.photo" => ViewModelConversion.ToImage(modelValue),
 				"t_002.title" => ViewModelConversion.ToString(modelValue),
 				"t_002.price" => ViewModelConversion.ToNumeric(modelValue),

@@ -91,7 +91,7 @@
 			data-key="FR_002"
 			:data-loading="!formInitialDataLoaded">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row-container v-if="controls.FR_002__T_002F_012___.isVisible || controls.FR_002__T_002F_013___.isVisible">
+				<q-row-container v-if="controls.FR_002__T_002F_012___.isVisible || controls.FR_002__T_002F_013___.isVisible || controls.FR_002__T_002F_016___.isVisible">
 					<q-control-wrapper
 						v-if="controls.FR_002__T_002F_012___.isVisible"
 						class="control-join-group">
@@ -124,6 +124,23 @@
 								v-if="controls.FR_002__T_002F_013___.isVisible"
 								v-bind="controls.FR_002__T_002F_013___.props"
 								@update:model-value="model.ValAge.fnUpdateValue" />
+						</base-input-structure>
+					</q-control-wrapper>
+					<q-control-wrapper
+						v-if="controls.FR_002__T_002F_016___.isVisible"
+						class="control-join-group">
+						<base-input-structure
+							v-if="controls.FR_002__T_002F_016___.isVisible"
+							class="i-text"
+							v-bind="controls.FR_002__T_002F_016___"
+							v-on="controls.FR_002__T_002F_016___.handlers"
+							:loading="controls.FR_002__T_002F_016___.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-switch
+								v-if="controls.FR_002__T_002F_016___.isVisible"
+								v-bind="controls.FR_002__T_002F_016___.props"
+								v-on="controls.FR_002__T_002F_016___.handlers" />
 						</base-input-structure>
 					</q-control-wrapper>
 				</q-row-container>
@@ -883,6 +900,21 @@
 						isFormulaBlocked: true,
 						maxIntegers: 3,
 						maxDecimals: 0,
+						controlLimits: [
+						],
+					}, this),
+					FR_002__T_002F_016___: new fieldControlClass.RadioGroupControl({
+						modelField: 'ValSold',
+						valueChangeEvent: 'fieldChange:t_002.sold',
+						id: 'FR_002__T_002F_016___',
+						name: 'F_016',
+						label: computed(() => this.Resources.SOLD59824),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						maxIntegers: 1,
+						maxDecimals: 0,
+						arrayName: 'E_03',
+						trueLabel: '',
 						controlLimits: [
 						],
 					}, this),
@@ -1679,6 +1711,8 @@
 						set ValGrndsize(value) { vm.model.ValGrndsize.updateValue(value) },
 						get ValFlrnum() { return vm.model.ValFlrnum.value },
 						set ValFlrnum(value) { vm.model.ValFlrnum.updateValue(value) },
+						get ValSold() { return vm.model.ValSold.value },
+						set ValSold(value) { vm.model.ValSold.updateValue(value) },
 					},
 					T_003: {
 						get ValCountry() { return vm.model.T_004T_003ValCountry.value },

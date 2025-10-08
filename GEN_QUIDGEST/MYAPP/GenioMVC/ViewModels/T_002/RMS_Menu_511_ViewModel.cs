@@ -17,20 +17,20 @@ using Quidgest.Persistence.GenericQuery;
 
 namespace GenioMVC.ViewModels.T_002
 {
-	public class RMS_Menu_11_ViewModel : MenuListViewModel<Models.T_002>
+	public class RMS_Menu_511_ViewModel : MenuListViewModel<Models.T_002>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("Table")]
-		public TablePartial<RMS_Menu_11_RowViewModel> Menu { get; set; }
+		public TablePartial<RMS_Menu_511_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
 		public override string TableAlias => "t_002";
 
 		/// <inheritdoc/>
-		public override string Uuid => "6c6ea5f2-8239-4c40-aca1-bdcf0049591a";
+		public override string Uuid => "a91ca7cd-1de4-4ae3-86d9-af5ed86572c1";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -51,6 +51,9 @@ namespace GenioMVC.ViewModels.T_002
 			get
 			{
 				CriteriaSet conditions = CriteriaSet.And();
+				// Limitations
+				// Limit "SC"
+				conditions.Equal(CSGenioAt_002.FldSold, "1");
 
 				return conditions;
 			}
@@ -63,6 +66,8 @@ namespace GenioMVC.ViewModels.T_002
 			get
 			{
 				CriteriaSet conds = CriteriaSet.And();
+				if (Navigation.CheckKey("t_002.f_016"))
+					conds.Equal(CSGenioAt_002.FldSold, Navigation.GetValue("t_002.f_016"));
 
 				return conds;
 			}
@@ -81,7 +86,7 @@ namespace GenioMVC.ViewModels.T_002
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL RMS LIST_LIMITS 11]/
+// USE /[MANUAL RMS LIST_LIMITS 511]/
 
 			return crs;
 		}
@@ -92,7 +97,7 @@ namespace GenioMVC.ViewModels.T_002
 			var areaBase = CSGenio.business.Area.createArea("t_002", user, "RMS");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML11");
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML511");
 			conditions.Equal(CSGenioAt_002.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
@@ -110,6 +115,7 @@ namespace GenioMVC.ViewModels.T_002
 
 
 
+
 			//operation: Count menu records
 			return CSGenio.persistence.DBConversion.ToInteger(sp.ExecuteScalar(CSGenio.persistence.QueryUtils.buildQueryCount(qs)));
 		}
@@ -118,23 +124,23 @@ namespace GenioMVC.ViewModels.T_002
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public RMS_Menu_11_ViewModel() : base(null!) { }
+		public RMS_Menu_511_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="RMS_Menu_11_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="RMS_Menu_511_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public RMS_Menu_11_ViewModel(UserContext userContext) : base(userContext)
+		public RMS_Menu_511_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ADMINISTRATION;
+			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="RMS_Menu_11_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="RMS_Menu_511_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public RMS_Menu_11_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public RMS_Menu_511_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -211,7 +217,7 @@ namespace GenioMVC.ViewModels.T_002
 
 
 			if (Menu == null)
-				Menu = new TablePartial<RMS_Menu_11_RowViewModel>();
+				Menu = new TablePartial<RMS_Menu_511_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -224,48 +230,11 @@ namespace GenioMVC.ViewModels.T_002
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
-			if (!tableConfig.StaticFilters.ContainsKey("filter_RMS_Menu_11_FI_01"))
-				tableConfig.StaticFilters.Add("filter_RMS_Menu_11_FI_01", null);
+			if (!tableConfig.StaticFilters.ContainsKey("filter_RMS_Menu_511_FI_01"))
+				tableConfig.StaticFilters.Add("filter_RMS_Menu_511_FI_01", null);
 
 			{
 				var groupFilters = CriteriaSet.Or();
-				bool filter_RMS_Menu_11_FI_01_1 = false;
-				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
-					filter_RMS_Menu_11_FI_01_1 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("1");
-				if (filter_RMS_Menu_11_FI_01_1)
-				{
-					groupFilters.Equal(CSGenioAt_002.FldType, "EE_02");
-
-				}
-
-				bool filter_RMS_Menu_11_FI_01_2 = false;
-				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
-					filter_RMS_Menu_11_FI_01_2 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("2");
-				if (filter_RMS_Menu_11_FI_01_2)
-				{
-					groupFilters.Equal(CSGenioAt_002.FldType, "EE_01");
-
-				}
-
-				bool filter_RMS_Menu_11_FI_01_3 = false;
-				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
-					filter_RMS_Menu_11_FI_01_3 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("3");
-				if (filter_RMS_Menu_11_FI_01_3)
-				{
-					groupFilters.Equal(CSGenioAt_002.FldType, "EE_03");
-
-				}
-
-				bool filter_RMS_Menu_11_FI_01_4 = false;
-				if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] != null)
-					filter_RMS_Menu_11_FI_01_4 = tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"].Contains("4");
-				else if (tableConfig.StaticFilters["filter_RMS_Menu_11_FI_01"] == null)
-					filter_RMS_Menu_11_FI_01_4 = true;
-				if (filter_RMS_Menu_11_FI_01_4)
-				{
-
-				}
-
 				subfilters.SubSets.Add(groupFilters);
 			}
 
@@ -274,10 +243,11 @@ namespace GenioMVC.ViewModels.T_002
 
 			crs.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
+			// Limitations
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.T_002.AddEPH<CSGenioAt_002>(ref u, crs, "ML11");
+				crs = Models.T_002.AddEPH<CSGenioAt_002>(ref u, crs, "ML511");
 
 				// Export only records with ZZState == 0
 				crs.Equal(CSGenioAt_002.FldZzstate, 0);
@@ -295,7 +265,7 @@ namespace GenioMVC.ViewModels.T_002
 				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_002");
 				Navigation.DestroyEntry("QMVC_POS_RECORD_t_002");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.T_002.AddEPH<CSGenioAt_002>(ref u, null, "ML11"));
+					crs.Equals(Models.T_002.AddEPH<CSGenioAt_002>(ref u, null, "ML511"));
 			}
 
 			return crs;
@@ -370,9 +340,9 @@ namespace GenioMVC.ViewModels.T_002
 		public void Load(CSGenio.framework.TableConfiguration.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAt_002> Qlisting, ref CriteriaSet conditions)
 		{
 				User u = m_userContext.User;
-				Menu = new TablePartial<RMS_Menu_11_RowViewModel>();
+				Menu = new TablePartial<RMS_Menu_511_RowViewModel>();
 
-				CriteriaSet rms_menu_11Conds = CriteriaSet.And();
+				CriteriaSet rms_menu_511Conds = CriteriaSet.And();
 				bool tableReload = true;
 
 				//FOR: MENU LIST SORTING
@@ -424,20 +394,39 @@ namespace GenioMVC.ViewModels.T_002
 					Limit limit = new Limit();
 					limit.TipoLimite = LimitType.EPH;
 					CSGenioAt_002 model_limit_area = new CSGenioAt_002(m_userContext.User);
-					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML11");
+					List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML511");
 					if (area_EPH_limits.Count > 0)
 						this.tableLimits.AddRange(area_EPH_limits);
 				}
 
+				// Tooltips: Making a tooltip for each valid limitation: 1 Limit(s) detected.
+				// Limit origin: menu 
+
+				//Limit type: "SC"
+				//Current Area = "T_002"
+				//1st Area Limit: "T_002"
+				//1st Area Field: "F_016"
+				//1st Area Value: "1"
+				{
+					Limit limit = new Limit();
+					limit.TipoLimite = LimitType.SC;
+					limit.NaoAplicaSeNulo = false;
+					CSGenioAt_002 model_limit_area = new CSGenioAt_002(m_userContext.User);
+					string limit_field = "sold", limit_field_value = "1";
+					object this_limit_field = Navigation.GetStrValue(limit_field_value);
+					Limit_Filler(ref limit, model_limit_area, limit_field, limit_field_value, this_limit_field, LimitAreaType.AreaLimita);
+					if (!this.tableLimits.Contains(limit, limitComparer)) //to avoid repetitions (i.e: DB and EPH applying same limit)
+						this.tableLimits.Add(limit);
+				}
 
 				if (conditions == null)
 					conditions = CriteriaSet.And();
 
-				conditions.SubSets.Add(rms_menu_11Conds);
-				rms_menu_11Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+				conditions.SubSets.Add(rms_menu_511Conds);
+				rms_menu_511Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 				tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL RMS OVERRQ 11]/
+// USE /[MANUAL RMS OVERRQ 511]/
 
 				bool distinct = false;
 
@@ -446,16 +435,16 @@ namespace GenioMVC.ViewModels.T_002
 					if (!tableReload)
 						return;
 
-					Qlisting = Models.ModelBase.Where<CSGenioAt_002>(m_userContext, false, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, firstVisibleColumn: firstVisibleColumn);
+					Qlisting = Models.ModelBase.Where<CSGenioAt_002>(m_userContext, false, rms_menu_511Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL RMS OVERRQLSTEXP 11]/
+// USE /[MANUAL RMS OVERRQLSTEXP 511]/
 
 					return;
 				}
 
 				if (tableReload)
 				{
-// USE /[MANUAL RMS OVERRQLIST 11]/
+// USE /[MANUAL RMS OVERRQLIST 511]/
 
 					string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_t_002");
 					Navigation.DestroyEntry("QMVC_POS_RECORD_t_002");
@@ -463,12 +452,12 @@ namespace GenioMVC.ViewModels.T_002
 
 					if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 					{
-						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAt_002.GetInformation(), QMVC_POS_RECORD, sorts, rms_menu_11Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+						var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAt_002.GetInformation(), QMVC_POS_RECORD, sorts, rms_menu_511Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 						if (m_iCurPag != -1)
 							pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 					}
 
-					ListingMVC<CSGenioAt_002> listing = Models.ModelBase.Where<CSGenioAt_002>(m_userContext, distinct, rms_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, true, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+					ListingMVC<CSGenioAt_002> listing = Models.ModelBase.Where<CSGenioAt_002>(m_userContext, distinct, rms_menu_511Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML511", true, true, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 					if (listing.CurrentPage > 0)
 						pageNumber = listing.CurrentPage;
@@ -480,15 +469,15 @@ namespace GenioMVC.ViewModels.T_002
 					//Set document field values to objects
 					SetDocumentFields(listing);
 
-					Menu.Elements = MapRMS_Menu_11(listing);
+					Menu.Elements = MapRMS_Menu_511(listing);
 
-					Menu.Identifier = "ML11";
+					Menu.Identifier = "ML511";
 					Menu.Slots = new Dictionary<string, List<object>>();
 
 					// Last updated by [CJP] at [2015.02.03]
 					// Adds the identifier to each element
 					foreach (var element in Menu.Elements)
-						element.Identifier = "ML11";
+						element.Identifier = "ML511";
 
 					Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -507,9 +496,9 @@ namespace GenioMVC.ViewModels.T_002
 				LoadUserTableConfigNameProperties();
 		}
 
-		private List<RMS_Menu_11_RowViewModel> MapRMS_Menu_11(ListingMVC<CSGenioAt_002> Qlisting)
+		private List<RMS_Menu_511_RowViewModel> MapRMS_Menu_511(ListingMVC<CSGenioAt_002> Qlisting)
 		{
-			List<RMS_Menu_11_RowViewModel> Elements = [];
+			List<RMS_Menu_511_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -518,7 +507,7 @@ namespace GenioMVC.ViewModels.T_002
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapRMS_Menu_11(row));
+					Elements.Add(MapRMS_Menu_511(row));
 					i++;
 				}
 			}
@@ -528,12 +517,12 @@ namespace GenioMVC.ViewModels.T_002
 
 		/// <summary>
 		/// Maps a single CSGenioAt_002 row
-		/// to a RMS_Menu_11_RowViewModel object.
+		/// to a RMS_Menu_511_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private RMS_Menu_11_RowViewModel MapRMS_Menu_11(CSGenioAt_002 row)
+		private RMS_Menu_511_RowViewModel MapRMS_Menu_511(CSGenioAt_002 row)
 		{
-			var model = new RMS_Menu_11_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new RMS_Menu_511_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -589,7 +578,7 @@ namespace GenioMVC.ViewModels.T_002
 
 		#region Custom code
 
-// USE /[MANUAL RMS VIEWMODEL_CUSTOM RMS_MENU_11]/
+// USE /[MANUAL RMS VIEWMODEL_CUSTOM RMS_MENU_511]/
 
 		#endregion
 

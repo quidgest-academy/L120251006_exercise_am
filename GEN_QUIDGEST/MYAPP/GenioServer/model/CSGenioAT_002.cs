@@ -234,6 +234,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "sold", FieldType.ARRAY_LOGIC);
+			Qfield.FieldDescription = "Sold";
+			Qfield.FieldSize =  1;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "SOLD59824";
+
+			Qfield.Dupmsg = "";
+			Qfield.ArrayName = "dbo.GetValArrayLe_03";
+            Qfield.ArrayClassName = "E_03";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -559,6 +571,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldFlrnum, value); }
 		}
 
+		/// <summary>Field : "Sold" Tipo: "AL" Formula:  ""</summary>
+		public static FieldRef FldSold { get { return m_fldSold; } }
+		private static FieldRef m_fldSold = new FieldRef("t_002", "sold");
+
+		/// <summary>Field : "Sold" Tipo: "AL" Formula:  ""</summary>
+		public int ValSold
+		{
+			get { return (int)returnValueField(FldSold); }
+			set { insertNameValueField(FldSold, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("t_002", "zzstate");
@@ -656,7 +679,7 @@ namespace CSGenio.business
 
  
 
-                
+                 
 
 	}
 }

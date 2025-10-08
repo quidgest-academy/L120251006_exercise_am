@@ -432,6 +432,9 @@
   <msg id="Changed by" code="CHANGED_BY08967">
     <ENUS>Changed by</ENUS>
   </msg>
+  <msg id="Sold" code="SOLD59824">
+    <ENUS>Sold</ENUS>
+  </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>
   </msg>
@@ -497,6 +500,9 @@
   </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
+  </msg>
+  <msg id="Sold Properties" code="SOLD_PROPERTIES37611">
+    <ENUS>Sold Properties</ENUS>
   </msg>
   <msg id="Message" code="MESSAGE30602">
     <ENUS>Message</ENUS>

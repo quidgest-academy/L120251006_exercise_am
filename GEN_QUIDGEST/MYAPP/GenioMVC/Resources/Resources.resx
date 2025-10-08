@@ -549,6 +549,9 @@
 	<data name="CHANGED_BY08967" xml:space="preserve">
 		<value>Changed by</value>
 	</data>
+	<data name="SOLD59824" xml:space="preserve">
+		<value>Sold</value>
+	</data>
 	<data name="ID36840" xml:space="preserve">
 		<value>Id</value>
 	</data>
@@ -614,6 +617,9 @@
 	</data>
 	<data name="PHOTO51874" xml:space="preserve">
 		<value>Photo</value>
+	</data>
+	<data name="SOLD_PROPERTIES37611" xml:space="preserve">
+		<value>Sold Properties</value>
 	</data>
 	<data name="MESSAGE30602" xml:space="preserve">
 		<value>Message</value>

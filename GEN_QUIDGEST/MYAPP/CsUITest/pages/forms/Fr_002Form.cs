@@ -18,6 +18,11 @@ public class Fr_002Form : Form
 	public BaseInputControl T_002F_013 => new BaseInputControl(driver, ContainerLocator, "container-FR_002__T_002F_013___", "#FR_002__T_002F_013___");
 
 	/// <summary>
+	/// Sold
+	/// </summary>
+	public RadiobuttonControl T_002F_016 => new RadiobuttonControl(driver, ContainerLocator, "container-FR_002__T_002F_016___");
+
+	/// <summary>
 	/// Main Infos
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#FR_002__PSEUDNEWGRP01-container");
