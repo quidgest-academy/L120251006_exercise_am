@@ -219,8 +219,8 @@ export default class ViewModel extends FormViewModelBase
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{
-					// Formula: [T_002->F_010]==("Apartment")
-					return this.ValType.value===("Apartment")
+					// Formula: [T_002->F_010]==("EE_01")
+					return this.ValType.value===("EE_01")
 				},
 				dependencyEvents: ['fieldChange:t_002.type'],
 				isServerRecalc: false,

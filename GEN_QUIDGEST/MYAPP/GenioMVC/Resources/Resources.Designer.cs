@@ -1530,6 +1530,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "All"
+		/// </summary>
+		public static string ALL38603 {
+			get {
+				return ResourceManager.GetString("ALL38603", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Photo"
 		/// </summary>
 		public static string PHOTO51874 {

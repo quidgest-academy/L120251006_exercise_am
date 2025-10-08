@@ -489,6 +489,9 @@
   <msg id="Countries of Residence" code="COUNTRIES_OF_RESIDEN59146">
     <ENUS>Countries of Residence</ENUS>
   </msg>
+  <msg id="All" code="ALL38603">
+    <ENUS>All</ENUS>
+  </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
   </msg>
