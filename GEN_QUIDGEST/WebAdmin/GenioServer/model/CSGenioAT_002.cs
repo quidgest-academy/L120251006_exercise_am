@@ -178,8 +178,9 @@ namespace CSGenio.business
 			Qfield.Dupmsg = "";
             Qfield.NotDup = true;
 			argumentsListByArea = new List<ByAreaArguments>();
-			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 0, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return (+1);
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"order"}, new int[] {0}, "t_002", "codt_002"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return (((decimal)args[0])+1);
 			});
 			info.RegisterFieldDB(Qfield);
 
@@ -481,11 +482,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTypology, value); }
 		}
 
-		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "(+1)"</summary>
+		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "([T_002->F_012]+1)"</summary>
 		public static FieldRef FldOrder { get { return m_fldOrder; } }
 		private static FieldRef m_fldOrder = new FieldRef("t_002", "order");
 
-		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "(+1)"</summary>
+		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "([T_002->F_012]+1)"</summary>
 		public decimal ValOrder
 		{
 			get { return (decimal)returnValueField(FldOrder); }
