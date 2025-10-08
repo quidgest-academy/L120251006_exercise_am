@@ -256,9 +256,9 @@ namespace CSGenio.business
 
 			Qfield.Dupmsg = "";
 			argumentsListByArea = new List<ByAreaArguments>();
-			argumentsListByArea.Add(new ByAreaArguments(new string[] {"profit","price"}, new int[] {0,1}, "t_002", "codt_002"));
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"sold","price"}, new int[] {0,1}, "t_002", "codt_002"));
 			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 2, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return ((((decimal)args[0])==1)?(((decimal)args[1])):(0));
+				return ((((int)args[0])==1)?(((decimal)args[1])):(0));
 			});
 			info.RegisterFieldDB(Qfield);
 
@@ -649,11 +649,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldSold, value); }
 		}
 
-		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_016]==1,[T_002->F_003],0)"</summary>
 		public static FieldRef FldProfit { get { return m_fldProfit; } }
 		private static FieldRef m_fldProfit = new FieldRef("t_002", "profit");
 
-		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_016]==1,[T_002->F_003],0)"</summary>
 		public decimal ValProfit
 		{
 			get { return (decimal)returnValueField(FldProfit); }

@@ -154,7 +154,7 @@ namespace GenioMVC.Models
 		public SelectList ArrayValsold { get { return new SelectList(CSGenio.business.ArrayE_03.GetDictionary(), "Key", "Value", ValSold); } set { ValSold = (int)value.SelectedValue; } }
 
 		[DisplayName("Profit Generated")]
-		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_017]==1,[T_002->F_003],0)"</summary>
+		/// <summary>Field : "Profit Generated" Tipo: "$" Formula: + "iif([T_002->F_016]==1,[T_002->F_003],0)"</summary>
 		[ShouldSerialize("T_002.ValProfit")]
 		[CurrencyAttribute("EUR", 4)]
 		public decimal? ValProfit { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValProfit, 4)); } set { klass.ValProfit = Convert.ToDecimal(value); } }
