@@ -825,9 +825,9 @@
 						label: computed(() => this.Resources.PROPERTY_ORDER02127),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						isFormulaBlocked: true,
 						maxIntegers: 4,
 						maxDecimals: 0,
-						isSequencial: true,
 						controlLimits: [
 						],
 					}, this),

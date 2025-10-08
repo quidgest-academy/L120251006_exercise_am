@@ -43,6 +43,7 @@ namespace GenioMVC.ViewModels.T_002
 		/// <summary>
 		/// Title: "Property Order" | Type: "N"
 		/// </summary>
+		[ValidateSetAccess]
 		public decimal? ValOrder { get; set; }
 		/// <summary>
 		/// Title: "Property Age" | Type: "N"
@@ -329,7 +330,6 @@ namespace GenioMVC.ViewModels.T_002
 			{
 				m.ValCodt_001 = ViewModelConversion.ToString(ValCodt_001);
 				m.ValCodt_004 = ViewModelConversion.ToString(ValCodt_004);
-				m.ValOrder = ViewModelConversion.ToNumeric(ValOrder);
 				if (ValPhoto == null || !ValPhoto.IsThumbnail)
 					m.ValPhoto = ViewModelConversion.ToImage(ValPhoto);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
@@ -348,6 +348,7 @@ namespace GenioMVC.ViewModels.T_002
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
+				m.ValOrder = ViewModelConversion.ToNumeric(ValOrder);
 				m.ValAge = ViewModelConversion.ToNumeric(ValAge);
 			}
 			catch (Exception)
@@ -378,9 +379,6 @@ namespace GenioMVC.ViewModels.T_002
 						break;
 					case "t_002.codt_004":
 						this.ValCodt_004 = ViewModelConversion.ToString(_value);
-						break;
-					case "t_002.order":
-						this.ValOrder = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "t_002.photo":
 						this.ValPhoto = ViewModelConversion.ToImage(_value);

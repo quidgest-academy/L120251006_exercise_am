@@ -177,12 +177,10 @@ namespace CSGenio.business
 
 			Qfield.Dupmsg = "";
             Qfield.NotDup = true;
-			argumentsListByArea= new List<ByAreaArguments>();
-			Qfield.DefaultValue = new DefaultValue(new InternalOperationFormula(argumentsListByArea, 0, delegate(object []args,User user,string module,PersistentSupport sp) {
-				return (object)((1));
-			}));
-
-			Qfield.DefaultValue = new DefaultValue(DefaultValue.getLastPlus1, "order");
+			argumentsListByArea = new List<ByAreaArguments>();
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 0, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return (+1);
+			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
@@ -252,11 +250,7 @@ namespace CSGenio.business
 
 
 			info.InternalOperationFields = new string[] {
-			 "age"
-			};
-
-			info.DefaultValues = new string[] {
-			 "order"
+			 "order","age"
 			};
 
 
@@ -487,11 +481,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTypology, value); }
 		}
 
-		/// <summary>Field : "Property Order" Tipo: "N" Formula: DG "(1)"</summary>
+		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "(+1)"</summary>
 		public static FieldRef FldOrder { get { return m_fldOrder; } }
 		private static FieldRef m_fldOrder = new FieldRef("t_002", "order");
 
-		/// <summary>Field : "Property Order" Tipo: "N" Formula: DG "(1)"</summary>
+		/// <summary>Field : "Property Order" Tipo: "N" Formula: + "(+1)"</summary>
 		public decimal ValOrder
 		{
 			get { return (decimal)returnValueField(FldOrder); }

@@ -82,14 +82,14 @@ export default class ViewModel extends FormViewModelBase
 			field: 'F_012',
 			maxDigits: 4,
 			decimalDigits: 0,
+			isFixed: true,
 			valueFormula: {
 				stopRecalcCondition() { return false },
-				execCondition() { return qApi.emptyN(this.ValOrder.value) },
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{
-					// Formula: (1)
-					return (1)
+					// Formula: (+1)
+					return (+1)
 				},
 				dependencyEvents: [],
 				isServerRecalc: false,
